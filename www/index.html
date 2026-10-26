@@ -410,7 +410,7 @@
     </div>
 
     <div class="home-center" id="tap-to-play-zone">
-      <div class="tour-tag" id="home-event-label">TN 37 CAPY 001 • ZONE 2: BIO-JUNGLE OVERGROWTH</div>
+      <div class="tour-tag" id="home-event-label">TN 41 CAPY 001 • ZONE 2: BIO-JUNGLE OVERGROWTH</div>
       <div class="graffiti-title">
         CYBER-AUTO
         <span class="graffiti-sub">NEON VELOCITY</span>
@@ -675,7 +675,7 @@
     pinkPoint.position.set(14, 12, 10);
     scene.add(pinkPoint);
 
-    // Helper: Create dynamic canvas textures for License Plate ("TN 37 CAPY 001") & Billboards
+    // Helper: Create dynamic canvas textures for License Plate ("TN 41 CAPY 001") & Billboards
     function makeTextCanvasTexture(bgHex, borderHex, lines, width = 512, height = 256, textColor = '#000') {
       const c = document.createElement('canvas');
       c.width = width;
@@ -782,7 +782,7 @@
     })();
 
     // =========================================================
-    // 5. SMOOTH 3D AUTO-RICKSHAW ("TN 37 CAPY 001") & CAPYBARA
+    // 5. SMOOTH 3D AUTO-RICKSHAW ("TN 41 CAPY 001") & CAPYBARA
     // =========================================================
     const bikeWheelieRig = new THREE.Group();
     bikeWheelieRig.position.set(0, 2.2, 10);
@@ -855,8 +855,8 @@
         bikeWheelieRig.add(pod, lens);
       });
 
-      // Yellow License Plate ("TN 37 CAPY 001") & "RE" Emblem on Front Nose!
-      const plateTex = makeTextCanvasTexture('#ffbe0b', '#111111', ['TN 37', 'CAPY 001'], 256, 128, '#000000');
+      // Yellow License Plate ("TN 41 CAPY 001") & "RE" Emblem on Front Nose!
+      const plateTex = makeTextCanvasTexture('#ffbe0b', '#111111', ['TN 41', 'CAPY 001'], 256, 128, '#000000');
       const plateMesh = new THREE.Mesh(
         new THREE.PlaneGeometry(2.5, 1.25),
         new THREE.MeshBasicMaterial({ map: plateTex })
@@ -1215,7 +1215,7 @@
       boostCountBadge.textContent = boostCount;
       hudBoosts.textContent = boostCount;
       const lvl = LEVELS[Settings.selectedEventIdx];
-      homeEventLabel.textContent = `TN 37 CAPY 001 • ZONE ${lvl.id}: ${lvl.name}`;
+      homeEventLabel.textContent = `TN 41 CAPY 001 • ZONE ${lvl.id}: ${lvl.name}`;
       applyThemeVisuals(lvl);
     }
 
@@ -1567,7 +1567,7 @@
     document.getElementById('btn-boost-info').onclick = () => openInfoModal('🛡️ HOLO-BUMPER SHIELDS', `You have ${boostCount} Bumpers! Double-tap anywhere while driving for 8 seconds of crash protection!`);
     document.getElementById('btn-me').onclick = () => {
       SoundFX.autoHorn();
-      openInfoModal('🐹 TN 37 CAPY 001', 'Driver: Chill Capybara + Yuzu Tangerine + Pixel Shades<br>Ride: RE Yellow & Black Cyber-Auto<br>Motto: Chai Fuels Legends!');
+      openInfoModal('🐹 TN 41 CAPY 001', 'Driver: Chill Capybara + Yuzu Tangerine + Pixel Shades<br>Ride: RE Yellow & Black Cyber-Auto<br>Motto: Chai Fuels Legends!');
     };
 
     // =========================================================
@@ -1590,7 +1590,7 @@
       const delta = Math.min(clock.getDelta(), 0.1);
       const elapsed = clock.getElapsedTime();
 
-      // CONCEPT ART HERO CAMERA: Front-3/4 angle showing the Capybara & TN 37 CAPY 001 plate clearly while looking down the Maglev roof into the skyline!
+      // CONCEPT ART HERO CAMERA: Front-3/4 angle showing the Capybara & TN 41 CAPY 001 plate clearly while looking down the Maglev roof into the skyline!
       camera.position.lerp(new THREE.Vector3(-2.5, 9.5, 27.5), delta * 5);
       camera.lookAt(1.5, 4.5, -25);
 
