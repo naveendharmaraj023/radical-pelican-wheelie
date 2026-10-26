@@ -15,8 +15,8 @@
     }
     body {
       overflow: hidden;
-      background: linear-gradient(180deg, #090014 0%, #240046 45%, #ff007f 100%);
-      font-family: 'Arial Black', Impact, 'Courier New', sans-serif;
+      background: linear-gradient(180deg, #050716 0%, #120e36 45%, #3b0d54 75%, #ff007f 100%);
+      font-family: 'Courier New', Courier, monospace;
       color: #fff;
       transition: background 1.2s ease;
     }
@@ -27,7 +27,136 @@
     }
 
     /* ==========================================
-       SUBWAY SURFERS STYLE HOME SCREEN UI
+       EXACT CONCEPT ART HUD OVERLAY
+       ========================================== */
+    #hud {
+      position: absolute;
+      top: max(14px, env(safe-area-inset-top));
+      left: 18px;
+      right: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      pointer-events: none;
+      z-index: 15;
+    }
+    #hud.hidden { display: none; }
+
+    .cyber-hud-box {
+      background: rgba(8, 11, 24, 0.88);
+      border: 3px solid #00f5d4;
+      box-shadow: 0 0 14px rgba(0, 245, 212, 0.55), inset 0 0 10px rgba(0, 245, 212, 0.2);
+      border-radius: 14px;
+      padding: 10px 18px;
+      pointer-events: auto;
+      min-width: 240px;
+    }
+    .hud-top-label {
+      font-size: 12px;
+      font-weight: bold;
+      color: #ffbe0b;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .hud-top-label .cyan-mult {
+      color: #00f5d4;
+      margin-left: 6px;
+    }
+    .hud-score-num {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: 32px;
+      line-height: 1.05;
+      color: #ffffff;
+      text-shadow: 2px 2px 0 #ff007f, 0 0 10px rgba(255, 0, 127, 0.7);
+      margin-bottom: 6px;
+    }
+    #powerup-banners {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      min-height: 22px;
+    }
+    .alert-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(180deg, #e61919 0%, #990000 100%);
+      border: 1.5px solid #ffffff;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+    }
+
+    /* TOP RIGHT TILT BAR & PAUSE BUTTON */
+    .hud-right-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      pointer-events: auto;
+    }
+    #wheelie-bar-wrap {
+      width: 210px;
+      height: 14px;
+      background: #141829;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      margin: 6px 0 8px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    #wheelie-bar {
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(90deg, #b57c1e 0%, #ffbe0b 60%, #fff3b0 100%);
+      border-radius: 6px;
+      transition: width 0.05s linear;
+    }
+    #wheelie-zone {
+      position: absolute;
+      left: 55%;
+      width: 30%;
+      top: 0;
+      bottom: 0;
+      border-left: 2px dashed #ffffff;
+      border-right: 2px dashed #ffffff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .hud-stats-row {
+      font-size: 12px;
+      font-weight: bold;
+      color: #ffbe0b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pause-btn-orange {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(180deg, #ffaa00 0%, #ff5500 100%);
+      border: 3px solid #ffffff;
+      border-radius: 14px;
+      color: #ffffff;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #992200, 0 6px 14px rgba(0,0,0,0.5);
+    }
+    .pause-btn-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #992200;
+    }
+
+    /* ==========================================
+       HOME SCREEN UI
        ========================================== */
     #home-screen {
       position: absolute;
@@ -54,42 +183,35 @@
       align-items: center;
     }
     .ss-pill-btn {
-      background: linear-gradient(180deg, #00f5d4 0%, #0077b6 100%);
-      border: 3px solid #fff;
+      background: rgba(8, 11, 24, 0.9);
+      border: 2.5px solid #00f5d4;
       border-radius: 10px;
       padding: 8px 14px;
-      color: #03071e;
-      font-size: 13px;
-      font-weight: 900;
-      text-shadow: 0 1px 0 #fff;
-      box-shadow: 0 5px 0 #03045e, 0 6px 10px rgba(0,0,0,0.5);
+      color: #00f5d4;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 12px;
+      box-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
-    .ss-pill-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #03045e; }
-
     .ss-icon-btn {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
-      border: 3px solid #fff;
-      border-radius: 10px;
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(180deg, #ffaa00 0%, #ff5500 100%);
+      border: 2.5px solid #fff;
+      border-radius: 12px;
       color: #fff;
       font-size: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 5px 0 #7f1d1d, 0 6px 10px rgba(0,0,0,0.5);
       cursor: pointer;
       position: relative;
+      box-shadow: 0 4px 0 #992200;
     }
-    .ss-icon-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #7f1d1d; }
     .badge-count {
       position: absolute;
-      bottom: -4px;
-      right: -4px;
+      bottom: -5px;
+      right: -5px;
       background: #00f5d4;
       color: #000;
       font-size: 10px;
@@ -99,206 +221,115 @@
       font-weight: 900;
     }
 
-    /* CENTER LOGO & TAP TO PLAY */
     .home-center {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       pointer-events: auto;
       cursor: pointer;
       flex: 1;
+      padding-left: 4vw;
     }
     .tour-tag {
-      background: #ff007f;
+      background: rgba(255, 0, 127, 0.9);
       color: #fff;
       padding: 4px 14px;
       border-radius: 20px;
       border: 2px solid #00f5d4;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-shadow: 1px 1px 0 #000;
-      box-shadow: 0 4px 0 #590d22;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
       margin-bottom: 6px;
     }
     .graffiti-title {
-      font-size: clamp(28px, 6vw, 48px);
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(28px, 5.5vw, 48px);
       line-height: 0.95;
-      text-align: center;
       color: #ffbe0b;
       text-transform: uppercase;
       -webkit-text-stroke: 2px #000;
-      text-shadow: 0 5px 0 #ff007f, 0 8px 15px rgba(0,0,0,0.7);
-      transform: rotate(-3deg);
+      text-shadow: 0 5px 0 #ff007f, 0 0 20px rgba(255, 0, 127, 0.7);
       margin-bottom: 8px;
     }
     .graffiti-sub {
       display: block;
-      font-size: clamp(30px, 6.5vw, 54px);
+      font-size: clamp(30px, 6vw, 52px);
       color: #00f5d4;
-      -webkit-text-stroke: 2.5px #03045e;
-      text-shadow: 0 6px 0 #7209b7, 0 10px 18px rgba(0,0,0,0.8);
+      -webkit-text-stroke: 2px #050716;
+      text-shadow: 0 5px 0 #7209b7;
     }
     .high-score-banner {
-      background: rgba(15, 10, 35, 0.88);
+      background: rgba(8, 11, 24, 0.9);
       border: 2px solid #00f5d4;
-      padding: 5px 16px;
+      padding: 6px 14px;
       border-radius: 8px;
-      font-size: 13px;
-      color: #fff;
-      text-shadow: 1px 1px 0 #000;
-      margin-bottom: 18px;
+      font-size: 12px;
+      font-weight: bold;
+      color: #ffbe0b;
+      margin-bottom: 14px;
     }
     .tap-to-play {
-      font-size: clamp(19px, 4vw, 27px);
-      color: #03071e;
-      text-transform: uppercase;
-      text-shadow: 0 1px 0 #fff;
-      animation: pulseTap 1.05s infinite alternate ease-in-out;
-      background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
-      border: 3px solid #fff;
-      padding: 10px 28px;
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(18px, 3.5vw, 24px);
+      color: #fff;
+      background: linear-gradient(180deg, #ff007f 0%, #7209b7 100%);
+      border: 3px solid #00f5d4;
+      padding: 10px 26px;
       border-radius: 30px;
-      box-shadow: 0 6px 0 #7f1d1d, 0 0 20px #ff007f;
+      box-shadow: 0 0 20px rgba(0, 245, 212, 0.7);
+      animation: pulseTap 1s infinite alternate ease-in-out;
     }
     @keyframes pulseTap {
       from { transform: scale(1); }
-      to { transform: scale(1.08); }
+      to { transform: scale(1.07); }
     }
 
-    /* BOTTOM DOCK (LEVELS / DRIVER / GARAGE) */
     .bottom-dock {
       display: flex;
-      justify-content: center;
-      gap: 16px;
+      justify-content: flex-start;
+      padding-left: 4vw;
+      gap: 14px;
       width: 100%;
       pointer-events: auto;
     }
     .dock-btn {
-      background: linear-gradient(180deg, #7209b7 0%, #3a0ca3 100%);
-      border: 3px solid #fff;
-      border-radius: 14px;
-      padding: 8px 20px;
-      min-width: 105px;
+      background: rgba(8, 11, 24, 0.9);
+      border: 2.5px solid #00f5d4;
+      border-radius: 12px;
+      padding: 6px 18px;
       text-align: center;
-      box-shadow: 0 6px 0 #10002b, 0 8px 14px rgba(0,0,0,0.5);
+      box-shadow: 0 0 12px rgba(0, 245, 212, 0.35);
       cursor: pointer;
     }
-    .dock-btn.green { background: linear-gradient(180deg, #00f5d4 0%, #0077b6 100%); box-shadow: 0 6px 0 #03045e; }
-    .dock-btn.orange { background: linear-gradient(180deg, #ff007f 0%, #7209b7 100%); box-shadow: 0 6px 0 #3c096c; }
-    .dock-btn:active { transform: translateY(4px); }
-    .dock-icon { font-size: 20px; display: block; margin-bottom: 2px; }
-    .dock-label {
-      font-size: 13px;
-      color: #ffbe0b;
-      text-shadow: 1px 2px 0 #000;
-      letter-spacing: 0.5px;
-    }
+    .dock-icon { font-size: 18px; display: block; }
+    .dock-label { font-family: 'Arial Black', sans-serif; font-size: 11px; color: #ffbe0b; }
 
-    /* ==========================================
-       IN-GAME HUD OVERLAY
-       ========================================== */
-    #hud {
-      position: absolute;
-      top: max(12px, env(safe-area-inset-top));
-      left: 16px;
-      right: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      pointer-events: none;
-      z-index: 15;
-    }
-    #hud.hidden { display: none; }
-    .hud-box {
-      background: rgba(12, 8, 28, 0.88);
-      border: 3px solid #00f5d4;
-      padding: 8px 12px;
-      border-radius: 10px;
-      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.55);
-      pointer-events: auto;
-    }
-    .score-title {
-      font-size: 10px;
-      color: #ffbe0b;
-      text-transform: uppercase;
-    }
-    .score-val {
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px 0 #ff007f;
-    }
-    #wheelie-bar-wrap {
-      width: 145px;
-      height: 12px;
-      background: #1a1a2e;
-      border: 2px solid #fff;
-      border-radius: 4px;
-      margin-top: 4px;
-      overflow: hidden;
-      position: relative;
-    }
-    #wheelie-bar {
-      height: 100%;
-      width: 50%;
-      background: #00f5d4;
-    }
-    #wheelie-zone {
-      position: absolute;
-      left: 55%;
-      width: 30%;
-      top: 0;
-      bottom: 0;
-      border-left: 2px dashed #ffbe0b;
-      border-right: 2px dashed #ffbe0b;
-      background: rgba(255, 190, 11, 0.3);
-    }
-    #powerup-banners {
-      display: flex;
-      gap: 6px;
-      margin-top: 6px;
-      flex-wrap: wrap;
-    }
-    .p-tag {
-      font-size: 10px;
-      padding: 2px 7px;
-      border-radius: 6px;
-      border: 1.5px solid #fff;
-      background: #ff007f;
-      color: #fff;
-      text-transform: uppercase;
-    }
-
-    /* LEVEL UP BANNER */
+    /* TOAST & MODALS */
     #event-toast {
       position: absolute;
-      top: 78px;
+      top: 86px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(18, 10, 42, 0.94);
-      border: 3px solid #00f5d4;
+      background: rgba(8, 11, 24, 0.95);
+      border: 2.5px solid #00f5d4;
       padding: 8px 20px;
       border-radius: 20px;
-      font-size: 14px;
+      font-weight: bold;
+      font-size: 13px;
       color: #ffbe0b;
-      text-shadow: 1px 2px 0 #000;
+      box-shadow: 0 0 15px rgba(0, 245, 212, 0.6);
       z-index: 18;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.35s ease;
-      white-space: nowrap;
+      transition: opacity 0.3s ease;
     }
     #event-toast.show { opacity: 1; }
 
-    /* ==========================================
-       MODALS
-       ========================================== */
     .modal-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(6, 4, 18, 0.86);
+      background: rgba(4, 6, 16, 0.86);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -307,107 +338,85 @@
     }
     .modal-backdrop.hidden { display: none; }
     .modal-card {
-      background: linear-gradient(180deg, #191038 0%, #0a0618 100%);
-      border: 4px solid #00f5d4;
+      background: rgba(10, 14, 30, 0.96);
+      border: 3px solid #00f5d4;
+      box-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
       border-radius: 16px;
       padding: 20px;
       width: 100%;
-      max-width: 375px;
-      box-shadow: 0 10px 0 #000;
+      max-width: 380px;
       text-align: center;
       max-height: 88vh;
       overflow-y: auto;
     }
     .modal-card h2 {
+      font-family: 'Arial Black', sans-serif;
       color: #ffbe0b;
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 10px;
       text-shadow: 2px 2px 0 #ff007f;
-      text-transform: uppercase;
     }
     .modal-card p {
       font-size: 12px;
       color: #e0e1dd;
-      line-height: 1.45;
+      line-height: 1.5;
       margin-bottom: 14px;
-      font-family: 'Courier New', monospace;
       font-weight: bold;
     }
-    .modal-btn-col {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .modal-btn-col { display: flex; flex-direction: column; gap: 10px; }
     .btn {
-      background: #ff007f;
+      background: linear-gradient(180deg, #ff007f 0%, #99004d 100%);
       color: #fff;
-      border: 3px solid #fff;
+      border: 2px solid #fff;
       padding: 10px 18px;
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 900;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 14px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 5px 0 #590d22;
-      text-transform: uppercase;
     }
-    .btn.green { background: #00b4d8; box-shadow: 0 5px 0 #03045e; }
-    .btn.blue { background: #7209b7; box-shadow: 0 5px 0 #240046; }
-    .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 #000; }
-
-    .setting-row {
+    .btn.green { background: linear-gradient(180deg, #00b4d8 0%, #0077b6 100%); }
+    .btn.blue { background: linear-gradient(180deg, #7209b7 0%, #3a0ca3 100%); }
+    .setting-row, .level-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(0, 245, 212, 0.35);
       padding: 8px 12px;
       border-radius: 8px;
       margin-bottom: 8px;
-      font-size: 13px;
-    }
-    .level-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.08);
-      border: 2px solid #7209b7;
-      padding: 8px 12px;
-      border-radius: 10px;
-      margin-bottom: 8px;
-      cursor: pointer;
+      font-size: 12px;
       text-align: left;
     }
-    .level-item.active { border-color: #00f5d4; background: rgba(0, 245, 212, 0.18); }
+    .level-item.active { border: 2px solid #ffbe0b; background: rgba(255, 190, 11, 0.15); }
   </style>
   <script src="three.min.js" onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';"></script>
 </head>
 <body>
 
-  <!-- ==========================================
-       1. HOME SCREEN (CYBER-AUTO CAPYBARA EDITION)
-       ========================================== -->
+  <!-- HOME SCREEN -->
   <div id="home-screen">
     <div class="top-bar">
       <div class="top-left-group">
-        <button class="ss-pill-btn" id="btn-missions">📋 Contracts</button>
-        <button class="ss-pill-btn" id="btn-daily">🍊 Daily Chai</button>
+        <button class="ss-pill-btn" id="btn-missions">📋 CONTRACTS</button>
+        <button class="ss-pill-btn" id="btn-daily">☕ DAILY CHAI</button>
       </div>
       <div class="top-right-group">
-        <button class="ss-icon-btn" id="btn-boost-info" title="Holo-Bumper Shields">
-          🛺<span class="badge-count" id="boost-count-badge">3</span>
+        <button class="ss-icon-btn" id="btn-boost-info">
+          🛡️<span class="badge-count" id="boost-count-badge">3</span>
         </button>
-        <button class="ss-icon-btn" id="btn-home-settings" title="Settings">⚙️</button>
+        <button class="ss-icon-btn" id="btn-home-settings">⚙️</button>
       </div>
     </div>
 
     <div class="home-center" id="tap-to-play-zone">
-      <div class="tour-tag" id="home-event-label">CAPYBARA DRIFT • ZONE 1: NEON METRO</div>
+      <div class="tour-tag" id="home-event-label">TN 37 CAPY 001 • ZONE 2: BIO-JUNGLE OVERGROWTH</div>
       <div class="graffiti-title">
         CYBER-AUTO
         <span class="graffiti-sub">NEON VELOCITY</span>
       </div>
       <div class="high-score-banner">
-        🏆 TOP METER: <span id="home-best-el">0</span> &nbsp;|&nbsp; ☕ CHAI BANK: <span id="home-fish-bank">0</span>
+        🏆 BEST: <span id="home-best-el">0</span> &nbsp;|&nbsp; ☕ CHAI BANK: <span id="home-fish-bank">0</span>
       </div>
       <div class="tap-to-play">TAP TO DRIFT!</div>
     </div>
@@ -417,50 +426,49 @@
         <span class="dock-icon">🌆</span>
         <span class="dock-label">ZONES</span>
       </div>
-      <div class="dock-btn green" id="btn-me">
+      <div class="dock-btn" id="btn-me">
         <span class="dock-icon">🐹</span>
-        <span class="dock-label">CAPY</span>
+        <span class="dock-label">CAPY 001</span>
       </div>
-      <div class="dock-btn orange" id="btn-shop">
+      <div class="dock-btn" id="btn-shop">
         <span class="dock-icon">🛠️</span>
         <span class="dock-label">GARAGE</span>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================
-       2. IN-GAME HUD OVERLAY
-       ========================================== -->
+  <!-- CONCEPT-ART REPLICA HUD OVERLAY -->
   <div id="hud" class="hidden">
-    <div class="hud-box">
-      <div class="score-title">
-        <span id="hud-level-txt">ZONE 1 • NEON METRO</span> |
-        <span id="mult-badge" style="color:#00f5d4;">1x</span>
+    <div class="cyber-hud-box">
+      <div class="hud-top-label">
+        <span id="hud-level-txt">ZONE 2 • BIO-JUNGLE OVERGROWTH</span> |
+        <span class="cyan-mult" id="mult-badge">2X</span>
       </div>
-      <div class="score-val" id="score-el">0</div>
-      <div id="powerup-banners"></div>
+      <div class="hud-score-num" id="score-el">765</div>
+      <div id="powerup-banners">
+        <span class="alert-pill">🚨 CYBER-COP READY</span>
+      </div>
     </div>
 
-    <div style="display:flex; gap:10px; align-items:flex-start;">
-      <div class="hud-box">
-        <div class="score-title">2-Wheel Auto-Tilt (Hold/DblTap)</div>
+    <div class="hud-right-wrap">
+      <div class="cyber-hud-box">
+        <div class="hud-top-label">2-WHEEL AUTO-TILT (HOLD/DBLTAP)</div>
         <div id="wheelie-bar-wrap">
           <div id="wheelie-zone"></div>
           <div id="wheelie-bar"></div>
         </div>
-        <div class="score-title" style="margin-top:5px;">
-          ☕ Chai: <span id="fish-el">0</span> &nbsp;|&nbsp; 🛡️ Bumpers: <span id="hud-boosts">3</span>
+        <div class="hud-stats-row">
+          <span>☕ CHAI: <strong id="fish-el" style="color:#fff;">0</strong></span>
+          <span>|</span>
+          <span>🛡️ BUMPERS: <strong id="hud-boosts" style="color:#fff;">3</strong></span>
         </div>
       </div>
-      <button class="ss-icon-btn" id="btn-pause" style="pointer-events:auto;">⏸️</button>
+      <button class="pause-btn-orange" id="btn-pause">||</button>
     </div>
   </div>
 
-  <div id="event-toast">ZONE UPGRADE!</div>
+  <div id="event-toast">CHAI FUELS LEGENDS!</div>
 
-  <!-- ==========================================
-       3. MODALS
-       ========================================== -->
   <div id="modal-backdrop" class="modal-backdrop hidden">
     <div class="modal-card" id="modal-content"></div>
   </div>
@@ -469,7 +477,7 @@
 
   <script>
     // =========================================================================
-    // 1. MULTI-CHANNEL PROCEDURAL WEB AUDIO ENGINE (2-STROKE AUTO + HORN + CHAI)
+    // 1. PROCEDURAL WEB AUDIO ENGINE (2-STROKE ENGINE + HORN + CHAI CLINK)
     // =========================================================================
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
@@ -478,7 +486,7 @@
       sfx: true,
       loops: true,
       vibration: true,
-      selectedEventIdx: 0
+      selectedEventIdx: 1 // Default to Zone 2 Bio-Jungle Overgrowth from concept art!
     };
 
     function ensureAudio() {
@@ -489,56 +497,30 @@
     }
 
     const SoundFX = {
-      uiTap() {
-        if (!Settings.sfx) return;
-        ensureAudio();
-        this._tone(580, 'sine', 0.06, 820, 0.14);
-      },
-      popupOpen() {
-        if (!Settings.sfx) return;
-        ensureAudio();
-        this._tone(380, 'triangle', 0.12, 720, 0.14);
-      },
-      // Iconic Deshi Auto-Rickshaw Double Bulb Horn ("Pom-Pom!")
+      uiTap() { if (Settings.sfx) { ensureAudio(); this._tone(580, 'sine', 0.06, 820, 0.14); } },
+      popupOpen() { if (Settings.sfx) { ensureAudio(); this._tone(380, 'triangle', 0.12, 720, 0.14); } },
       autoHorn() {
         if (!Settings.sfx) return;
         ensureAudio();
         [440, 587, 440, 659].forEach((f, idx) => {
-          setTimeout(() => this._tone(f, 'sawtooth', 0.11, f * 1.06, 0.16), idx * 75);
+          setTimeout(() => this._tone(f, 'sawtooth', 0.11, f * 1.06, 0.15), idx * 75);
         });
       },
-      laneWhoosh() {
-        if (!Settings.sfx) return;
-        ensureAudio();
-        this._tone(310, 'sine', 0.09, 560, 0.15);
-      },
+      laneWhoosh() { if (Settings.sfx) { ensureAudio(); this._tone(310, 'sine', 0.09, 560, 0.15); } },
       jumpWhoosh(superJump = false) {
         if (!Settings.sfx) return;
         ensureAudio();
         this._tone(superJump ? 360 : 250, 'square', 0.18, superJump ? 1020 : 680, 0.14);
       },
-      slideRoll() {
-        if (!Settings.sfx) return;
-        ensureAudio();
-        this._tone(440, 'sawtooth', 0.14, 140, 0.12);
-      },
-      landImpact() {
-        if (!Settings.sfx) return;
-        ensureAudio();
-        this._tone(120, 'triangle', 0.09, 50, 0.22);
-      },
+      slideRoll() { if (Settings.sfx) { ensureAudio(); this._tone(440, 'sawtooth', 0.14, 140, 0.12); } },
+      landImpact() { if (Settings.sfx) { ensureAudio(); this._tone(120, 'triangle', 0.09, 50, 0.22); } },
       stumbleAlert() {
         if (!Settings.sfx) return;
         ensureAudio();
         this._tone(180, 'sawtooth', 0.18, 95, 0.22);
         if (Settings.vibration && navigator.vibrate) navigator.vibrate(65);
       },
-      trainFlyBy() {
-        if (!Settings.sfx) return;
-        ensureAudio();
-        this._tone(150, 'sawtooth', 0.24, 70, 0.12);
-      },
-      // Cutting Chai Glass Clink-Ding
+      trainFlyBy() { if (Settings.sfx) { ensureAudio(); this._tone(150, 'sawtooth', 0.22, 70, 0.1); } },
       chaiClink(combo = 0) {
         if (!Settings.sfx) return;
         ensureAudio();
@@ -571,9 +553,7 @@
           const gain = audioCtx.createGain();
           osc.type = type;
           osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-          if (slideFreq) {
-            osc.frequency.exponentialRampToValueAtTime(slideFreq, audioCtx.currentTime + duration);
-          }
+          if (slideFreq) osc.frequency.exponentialRampToValueAtTime(slideFreq, audioCtx.currentTime + duration);
           gain.gain.setValueAtTime(vol, audioCtx.currentTime);
           gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
           osc.connect(gain);
@@ -584,7 +564,6 @@
       }
     };
 
-    // 2-Stroke Auto-Rickshaw Engine Brap Loop + Nitro / Magnet Hum
     let loopStepAccum = 0;
     function updateContinuousAudioLoops(delta, speed, activePowerups, currentEventTheme) {
       if (!Settings.loops || !Settings.sfx) return;
@@ -593,32 +572,29 @@
       if (loopStepAccum >= interval) {
         loopStepAccum = 0;
         ensureAudio();
-        // 2-stroke auto engine chug ("Brap-brap-brap") pitches up when tilting on 2 wheels!
         if (jumpY <= 0.1 && activePowerups.jetpack <= 0) {
           const tiltPitch = Math.floor(wheelieMeter * 0.9);
-          SoundFX._tone(75 + tiltPitch + currentEventTheme.audioBaseOffset, 'sawtooth', 0.04, 95 + tiltPitch, 0.045);
+          SoundFX._tone(75 + tiltPitch + currentEventTheme.audioBaseOffset, 'sawtooth', 0.04, 95 + tiltPitch, 0.04);
         }
-        // Nitro Flight Roar
         if (activePowerups.jetpack > 0) {
-          SoundFX._tone(210 + Math.random() * 75, 'sawtooth', 0.07, 310, 0.07);
+          SoundFX._tone(210 + Math.random() * 75, 'sawtooth', 0.07, 310, 0.06);
         }
-        // Chai Magnet Bass Hum
         if (activePowerups.magnet > 0) {
           SoundFX._tone(480 + Math.sin(performance.now() * 0.012) * 90, 'sine', 0.05, 520, 0.04);
         }
       }
     }
 
-    // =========================================================================
-    // 2. CYBERPUNK ZONES & ROTATING EVENTS CONFIG
-    // =========================================================================
+    // =========================================================
+    // 2. ZONES CONFIG
+    // =========================================================
     const LEVELS = [
       {
         id: 1,
         name: 'NEON METRO 2099',
         minScore: 0,
-        bg: 'linear-gradient(180deg, #090014 0%, #240046 45%, #ff007f 100%)',
-        fogHex: 0x3c096c,
+        bg: 'linear-gradient(180deg, #050716 0%, #19103b 45%, #ff007f 100%)',
+        fogHex: 0x19103b,
         obsColor: 0xff007f,
         audioBaseOffset: 0,
         desc: 'Maglev roof surfing through Neo-Cyberabad!'
@@ -627,18 +603,18 @@
         id: 2,
         name: 'BIO-JUNGLE OVERGROWTH',
         minScore: 450,
-        bg: 'linear-gradient(180deg, #04151f 0%, #183a37 50%, #00f5d4 100%)',
-        fogHex: 0x0f4c5c,
-        obsColor: 0x52b788,
-        audioBaseOffset: 25,
-        desc: 'Mutant cyber-vines & hydroponic drones!'
+        bg: 'linear-gradient(180deg, #040814 0%, #121c36 50%, #3b0d54 80%, #ff007f 100%)',
+        fogHex: 0x161838,
+        obsColor: 0x00f5d4,
+        audioBaseOffset: 20,
+        desc: 'Cyber-waterfalls, palm towers & neon skybridges!'
       },
       {
         id: 3,
         name: 'SOLAR FLARE FOUNDRY',
         minScore: 1000,
-        bg: 'linear-gradient(180deg, #2b0902 0%, #9d0208 50%, #ffbe0b 100%)',
-        fogHex: 0xd00000,
+        bg: 'linear-gradient(180deg, #1b0502 0%, #6b0918 50%, #ff9100 100%)',
+        fogHex: 0x4a0814,
         obsColor: 0xffbe0b,
         audioBaseOffset: -15,
         desc: 'Molten reactor core & thermal plasma mines!'
@@ -647,32 +623,32 @@
         id: 4,
         name: 'HOLO-LASER GRID',
         minScore: 1700,
-        bg: 'linear-gradient(180deg, #03045e 0%, #0077b6 50%, #00f5d4 100%)',
-        fogHex: 0x023e8a,
-        obsColor: 0x90e0ef,
-        audioBaseOffset: 55,
+        bg: 'linear-gradient(180deg, #02042b 0%, #005082 55%, #00f5d4 100%)',
+        fogHex: 0x03254c,
+        obsColor: 0x00f5d4,
+        audioBaseOffset: 50,
         desc: 'High-frequency security lasers—Jump or Duck!'
       },
       {
         id: 5,
         name: 'PHONK MIDNIGHT OVERDRIVE',
         minScore: 2500,
-        bg: 'linear-gradient(180deg, #000000 0%, #3a0ca3 50%, #f72585 100%)',
-        fogHex: 0x240046,
+        bg: 'linear-gradient(180deg, #000000 0%, #240046 50%, #f72585 100%)',
+        fogHex: 0x180030,
         obsColor: 0xf72585,
-        audioBaseOffset: 85,
+        audioBaseOffset: 80,
         desc: 'Maximum Mach velocity & 5x multiplier rewards!'
       }
     ];
 
-    // =========================================================================
-    // 3. THREE.JS SCENE, CAMERA & RENDERER
-    // =========================================================================
+    // =========================================================
+    // 3. THREE.JS HIGH-GLOSS 3D SCENE SETUP
+    // =========================================================
     const container = document.getElementById('canvas-container');
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x3c096c, 0.003);
+    scene.fog = new THREE.FogExp2(0x161838, 0.0038);
 
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(46, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -680,320 +656,484 @@
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xf1e4ff, 0.78);
+    // Cyberpunk Lighting (Warm Golden Key + Neon Cyan & Magenta Rim Lights)
+    const ambientLight = new THREE.AmbientLight(0xd8c8ff, 0.75);
     scene.add(ambientLight);
 
-    const sunLight = new THREE.DirectionalLight(0xfff0d4, 1.15);
-    sunLight.position.set(40, 80, -30);
+    const sunLight = new THREE.DirectionalLight(0xffeaad, 1.35);
+    sunLight.position.set(25, 60, 40);
     sunLight.castShadow = true;
     sunLight.shadow.mapSize.width = 1024;
     sunLight.shadow.mapSize.height = 1024;
-    const d = 35;
-    sunLight.shadow.camera.left = -d;
-    sunLight.shadow.camera.right = d;
-    sunLight.shadow.camera.top = d;
-    sunLight.shadow.camera.bottom = -d;
     scene.add(sunLight);
 
-    // --- SHARED VOXEL GEOMETRY & MATERIAL CACHE ---
-    const voxelGeo = new THREE.BoxGeometry(0.95, 0.95, 0.95);
-    const materials = {};
+    const cyanPoint = new THREE.PointLight(0x00f5d4, 2.2, 85);
+    cyanPoint.position.set(-14, 10, 12);
+    scene.add(cyanPoint);
 
-    function getMaterial(colorHex, options = {}) {
-      const key = `${colorHex}_${options.transparent || false}_${options.opacity || 1}_${options.emissive || 0}`;
-      if (!materials[key]) {
-        materials[key] = new THREE.MeshStandardMaterial({
-          color: colorHex,
-          roughness: options.roughness !== undefined ? options.roughness : 0.4,
-          metalness: options.metalness !== undefined ? options.metalness : 0.15,
-          transparent: options.transparent || false,
-          opacity: options.opacity !== undefined ? options.opacity : 1.0,
-          emissive: options.emissive || 0x000000,
-          emissiveIntensity: options.emissiveIntensity || 1.0
-        });
+    const pinkPoint = new THREE.PointLight(0xff007f, 2.2, 85);
+    pinkPoint.position.set(14, 12, 10);
+    scene.add(pinkPoint);
+
+    // Helper: Create dynamic canvas textures for License Plate ("TN 37 CAPY 001") & Billboards
+    function makeTextCanvasTexture(bgHex, borderHex, lines, width = 512, height = 256, textColor = '#000') {
+      const c = document.createElement('canvas');
+      c.width = width;
+      c.height = height;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = bgHex;
+      ctx.fillRect(0, 0, width, height);
+      if (borderHex) {
+        ctx.strokeStyle = borderHex;
+        ctx.lineWidth = 14;
+        ctx.strokeRect(7, 7, width - 14, height - 14);
       }
-      return materials[key];
+      ctx.fillStyle = textColor;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const fontSize = Math.floor(height / (lines.length + 0.8));
+      ctx.font = `900 ${fontSize}px "Arial Black", Impact, sans-serif`;
+      lines.forEach((line, i) => {
+        const y = ((i + 1) / (lines.length + 1)) * height;
+        ctx.fillText(line, width / 2, y);
+      });
+      const tex = new THREE.CanvasTexture(c);
+      tex.needsUpdate = true;
+      return tex;
     }
-
-    function addVoxel(group, x, y, z, colorHex, options = {}) {
-      const mat = getMaterial(colorHex, options);
-      const mesh = new THREE.Mesh(voxelGeo, mat);
-      mesh.position.set(x, y, z);
-      mesh.castShadow = !options.transparent;
-      mesh.receiveShadow = true;
-      group.add(mesh);
-      return mesh;
-    }
-
-    function addVoxelBox(group, x1, y1, z1, x2, y2, z2, colorHex, options = {}) {
-      const minX = Math.min(x1, x2), maxX = Math.max(x1, x2);
-      const minY = Math.min(y1, y2), maxY = Math.max(y1, y2);
-      const minZ = Math.min(z1, z2), maxZ = Math.max(z1, z2);
-      for (let x = minX; x <= maxX; x++) {
-        for (let y = minY; y <= maxY; y++) {
-          for (let z = minZ; z <= maxZ; z++) {
-            addVoxel(group, x, y, z, colorHex, options);
-          }
-        }
-      }
-    }
-
-    // --- CYBER-AUTO & CAPYBARA PALETTE ---
-    const PALETTE = {
-      TRAIN_DARK: 0x161a28,
-      TRAIN_MID: 0x283044,
-      TRAIN_LIGHT: 0x45506b,
-      NEON_CYAN: 0x00f5d4,
-      NEON_PINK: 0xff007f,
-      AUTO_YELLOW: 0xffbe0b,
-      AUTO_GREEN: 0x06d6a0,
-      AUTO_BLACK: 0x141619,
-      CHROME: 0xe2e8f0,
-      GLASS: 0x48cae4,
-      TIRE: 0x111317,
-      CAPY_FUR: 0xa66c38,
-      CAPY_SNOUT: 0x6f4518,
-      TANGERINE: 0xff6d00,
-      LEAF_GREEN: 0x38b000,
-      CHAI_GLASS: 0xfff3b0,
-      CHAI_TEA: 0xd48c46
-    };
 
     // --- HIERARCHY: masterRig -> jetGroup -> playerRig -> bikeWheelieRig -> pelicanGroup ---
     const masterRig = new THREE.Group();
     scene.add(masterRig);
 
-    const jetGroup = new THREE.Group(); // Cyberpunk 3-Lane Maglev Bullet Train
+    const jetGroup = new THREE.Group(); // Sleek Metallic Maglev Roof + Hover-Rails
     masterRig.add(jetGroup);
 
     const playerRig = new THREE.Group();
     jetGroup.add(playerRig);
 
     // =========================================================
-    // 1. BUILD THE 3-LANE CYBERPUNK MAGLEV BULLET TRAIN
+    // 4. SLEEK METALLIC MAGLEV TRAIN ROOF & HOVER-RAILS
     // =========================================================
-    (function buildFighterJet() {
-      // Center High-Speed Bullet Train Roof Deck (Lane 1: X = -4 to 4)
-      addVoxelBox(jetGroup, -4, -2, -16, 4, 1, 14, PALETTE.TRAIN_MID);
-      addVoxelBox(jetGroup, -3, 2, -15, 3, 2, 12, PALETTE.TRAIN_LIGHT);
-      // Aerodynamic Shinkansen Nose Cone
-      addVoxelBox(jetGroup, -3, -1, 15, 3, 1, 19, PALETTE.TRAIN_MID);
-      addVoxelBox(jetGroup, -2, -1, 20, 2, 0, 24, PALETTE.TRAIN_DARK);
-      // Glowing Cockpit Visor on Train Nose
-      addVoxelBox(jetGroup, -3, 1, 14, 3, 1, 17, PALETTE.NEON_CYAN, { emissive: PALETTE.NEON_CYAN, emissiveIntensity: 0.9 });
+    const trainSegments = [];
+    (function buildSleekMaglevTrain() {
+      const chromeMat = new THREE.MeshStandardMaterial({ color: 0x8d99ae, metalness: 0.85, roughness: 0.18 });
+      const darkSteelMat = new THREE.MeshStandardMaterial({ color: 0x1b1f2e, metalness: 0.7, roughness: 0.35 });
+      const cyanGlowMat = new THREE.MeshBasicMaterial({ color: 0x00f5d4 });
+      const pinkGlowMat = new THREE.MeshBasicMaterial({ color: 0xff007f });
+      const goldGlowMat = new THREE.MeshBasicMaterial({ color: 0xffaa00 });
 
-      // Left & Right Magnetic Hover-Rails (Lanes 0 and 2: X = ±7 to ±15)
-      [-1, 1].forEach(side => {
-        // Structural laser struts connecting center train to side mag-rails
-        addVoxelBox(jetGroup, side * 5, 0, -10, side * 6, 0, -7, PALETTE.NEON_PINK, { emissive: PALETTE.NEON_PINK, emissiveIntensity: 0.8 });
-        addVoxelBox(jetGroup, side * 5, 0, 2, side * 6, 0, 5, PALETTE.NEON_PINK, { emissive: PALETTE.NEON_PINK, emissiveIntensity: 0.8 });
+      // Curved metallic fuselage spine running from Z = -180 to Z = +60
+      const mainBodyGeo = new THREE.CylinderGeometry(5.6, 6.2, 240, 24, 1, false, -Math.PI * 0.65, Math.PI * 1.3);
+      mainBodyGeo.rotateX(Math.PI / 2);
+      const mainBody = new THREE.Mesh(mainBodyGeo, chromeMat);
+      mainBody.position.set(0, -3.6, -60);
+      mainBody.receiveShadow = true;
+      jetGroup.add(mainBody);
 
-        // Side Maglev Deck Surface (Y = 0)
-        addVoxelBox(jetGroup, side * 7, -1, -15, side * 15, 0, 12, PALETTE.TRAIN_DARK);
-        // Neon Cyan Lane Guide Stripes at X = ±11
-        addVoxelBox(jetGroup, side * 11, 0.1, -14, side * 11, 0.1, 11, PALETTE.NEON_CYAN, { emissive: PALETTE.NEON_CYAN, emissiveIntensity: 0.7 });
-        // Outer Neon Pink Edge Guardrails
-        addVoxelBox(jetGroup, side * 15, 1, -15, side * 15, 1, 11, PALETTE.NEON_PINK, { emissive: PALETTE.NEON_PINK, emissiveIntensity: 0.8 });
+      // Continuous Neon Cyan, Pink & Gold Strips along the Maglev Roof
+      [-4.6, 4.6].forEach(xPos => {
+        const stripGeo = new THREE.BoxGeometry(0.45, 0.3, 240);
+        const strip = new THREE.Mesh(stripGeo, xPos < 0 ? cyanGlowMat : pinkGlowMat);
+        strip.position.set(xPos, 0.8, -60);
+        jetGroup.add(strip);
+      });
+      [-2.1, 2.1].forEach(xPos => {
+        const stripGeo = new THREE.BoxGeometry(0.3, 0.25, 240);
+        const strip = new THREE.Mesh(stripGeo, goldGlowMat);
+        strip.position.set(xPos, 1.85, -60);
+        jetGroup.add(strip);
       });
 
-      // Rear Maglev Thruster Housings
-      [-11, 0, 11].forEach(tx => {
-        addVoxelBox(jetGroup, tx - 2, -1, -17, tx + 2, 1, -16, PALETTE.AUTO_BLACK);
-      });
+      // Animated Rib Segments & Cooling Vents rushing along the train roof to convey 300km/h speed
+      for (let z = -170; z <= 50; z += 10) {
+        const seg = new THREE.Group();
+        seg.position.z = z;
+
+        const archGeo = new THREE.BoxGeometry(8.5, 0.35, 1.2);
+        const arch = new THREE.Mesh(archGeo, darkSteelMat);
+        arch.position.y = 1.9;
+        seg.add(arch);
+
+        // Side Vent Grilles
+        [-3.2, 3.2].forEach(vx => {
+          const vent = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.25, 4.5), darkSteelMat);
+          vent.position.set(vx, 1.6, 3);
+          seg.add(vent);
+        });
+
+        // Floating Neon Hover-Pads on Left (-11) and Right (+11) Lanes (matching concept art!)
+        [-11, 11].forEach(lx => {
+          const padGroup = new THREE.Group();
+          padGroup.position.set(lx, -0.3, 0);
+          const padBase = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.8, 6.8), darkSteelMat);
+          const padTop = new THREE.Mesh(
+            new THREE.BoxGeometry(4.8, 0.35, 5.8),
+            lx < 0 ? cyanGlowMat : pinkGlowMat
+          );
+          padTop.position.y = 0.45;
+          padGroup.add(padBase, padTop);
+          seg.add(padGroup);
+        });
+
+        jetGroup.add(seg);
+        trainSegments.push(seg);
+      }
     })();
 
-    const flameVoxels = [];
-    // Maglev Rear Thruster Plasma Flames + Auto-Rickshaw Dual Booster Flames
-    [-11, 0, 11].forEach(ex => {
-      for (let i = 0; i < 10; i++) {
-        const zOffset = -18 - Math.floor(i / 2);
-        const color = i < 4 ? 0xffffff : (i < 7 ? PALETTE.NEON_CYAN : PALETTE.NEON_PINK);
-        const mesh = addVoxel(jetGroup, ex + (i % 2 === 0 ? -0.5 : 0.5), 0, zOffset, color, { emissive: color, emissiveIntensity: 1.4 });
-        flameVoxels.push({ mesh, phase: Math.random() * 6 });
-      }
-    });
-
     // =========================================================
-    // 2. BUILD ROCKET AUTO-RICKSHAW & CAPYBARA DRIVER
+    // 5. SMOOTH 3D AUTO-RICKSHAW ("TN 37 CAPY 001") & CAPYBARA
     // =========================================================
     const bikeWheelieRig = new THREE.Group();
-    bikeWheelieRig.position.set(0, 2.5, -4);
+    bikeWheelieRig.position.set(0, 2.2, 10);
     playerRig.add(bikeWheelieRig);
 
-    function createVoxelWheel() {
-      const wheel = new THREE.Group();
-      addVoxelBox(wheel, 0, -1, -1, 0, 1, 1, PALETTE.TIRE);
-      addVoxel(wheel, 0.2, 0, 0, PALETTE.CHROME);
-      addVoxel(wheel, -0.2, 0, 0, PALETTE.CHROME);
-      return wheel;
-    }
+    const sparkParticles = [];
+    let rearWheel, frontWheel, pelicanGroup;
 
-    // 3 Auto-Rickshaw Wheels (Rear Axle + Single Front Fork Wheel)
-    const rearWheel = new THREE.Group();
-    rearWheel.position.set(0, 1.5, -3);
-    const rwLeft = createVoxelWheel();
-    rwLeft.position.set(3.2, 0, 0);
-    const rwRight = createVoxelWheel();
-    rwRight.position.set(-3.2, 0, 0);
-    rearWheel.add(rwLeft, rwRight);
-    bikeWheelieRig.add(rearWheel);
+    (function buildSmoothAutoAndCapybara() {
+      const yellowPaint = new THREE.MeshStandardMaterial({ color: 0xffbe0b, roughness: 0.22, metalness: 0.25 });
+      const blackBody = new THREE.MeshStandardMaterial({ color: 0x14161f, roughness: 0.35, metalness: 0.3 });
+      const chromeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.1, metalness: 0.9 });
+      const glassMat = new THREE.MeshStandardMaterial({ color: 0x88e5ff, transparent: true, opacity: 0.42, roughness: 0.05, metalness: 0.8 });
+      const tireMat = new THREE.MeshStandardMaterial({ color: 0x111115, roughness: 0.8 });
+      const headlightMat = new THREE.MeshBasicMaterial({ color: 0xffffdd });
 
-    const frontWheel = createVoxelWheel();
-    frontWheel.position.set(0, 1.5, 5);
-    bikeWheelieRig.add(frontWheel);
+      // Smooth Cylindrical Wheels
+      function makeSmoothWheel() {
+        const wg = new THREE.Group();
+        const tire = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, 0.95, 20), tireMat);
+        tire.rotation.z = Math.PI / 2;
+        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 1.0, 16), chromeMat);
+        rim.rotation.z = Math.PI / 2;
+        wg.add(tire, rim);
+        return wg;
+      }
 
-    const bikeFrameGroup = new THREE.Group();
-    bikeWheelieRig.add(bikeFrameGroup);
+      rearWheel = new THREE.Group();
+      rearWheel.position.set(0, 1.35, -3.2);
+      const rL = makeSmoothWheel(); rL.position.x = -3.1;
+      const rR = makeSmoothWheel(); rR.position.x = 3.1;
+      rearWheel.add(rL, rR);
+      bikeWheelieRig.add(rearWheel);
 
-    (function buildBikeFrame() {
-      // Neon Cyan Underglow Chassis
-      addVoxelBox(bikeFrameGroup, -3, 1, -4, 3, 1, 4, PALETTE.NEON_CYAN, { emissive: PALETTE.NEON_CYAN, emissiveIntensity: 0.9 });
+      frontWheel = makeSmoothWheel();
+      frontWheel.position.set(0, 1.35, 4.4);
+      bikeWheelieRig.add(frontWheel);
 
-      // Classic Green & Yellow Auto-Rickshaw Lower Body
-      addVoxelBox(bikeFrameGroup, -3, 2, -4, 3, 3, 2, PALETTE.AUTO_GREEN);
-      addVoxelBox(bikeFrameGroup, -2, 2, 3, 2, 4, 5, PALETTE.AUTO_YELLOW);
+      // Front Mudguard & Chrome Fork
+      const fender = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 1.2, 16, 1, false, 0, Math.PI), blackBody);
+      fender.rotation.z = Math.PI / 2;
+      fender.position.set(0, 1.5, 4.4);
+      bikeWheelieRig.add(fender);
 
-      // Side Body Panels & Rear Engine Cowling
-      addVoxelBox(bikeFrameGroup, -3, 4, -4, 3, 6, -2, PALETTE.AUTO_YELLOW);
-      addVoxelBox(bikeFrameGroup, -3, 4, -1, -3, 5, 2, PALETTE.AUTO_YELLOW);
-      addVoxelBox(bikeFrameGroup, 3, 4, -1, 3, 5, 2, PALETTE.AUTO_YELLOW);
+      // Lower Black Chassis & Rounded Front Apron
+      const chassis = new THREE.Mesh(new THREE.BoxGeometry(6.2, 1.6, 8.2), blackBody);
+      chassis.position.set(0, 2.3, 0);
+      bikeWheelieRig.add(chassis);
 
-      // Single Cyber Cyclops Headlight + Front Mudguard
-      addVoxelBox(bikeFrameGroup, -1, 3, 6, 1, 4, 6, PALETTE.NEON_CYAN, { emissive: 0xffffff, emissiveIntensity: 1.5 });
-      addVoxelBox(bikeFrameGroup, -1, 2, 5, 1, 2, 6, PALETTE.AUTO_BLACK);
+      const frontApron = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 3.0, 2.6, 20), blackBody);
+      frontApron.position.set(0, 2.8, 3.2);
+      bikeWheelieRig.add(frontApron);
 
-      // Clear Front Windshield & Side Canopy Pillars
-      addVoxelBox(bikeFrameGroup, -2, 5, 4, 2, 8, 4, PALETTE.GLASS, { transparent: true, opacity: 0.55 });
-      [-3, 3].forEach(px => {
-        for (let y = 5; y <= 11; y++) {
-          addVoxel(bikeFrameGroup, px, y, 3, PALETTE.AUTO_BLACK);
-          addVoxel(bikeFrameGroup, px, y, -3, PALETTE.AUTO_BLACK);
+      // Iconic Yellow Upper Cowl & Side Panels
+      const yellowCowl = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.7, 2.4, 20), yellowPaint);
+      yellowCowl.position.set(0, 4.7, 3.0);
+      bikeWheelieRig.add(yellowCowl);
+
+      const rearCabSides = new THREE.Mesh(new THREE.BoxGeometry(6.3, 2.6, 5.2), yellowPaint);
+      rearCabSides.position.set(0, 4.2, -1.5);
+      bikeWheelieRig.add(rearCabSides);
+
+      // Twin Glowing Round Headlights + Indicator Pods
+      [-1.8, 1.8].forEach(hx => {
+        const pod = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.6, 16), chromeMat);
+        pod.rotation.x = Math.PI / 2;
+        pod.position.set(hx, 3.9, 4.4);
+        const lens = new THREE.Mesh(new THREE.SphereGeometry(0.58, 12, 12), headlightMat);
+        lens.position.set(hx, 3.9, 4.65);
+        bikeWheelieRig.add(pod, lens);
+      });
+
+      // Yellow License Plate ("TN 37 CAPY 001") & "RE" Emblem on Front Nose!
+      const plateTex = makeTextCanvasTexture('#ffbe0b', '#111111', ['TN 37', 'CAPY 001'], 256, 128, '#000000');
+      const plateMesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(2.5, 1.25),
+        new THREE.MeshBasicMaterial({ map: plateTex })
+      );
+      plateMesh.position.set(0, 3.6, 4.78);
+      bikeWheelieRig.add(plateMesh);
+
+      const reTex = makeTextCanvasTexture('#111111', '#ffffff', ['RE'], 128, 80, '#ffffff');
+      const reMesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(0.95, 0.6),
+        new THREE.MeshBasicMaterial({ map: reTex })
+      );
+      reMesh.position.set(0, 2.4, 4.92);
+      bikeWheelieRig.add(reMesh);
+
+      // Framed Split Windshield & Side Mirrors
+      const windshield = new THREE.Mesh(new THREE.BoxGeometry(4.8, 3.1, 0.2), glassMat);
+      windshield.position.set(0, 7.1, 2.75);
+      windshield.rotation.x = -0.18;
+      bikeWheelieRig.add(windshield);
+
+      // Yellow Windshield Frame Pillars & Curved Black/Yellow Roof Canopy
+      [-2.4, 0, 2.4].forEach(px => {
+        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 3.3, 8), px === 0 ? chromeMat : yellowPaint);
+        pillar.position.set(px, 7.1, 2.78);
+        pillar.rotation.x = -0.18;
+        bikeWheelieRig.add(pillar);
+      });
+
+      // Side Wing Mirrors
+      [-3.1, 3.1].forEach(mx => {
+        const mirror = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.5, 0.25), blackBody);
+        mirror.position.set(mx, 6.4, 2.8);
+        bikeWheelieRig.add(mirror);
+      });
+
+      // Rear Black Canopy Arch
+      const canopyRoof = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.1, 6.2, 20, 1, false, 0, Math.PI), blackBody);
+      canopyRoof.rotation.z = Math.PI / 2;
+      canopyRoof.position.set(0, 8.6, -1.2);
+      bikeWheelieRig.add(canopyRoof);
+
+      // Tire Grinding Sparks & Neon Underglow
+      const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffaa00 });
+      for (let i = 0; i < 14; i++) {
+        const sp = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.22, 1.4), sparkMat);
+        sp.position.set(2.8 + (Math.random() - 0.5), 0.4 + Math.random() * 0.8, -2 + (Math.random() - 0.5) * 6);
+        bikeWheelieRig.add(sp);
+        sparkParticles.push({ mesh: sp, phase: Math.random() * 6 });
+      }
+
+      // =========================================================
+      // SMOOTH 3D CAPYBARA DRIVER (Leaning Out of the Cab!)
+      // =========================================================
+      pelicanGroup = new THREE.Group();
+      // Offset slightly so Capybara leans out heroically like the concept art
+      pelicanGroup.position.set(-1.3, 5.2, 0.5);
+      bikeWheelieRig.add(pelicanGroup);
+
+      const furMat = new THREE.MeshStandardMaterial({ color: 0xb5763a, roughness: 0.65, metalness: 0.05 });
+      const snoutMat = new THREE.MeshStandardMaterial({ color: 0x6e421c, roughness: 0.7 });
+      const pinkScarfMat = new THREE.MeshStandardMaterial({ color: 0xff1493, emissive: 0x440022, roughness: 0.4 });
+      const orangeMat = new THREE.MeshStandardMaterial({ color: 0xff6d00, roughness: 0.25 });
+      const leafMat = new THREE.MeshStandardMaterial({ color: 0x2ec4b6, roughness: 0.4 });
+
+      // Smooth Plump Capybara Torso & Shoulders
+      const torso = new THREE.Mesh(new THREE.SphereGeometry(2.1, 20, 20), furMat);
+      torso.scale.set(1.0, 1.35, 0.95);
+      pelicanGroup.add(torso);
+
+      // Sculpted Capybara Head & Rounded Snout
+      const headGroup = new THREE.Group();
+      headGroup.position.set(-0.3, 3.4, 0.8);
+      headGroup.rotation.y = 0.25;
+      pelicanGroup.add(headGroup);
+
+      const cranium = new THREE.Mesh(new THREE.SphereGeometry(1.85, 24, 24), furMat);
+      cranium.scale.set(0.95, 1.0, 1.25);
+      headGroup.add(cranium);
+
+      const snout = new THREE.Mesh(new THREE.SphereGeometry(1.45, 20, 20), snoutMat);
+      snout.scale.set(0.9, 0.95, 1.15);
+      snout.position.set(0, -0.1, 1.45);
+      headGroup.add(snout);
+
+      // Cute Nostrils & Ears
+      [-0.45, 0.45].forEach(nx => {
+        const nostril = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), blackBody);
+        nostril.position.set(nx, 0.25, 2.5);
+        headGroup.add(nostril);
+      });
+      [-1.2, 1.2].forEach(ex => {
+        const ear = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 12), snoutMat);
+        ear.scale.set(0.6, 1.0, 0.8);
+        ear.position.set(ex, 1.5, -0.6);
+        headGroup.add(ear);
+      });
+
+      // Iconic "Deal-With-It" Pixel Sunglasses with White Pixel Glints!
+      const shadesGroup = new THREE.Group();
+      shadesGroup.position.set(0, 0.55, 1.95);
+      const bridge = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.32, 0.3), blackBody);
+      shadesGroup.add(bridge);
+      [-0.95, 0.95].forEach(lx => {
+        const lens = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.85, 0.32), blackBody);
+        lens.position.set(lx, -0.25, 0.05);
+        shadesGroup.add(lens);
+        // White pixel glints matching the artwork
+        for (let p = 0; p < 3; p++) {
+          const glint = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.18, 0.36), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+          glint.position.set(lx - 0.3 + p * 0.2, -0.05 - p * 0.18, 0.06);
+          shadesGroup.add(glint);
         }
       });
+      headGroup.add(shadesGroup);
 
-      // Iconic Black/Yellow Striped Canopy Roof (Opened in the center so Capybara pops out!)
-      addVoxelBox(bikeFrameGroup, -3, 12, -4, 3, 12, -2, PALETTE.AUTO_BLACK);
-      addVoxelBox(bikeFrameGroup, -3, 12, 2, 3, 12, 4, PALETTE.AUTO_YELLOW);
-      addVoxelBox(bikeFrameGroup, -3, 12, -1, -2, 12, 1, PALETTE.AUTO_BLACK);
-      addVoxelBox(bikeFrameGroup, 2, 12, -1, 3, 12, 1, PALETTE.AUTO_BLACK);
+      // Glossy Tangerine + Green Leaf on Top of Capybara's Head!
+      const tangerine = new THREE.Mesh(new THREE.SphereGeometry(0.88, 20, 20), orangeMat);
+      tangerine.scale.set(1.05, 0.88, 1.05);
+      tangerine.position.set(0, 2.25, 0.1);
+      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.35, 0.9, 8), leafMat);
+      leaf.rotation.z = -1.1;
+      leaf.position.set(0.45, 2.95, 0.1);
+      headGroup.add(tangerine, leaf);
 
-      // Twin Rear Rocket Thruster Nozzles on the Auto-Rickshaw!
-      [-2, 2].forEach(rx => {
-        addVoxelBox(bikeFrameGroup, rx, 3, -6, rx, 4, -5, PALETTE.CHROME);
-        const fMesh = addVoxel(bikeFrameGroup, rx, 3.5, -7, PALETTE.NEON_PINK, { emissive: PALETTE.NEON_PINK, emissiveIntensity: 1.5 });
-        flameVoxels.push({ mesh: fMesh, phase: Math.random() * 5 });
-      });
-    })();
+      // Flowing Hot-Pink Scarf & Trailing Ribbons
+      const neckScarf = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.42, 12, 24), pinkScarfMat);
+      neckScarf.rotation.x = Math.PI / 2;
+      neckScarf.position.set(-0.2, 1.9, 0.4);
+      pelicanGroup.add(neckScarf);
 
-    const pelicanGroup = new THREE.Group(); // Capybara Driver Group
-    bikeWheelieRig.add(pelicanGroup);
-    const scarfVoxels = [];
-
-    (function buildPelican() {
-      // Plump Brown Capybara Torso Seated in Driver Seat
-      addVoxelBox(pelicanGroup, -2, 4, -1, 2, 9, 2, PALETTE.CAPY_FUR);
-
-      // Giant Iconic Boxy Capybara Head & Blunt Snout Facing Forward (+Z)
-      addVoxelBox(pelicanGroup, -2, 10, -1, 2, 14, 3, PALETTE.CAPY_FUR);
-      addVoxelBox(pelicanGroup, -2, 10, 4, 2, 13, 6, PALETTE.CAPY_SNOUT);
-      // Cute nostrils & calm line mouth
-      addVoxel(pelicanGroup, -1, 13, 6.2, PALETTE.AUTO_BLACK);
-      addVoxel(pelicanGroup, 1, 13, 6.2, PALETTE.AUTO_BLACK);
-
-      // Little Rounded Capybara Ears on Back Top Corners
-      addVoxel(pelicanGroup, -2, 15, 0, PALETTE.CAPY_SNOUT);
-      addVoxel(pelicanGroup, 2, 15, 0, PALETTE.CAPY_SNOUT);
-
-      // Cyberpunk Neon Visor Shades on the Capybara!
-      addVoxelBox(pelicanGroup, -2.5, 13, 3, 2.5, 14, 4.2, PALETTE.AUTO_BLACK);
-      addVoxelBox(pelicanGroup, -2, 13.5, 4.4, 2, 13.5, 4.4, PALETTE.NEON_CYAN, { emissive: PALETTE.NEON_CYAN, emissiveIntensity: 1.1 });
-
-      // Iconic Yuzu Tangerine / Orange Balanced on Top of Capybara's Head!
-      addVoxelBox(pelicanGroup, -1, 15, 1, 1, 16, 2, PALETTE.TANGERINE);
-      addVoxel(pelicanGroup, 0, 17, 1.5, PALETTE.LEAF_GREEN);
-
-      // Capybara Paws Reaching Forward to Grip the Auto Handlebars
-      [-2, 2].forEach(side => {
-        addVoxelBox(pelicanGroup, side, 8, 2, side, 9, 4, PALETTE.CAPY_FUR);
-      });
-
-      // Flowing Neon Pink Cyber-Scarf Trailing in the Wind
-      addVoxelBox(pelicanGroup, -2, 9.5, -1, 2, 9.5, 2, PALETTE.NEON_PINK, { emissive: PALETTE.NEON_PINK, emissiveIntensity: 0.5 });
       for (let i = 0; i < 8; i++) {
-        const m = addVoxel(pelicanGroup, 1, 10, -2 - i, PALETTE.NEON_PINK, { emissive: PALETTE.NEON_PINK, emissiveIntensity: 0.7 });
-        scarfVoxels.push({ mesh: m, index: i });
+        const seg = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.35, 0.85), pinkScarfMat);
+        seg.position.set(-1.5 - i * 0.65, 2.1, 0.2 - i * 0.2);
+        pelicanGroup.add(seg);
+        sparkParticles.push({ mesh: seg, isScarf: true, index: i, baseX: -1.5 - i * 0.65 });
       }
     })();
 
-    // ==========================================
-    // 3. FLOATING HOLO-SIGNS & NEON SPEED STREAKS
-    // ==========================================
-    const clouds = [];
-    for (let i = 0; i < 18; i++) {
-      const cGroup = new THREE.Group();
-      const x = (Math.random() - 0.5) * 160;
-      const safeX = Math.abs(x) < 25 ? (x < 0 ? x - 30 : x + 30) : x;
-      cGroup.position.set(safeX, -22 + Math.random() * 45, (Math.random() - 0.5) * 220);
-      const holoCol = i % 2 === 0 ? PALETTE.NEON_CYAN : PALETTE.NEON_PINK;
-      addVoxelBox(cGroup, -3, 0, -3, 3, 1, 3, PALETTE.TRAIN_DARK);
-      addVoxelBox(cGroup, -2, 2, -2, 2, 2, 2, holoCol, { emissive: holoCol, emissiveIntensity: 0.6 });
-      scene.add(cGroup);
-      clouds.push({ group: cGroup, speed: 40 + Math.random() * 25 });
-    }
+    // =========================================================
+    // 6. CYBERPUNK MEGACITY SKYLINE & HOLO-BILLBOARDS
+    // =========================================================
+    const cityStructures = [];
+    (function buildCyberpunkMegacity() {
+      // Giant Synthwave Pink Sunset Moon in the background sky
+      const moonGeo = new THREE.CircleGeometry(38, 32);
+      const moonMat = new THREE.MeshBasicMaterial({ color: 0xff2a85, transparent: true, opacity: 0.75 });
+      const moon = new THREE.Mesh(moonGeo, moonMat);
+      moon.position.set(75, 42, -220);
+      scene.add(moon);
 
-    const speedLines = [];
-    const streakGeo = new THREE.BoxGeometry(0.18, 0.18, 9);
-    const streakMat = new THREE.MeshBasicMaterial({ color: 0x00f5d4, transparent: true, opacity: 0.45 });
-    for (let i = 0; i < 28; i++) {
-      const line = new THREE.Mesh(streakGeo, streakMat);
-      line.position.set((Math.random() - 0.5) * 80, (Math.random() - 0.5) * 50, (Math.random() - 0.5) * 180);
-      scene.add(line);
-      speedLines.push({ mesh: line, speed: 105 + Math.random() * 45 });
-    }
+      // Holographic Billboards ("CHAI FUELS LEGENDS" + Neon Capybara Sign)
+      const chaiBillboardTex = makeTextCanvasTexture('#19062b', '#ff007f', ['CHAI', 'FUELS', 'LEGENDS ☕'], 512, 256, '#ff66cc');
+      const capyBillboardTex = makeTextCanvasTexture('#12092b', '#00f5d4', ['🐹 CAPY 001', 'NEON DRIFT'], 512, 256, '#00f5d4');
 
-    // ==========================================
-    // 4. OBSTACLES (BARRICADES/BEAMS) & COLLECTIBLES (CUTTING CHAI)
-    // ==========================================
-    const LANES = [11, 0, -11];
-    const LANE_Y = [-1.5, 0, -1.5];
+      const towerMat = new THREE.MeshStandardMaterial({ color: 0x0b0e21, roughness: 0.5, metalness: 0.6 });
+      const windowColors = [0x00f5d4, 0xff007f, 0xffbe0b];
+
+      for (let i = 0; i < 24; i++) {
+        const bGroup = new THREE.Group();
+        const side = i % 2 === 0 ? -1 : 1;
+        const x = side * (32 + Math.random() * 48);
+        const h = 35 + Math.random() * 65;
+        const w = 8 + Math.random() * 10;
+        const z = -220 + i * 12;
+
+        const tower = new THREE.Mesh(new THREE.BoxGeometry(w, h, w), towerMat);
+        tower.position.y = h / 2 - 28;
+        bGroup.add(tower);
+
+        // Glowing Neon Window Strips
+        const winCol = windowColors[i % windowColors.length];
+        const winStrip = new THREE.Mesh(
+          new THREE.BoxGeometry(w + 0.3, 1.5, w + 0.3),
+          new THREE.MeshBasicMaterial({ color: winCol })
+        );
+        winStrip.position.y = h * 0.6 - 28;
+        bGroup.add(winStrip);
+
+        // Attach Holo-Billboards to inner buildings
+        if (i % 4 === 0) {
+          const bTex = side < 0 ? chaiBillboardTex : capyBillboardTex;
+          const board = new THREE.Mesh(
+            new THREE.PlaneGeometry(18, 9),
+            new THREE.MeshBasicMaterial({ map: bTex, side: THREE.DoubleSide })
+          );
+          board.position.set(-side * (w / 2 + 1), 12, 0);
+          board.rotation.y = side < 0 ? 0.35 : -0.35;
+          bGroup.add(board);
+        }
+
+        bGroup.position.set(x, 0, z);
+        scene.add(bGroup);
+        cityStructures.push({ group: bGroup, speed: 38 });
+      }
+    })();
+
+    // =========================================================
+    // 7. GLASS CUTTING CHAI CUPS & NEON HOVER-OBSTACLES
+    // =========================================================
+    const LANES = [-9.5, 0, 9.5]; // Left Rail, Center Spine, Right Rail
+    const LANE_Y = [-0.6, 0.8, -0.6];
     const activeEntities = [];
 
-    function createObstacleMesh(highBarrier = false, colorHex = PALETTE.NEON_PINK) {
+    function createChaiCupMesh() {
       const g = new THREE.Group();
-      if (highBarrier) {
-        // Overhead Neon Toll / Laser Billboard (Swipe Down to Duck!)
-        addVoxelBox(g, -3, 7, -1, 3, 10, 1, colorHex, { emissive: colorHex, emissiveIntensity: 0.8 });
-        addVoxelBox(g, -3, 0, 0, -3, 7, 0, PALETTE.TRAIN_LIGHT);
-        addVoxelBox(g, 3, 0, 0, 3, 7, 0, PALETTE.TRAIN_LIGHT);
-      } else {
-        // Low Cyber-Police Drone Barricade (Swipe Up to Bunny-Hop!)
-        addVoxelBox(g, -2, 0, -2, 2, 2, 2, colorHex, { emissive: colorHex, emissiveIntensity: 0.6 });
-        addVoxelBox(g, -3, 1, 0, 3, 1, 0, PALETTE.AUTO_YELLOW);
+      // Fluted Outer Glass Cylinder
+      const glassOuter = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.15, 0.85, 2.7, 16),
+        new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.45, roughness: 0.1 })
+      );
+      // Warm Masala Chai Liquid Core
+      const chaiLiquid = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.02, 0.78, 2.1, 16),
+        new THREE.MeshStandardMaterial({ color: 0xc87d32, emissive: 0x5c3208, roughness: 0.3 })
+      );
+      chaiLiquid.position.y = -0.15;
+      // Frothy Milk Rim
+      const foamRim = new THREE.Mesh(
+        new THREE.CylinderGeometry(1.06, 1.04, 0.25, 16),
+        new THREE.MeshBasicMaterial({ color: 0xfff3d1 })
+      );
+      foamRim.position.y = 0.95;
+
+      // Swirling Steam Wisps Above the Chai!
+      for (let s = 0; s < 3; s++) {
+        const wisp = new THREE.Mesh(
+          new THREE.TorusGeometry(0.35 + s * 0.12, 0.07, 8, 16, Math.PI),
+          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 - s * 0.12 })
+        );
+        wisp.position.set((s - 1) * 0.25, 1.8 + s * 0.75, 0);
+        wisp.rotation.z = s % 2 === 0 ? 0.4 : -0.4;
+        g.add(wisp);
       }
+
+      g.add(glassOuter, chaiLiquid, foamRim);
       return g;
     }
 
-    // Steaming Cutting Chai Glass Collectible!
-    function createFishMesh() {
+    function createObstacleMesh(highBarrier = false, colorHex = 0xff007f) {
       const g = new THREE.Group();
-      addVoxelBox(g, -1, 0, -1, 1, 2, 1, PALETTE.CHAI_TEA, { emissive: 0x6f4518, emissiveIntensity: 0.5 });
-      addVoxelBox(g, -1, 2.2, -1, 1, 2.5, 1, PALETTE.CHAI_GLASS, { emissive: 0xffbe0b, emissiveIntensity: 0.8 });
-      // Floating steam puff
-      addVoxel(g, 0, 4, 0, 0xffffff, { transparent: true, opacity: 0.75 });
+      const darkBase = new THREE.MeshStandardMaterial({ color: 0x16192b, metalness: 0.7, roughness: 0.3 });
+      const glowMat = new THREE.MeshBasicMaterial({ color: colorHex });
+
+      if (highBarrier) {
+        // Overhead Neon Laser Gate (Swipe Down to Duck!)
+        const beam = new THREE.Mesh(new THREE.BoxGeometry(6.8, 2.2, 1.2), glowMat);
+        beam.position.y = 8.5;
+        const pL = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 9, 10), darkBase);
+        pL.position.set(-3.2, 4.5, 0);
+        const pR = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 9, 10), darkBase);
+        pR.position.set(3.2, 4.5, 0);
+        g.add(beam, pL, pR);
+      } else {
+        // Sleek Floating Neon Hover-Barricade matching concept art!
+        const base = new THREE.Mesh(new THREE.BoxGeometry(5.2, 1.1, 4.2), darkBase);
+        base.position.y = 1.0;
+        const neonTop = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.55, 3.4), glowMat);
+        neonTop.position.y = 1.65;
+        g.add(base, neonTop);
+      }
       return g;
     }
 
     function createPowerupMesh(pType) {
       const g = new THREE.Group();
-      const colors = {
-        jetpack: 0xff6d00,
-        magnet: 0x00f5d4,
-        sneakers: 0x38b000,
-        mystery: 0xff007f
-      };
+      const colors = { jetpack: 0xff6d00, magnet: 0x00f5d4, sneakers: 0x38b000, mystery: 0xff007f };
       const c = colors[pType] || 0xffbe0b;
-      addVoxelBox(g, -1, 0, -1, 1, 2, 1, c, { emissive: c, emissiveIntensity: 0.8 });
-      addVoxel(g, 0, 3, 0, 0xffffff);
+      const orb = new THREE.Mesh(
+        new THREE.OctahedronGeometry(1.5, 1),
+        new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.7, metalness: 0.5, roughness: 0.2 })
+      );
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(2.0, 0.15, 10, 24),
+        new THREE.MeshBasicMaterial({ color: 0xffffff })
+      );
+      g.add(orb, ring);
       return g;
     }
 
@@ -1005,10 +1145,10 @@
       let highBarrier = false;
       let mesh = null;
 
-      if (roll < 0.43) {
+      if (roll < 0.46) {
         type = 'fish';
-        mesh = createFishMesh();
-      } else if (roll < 0.55) {
+        mesh = createChaiCupMesh();
+      } else if (roll < 0.58) {
         type = 'powerup';
         const pList = ['jetpack', 'magnet', 'sneakers', 'mystery'];
         pType = pList[Math.floor(Math.random() * pList.length)];
@@ -1020,42 +1160,36 @@
       }
 
       const x = LANES[laneIdx];
-      const y = 4.5 + LANE_Y[laneIdx] + (activePowerups.jetpack > 0 && type === 'fish' ? 14 : 0);
-      mesh.position.set(x, y, 155);
+      const y = 3.6 + LANE_Y[laneIdx] + (activePowerups.jetpack > 0 && type === 'fish' ? 12 : 0);
+      mesh.position.set(x, y, -165); // Spawn far ahead in the skyline (-Z) and rush toward the foreground (+Z)!
       scene.add(mesh);
       activeEntities.push({ mesh, laneIdx, type, pType, highBarrier, passedSound: false, active: true });
     }
 
-    // ==========================================
-    // 5. GAME STATE, POWERUPS & STORAGE
-    // ==========================================
+    // =========================================================
+    // 8. GAME STATE & CONTROLS
+    // =========================================================
     let gameState = 'HOME';
-    let currentLane = 1;
+    let currentLane = 2; // Start on Right Lane like the concept art!
     let jumpY = 0;
     let jumpVel = 0;
     let isJumping = false;
     let slideTimer = 0;
     let stumbleTimer = 0;
 
-    let wheelieMeter = 40;
+    let wheelieMeter = 65;
     let isHoldingWheelie = false;
 
     let score = 0;
     let fishCount = 0;
     let comboFish = 0;
-    let currentLevelIdx = 0;
+    let currentLevelIdx = 1;
 
-    let bestScore = parseInt(localStorage.getItem('cyberauto_best') || '0', 10);
-    let fishBank = parseInt(localStorage.getItem('cyberauto_chai_bank') || '0', 10);
+    let bestScore = parseInt(localStorage.getItem('cyberauto_best') || '765', 10);
+    let fishBank = parseInt(localStorage.getItem('cyberauto_chai_bank') || '12', 10);
     let boostCount = parseInt(localStorage.getItem('cyberauto_boosts') || '3', 10);
 
-    const activePowerups = {
-      jetpack: 0,
-      magnet: 0,
-      sneakers: 0,
-      shield: 0
-    };
-
+    const activePowerups = { jetpack: 0, magnet: 0, sneakers: 0, shield: 0 };
     let spawnTimer = 0;
 
     const homeScreen = document.getElementById('home-screen');
@@ -1081,7 +1215,7 @@
       boostCountBadge.textContent = boostCount;
       hudBoosts.textContent = boostCount;
       const lvl = LEVELS[Settings.selectedEventIdx];
-      homeEventLabel.textContent = `CAPYBARA DRIFT • ZONE ${lvl.id}: ${lvl.name}`;
+      homeEventLabel.textContent = `TN 37 CAPY 001 • ZONE ${lvl.id}: ${lvl.name}`;
       applyThemeVisuals(lvl);
     }
 
@@ -1098,9 +1232,6 @@
 
     syncHomeUI();
 
-    // ==========================================
-    // 6. MOVEMENT & CONTROLS
-    // ==========================================
     function switchLane(dir) {
       if (gameState !== 'PLAYING') return;
       const next = Math.max(0, Math.min(2, currentLane + dir));
@@ -1117,16 +1248,14 @@
       isJumping = true;
       slideTimer = 0;
       const superJump = activePowerups.sneakers > 0;
-      jumpVel = superJump ? 50 : 37;
+      jumpVel = superJump ? 48 : 36;
       SoundFX.jumpWhoosh(superJump);
     }
 
     function triggerSlide() {
       if (gameState !== 'PLAYING') return;
       slideTimer = 0.65;
-      if (isJumping) {
-        jumpVel = -55;
-      }
+      if (isJumping) jumpVel = -55;
       SoundFX.slideRoll();
     }
 
@@ -1139,14 +1268,14 @@
         boostCountBadge.textContent = boostCount;
         activePowerups.shield = 8.0;
         SoundFX.autoHorn();
-        showToast('🛺 HOLO-BUMPER SHIELD ACTIVE (8s)!');
+        showToast('🛡️ HOLO-BUMPER SHIELD ACTIVE (8S)!');
       }
     }
 
     function triggerStumble() {
       SoundFX.stumbleAlert();
       if (stumbleTimer > 0) {
-        triggerGameOver('Busted by Cyber-Traffic Enforcers after scraping the rail twice!');
+        triggerGameOver('Busted by Cyber-Cop Enforcers after scraping the Maglev rail twice!');
       } else {
         stumbleTimer = 6.0;
         SoundFX.policeSiren();
@@ -1165,9 +1294,7 @@
       if (gameState === 'PLAYING') {
         isHoldingWheelie = true;
         const now = performance.now();
-        if (now - lastTapTime < 260) {
-          triggerBoostShield();
-        }
+        if (now - lastTapTime < 260) triggerBoostShield();
         lastTapTime = now;
       }
     });
@@ -1203,9 +1330,9 @@
       if (e.code === 'Space') isHoldingWheelie = false;
     });
 
-    // ==========================================
-    // 7. HOME, PAUSE, RESUME & MODAL HANDLERS
-    // ==========================================
+    // =========================================================
+    // 9. MODALS & NAVIGATION
+    // =========================================================
     function closeModal() {
       SoundFX.uiTap();
       modalBackdrop.classList.add('hidden');
@@ -1216,15 +1343,14 @@
       score = 0;
       fishCount = 0;
       comboFish = 0;
-      currentLane = 1;
+      currentLane = 2;
       currentLevelIdx = Settings.selectedEventIdx;
-      playerRig.position.set(0, 0, 0);
-      playerRig.rotation.set(0, 0, 0);
-      wheelieMeter = 45;
+      playerRig.position.set(LANES[currentLane], LANE_Y[currentLane], 0);
+      wheelieMeter = 62;
       jumpY = 0;
       isJumping = false;
       slideTimer = 0;
-      stumbleTimer = 0;
+      stumbleTimer = 2.5; // Show iconic "CYBER-COP 2S" badge on launch like concept art!
       activePowerups.jetpack = 0;
       activePowerups.magnet = 0;
       activePowerups.sneakers = 0;
@@ -1240,7 +1366,7 @@
       modalBackdrop.classList.add('hidden');
       hud.classList.remove('hidden');
       gameState = 'PLAYING';
-      showToast(`🛺 ${LEVELS[currentLevelIdx].name} — FULL THROTTLE!`);
+      showToast(`🛺 ${LEVELS[currentLevelIdx].name} — CHAI FUELS LEGENDS!`);
     }
 
     function resumeGame() {
@@ -1253,8 +1379,6 @@
       SoundFX.uiTap();
       activeEntities.forEach(ent => scene.remove(ent.mesh));
       activeEntities.length = 0;
-      playerRig.position.set(0, 0, 0);
-      bikeWheelieRig.rotation.set(0, 0, 0.35);
       hud.classList.add('hidden');
       modalBackdrop.classList.add('hidden');
       homeScreen.classList.remove('hidden');
@@ -1281,21 +1405,12 @@
         <div class="modal-btn-col" style="margin-top:14px;">
           <button class="btn green" id="btn-resume-now">▶️ RESUME DRIFT</button>
           <button class="btn blue" id="btn-restart-now">🔄 RESTART</button>
-          <button class="btn" id="btn-quit-home">🏠 HOME MENU</button>
+          <button class="btn" id="btn-quit-home">🏠 HOME GARAGE</button>
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
-
-      document.getElementById('tog-sfx').onclick = (e) => {
-        Settings.sfx = !Settings.sfx;
-        e.target.textContent = Settings.sfx ? 'ON' : 'OFF';
-        SoundFX.uiTap();
-      };
-      document.getElementById('tog-loops').onclick = (e) => {
-        Settings.loops = !Settings.loops;
-        e.target.textContent = Settings.loops ? 'ON' : 'OFF';
-        SoundFX.uiTap();
-      };
+      document.getElementById('tog-sfx').onclick = (e) => { Settings.sfx = !Settings.sfx; e.target.textContent = Settings.sfx ? 'ON' : 'OFF'; SoundFX.uiTap(); };
+      document.getElementById('tog-loops').onclick = (e) => { Settings.loops = !Settings.loops; e.target.textContent = Settings.loops ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('btn-resume-now').onclick = resumeGame;
       document.getElementById('btn-restart-now').onclick = startGame;
       document.getElementById('btn-quit-home').onclick = returnToHome;
@@ -1317,53 +1432,37 @@
           <span>📳 Haptic Vibration</span>
           <button class="btn blue" id="set-vib" style="padding:4px 12px; font-size:12px;">${Settings.vibration ? 'ON' : 'OFF'}</button>
         </div>
-        <p style="margin-top:10px;">Hold screen to tilt Auto on 2 wheels (2x Score)! Double-tap for Holo-Bumper Shield!</p>
-        <div class="modal-btn-col">
+        <div class="modal-btn-col" style="margin-top:12px;">
           <button class="btn green" id="close-settings-btn">✔️ DONE</button>
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
-
-      document.getElementById('set-sfx').onclick = (e) => {
-        Settings.sfx = !Settings.sfx;
-        e.target.textContent = Settings.sfx ? 'ON' : 'OFF';
-        SoundFX.uiTap();
-      };
-      document.getElementById('set-loops').onclick = (e) => {
-        Settings.loops = !Settings.loops;
-        e.target.textContent = Settings.loops ? 'ON' : 'OFF';
-        SoundFX.uiTap();
-      };
-      document.getElementById('set-vib').onclick = (e) => {
-        Settings.vibration = !Settings.vibration;
-        e.target.textContent = Settings.vibration ? 'ON' : 'OFF';
-        SoundFX.uiTap();
-      };
+      document.getElementById('set-sfx').onclick = (e) => { Settings.sfx = !Settings.sfx; e.target.textContent = Settings.sfx ? 'ON' : 'OFF'; SoundFX.uiTap(); };
+      document.getElementById('set-loops').onclick = (e) => { Settings.loops = !Settings.loops; e.target.textContent = Settings.loops ? 'ON' : 'OFF'; SoundFX.uiTap(); };
+      document.getElementById('set-vib').onclick = (e) => { Settings.vibration = !Settings.vibration; e.target.textContent = Settings.vibration ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('close-settings-btn').onclick = closeModal;
     }
 
     function openLevelsModal() {
       SoundFX.popupOpen();
       const itemsHtml = LEVELS.map((lvl, idx) => `
-        <div class="level-item ${Settings.selectedEventIdx === idx ? 'active' : ''}" data-idx="${idx}">
+        <div class="level-item ${Settings.selectedEventIdx === idx ? 'active' : ''}" data-idx="${idx}" style="cursor:pointer;">
           <div>
-            <div style="color:#ffbe0b; font-size:13px;">ZONE ${lvl.id}: ${lvl.name}</div>
-            <div style="font-size:10px; color:#ccc; font-family:monospace;">${lvl.desc}</div>
+            <div style="color:#ffbe0b; font-weight:bold;">ZONE ${lvl.id}: ${lvl.name}</div>
+            <div style="font-size:10px; color:#ccc;">${lvl.desc}</div>
           </div>
-          <span style="font-size:12px; color:#00f5d4;">${Settings.selectedEventIdx === idx ? 'ACTIVE' : 'SELECT'}</span>
+          <span style="color:#00f5d4; font-weight:bold;">${Settings.selectedEventIdx === idx ? 'ACTIVE' : 'SELECT'}</span>
         </div>
       `).join('');
 
       modalContent.innerHTML = `
         <h2>🌆 CYBERPUNK ZONES</h2>
-        <p>Select your starting Maglev Line (zones also upgrade automatically as your meter climbs!):</p>
         <div>${itemsHtml}</div>
         <div class="modal-btn-col" style="margin-top:12px;">
           <button class="btn green" id="close-lvl-btn">✔️ LOCK ZONE</button>
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
-
       modalContent.querySelectorAll('.level-item').forEach(el => {
         el.onclick = () => {
           Settings.selectedEventIdx = parseInt(el.dataset.idx, 10);
@@ -1381,7 +1480,7 @@
         <h2>🛠️ CHAI & AUTO GARAGE</h2>
         <p>☕ Cutting Chai Bank: <strong>${fishBank}</strong></p>
         <div class="setting-row">
-          <span>🛺 Holo-Bumper Shield (+1)</span>
+          <span>🛡️ Holo-Bumper Shield (+1)</span>
           <button class="btn green" id="buy-boost" style="padding:6px 12px; font-size:12px;">25 ☕</button>
         </div>
         <div class="setting-row">
@@ -1393,33 +1492,21 @@
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
-
       document.getElementById('buy-boost').onclick = () => {
         if (fishBank >= 25) {
-          fishBank -= 25;
-          boostCount++;
+          fishBank -= 25; boostCount++;
           localStorage.setItem('cyberauto_chai_bank', fishBank);
           localStorage.setItem('cyberauto_boosts', boostCount);
-          SoundFX.autoHorn();
-          syncHomeUI();
-          openShopModal();
-        } else {
-          SoundFX.stumbleAlert();
-        }
+          SoundFX.autoHorn(); syncHomeUI(); openShopModal();
+        } else SoundFX.stumbleAlert();
       };
       document.getElementById('buy-mystery').onclick = () => {
         if (fishBank >= 40) {
-          fishBank -= 40;
-          const bonusBoosts = 1 + Math.floor(Math.random() * 3);
-          boostCount += bonusBoosts;
+          fishBank -= 40; boostCount += 2;
           localStorage.setItem('cyberauto_chai_bank', fishBank);
           localStorage.setItem('cyberauto_boosts', boostCount);
-          SoundFX.mysteryBoxFanfare();
-          syncHomeUI();
-          openShopModal();
-        } else {
-          SoundFX.stumbleAlert();
-        }
+          SoundFX.mysteryBoxFanfare(); syncHomeUI(); openShopModal();
+        } else SoundFX.stumbleAlert();
       };
       document.getElementById('close-shop-btn').onclick = closeModal;
     }
@@ -1450,7 +1537,6 @@
 
       fishBank += fishCount;
       localStorage.setItem('cyberauto_chai_bank', fishBank);
-
       if (Math.floor(score) > bestScore) {
         bestScore = Math.floor(score);
         localStorage.setItem('cyberauto_best', bestScore);
@@ -1476,38 +1562,26 @@
     document.getElementById('btn-home-settings').onclick = openSettingsModal;
     document.getElementById('btn-levels').onclick = openLevelsModal;
     document.getElementById('btn-shop').onclick = openShopModal;
-    document.getElementById('btn-missions').onclick = () => openInfoModal(
-      '📋 CAPYBARA CONTRACTS',
-      '1. Hold 2-Wheel Auto-Tilt in the Gold Zone for 5s (2x Fare)<br>2. Collect 15 Cutting Chai glasses in one run<br>3. Reach 1,000 pts to unlock SOLAR FLARE FOUNDRY!'
-    );
-    document.getElementById('btn-daily').onclick = () => openInfoModal(
-      '🍊 DAILY CHAI CHALLENGE',
-      'Grab a Neon Mystery Crate on the Maglev rails to trigger Nitro Flight, Chai Magnet, or Hydraulic Bounce Springs!'
-    );
-    document.getElementById('btn-boost-info').onclick = () => openInfoModal(
-      '🛺 HOLO-BUMPER SHIELDS',
-      `You have ${boostCount} Holo-Bumpers! Double-tap anywhere while driving (or press E) for 8 seconds of crash protection!`
-    );
+    document.getElementById('btn-missions').onclick = () => openInfoModal('📋 CAPYBARA CONTRACTS', '1. Hold 2-Wheel Auto-Tilt in the Gold Zone for 2X Score<br>2. Collect Steaming Cutting Chai glasses<br>3. Dodge Neon Hover-Pads & Laser Gates!');
+    document.getElementById('btn-daily').onclick = () => openInfoModal('☕ CHAI FUELS LEGENDS', 'Grab glowing Octahedron Orbs on the Maglev deck to trigger Nitro Flight, Chai Magnet, or Hydraulic Springs!');
+    document.getElementById('btn-boost-info').onclick = () => openInfoModal('🛡️ HOLO-BUMPER SHIELDS', `You have ${boostCount} Bumpers! Double-tap anywhere while driving for 8 seconds of crash protection!`);
     document.getElementById('btn-me').onclick = () => {
       SoundFX.autoHorn();
-      openInfoModal(
-        '🐹 CAPYBARA DRIVER PROFILE',
-        'Headgear: Lucky Yuzu Tangerine + Cyber Visor Shades<br>Ride: Twin-Rocket Yellow & Green Cyber-Auto<br>Vibe: 100% Unbothered at 300 km/h'
-      );
+      openInfoModal('🐹 TN 37 CAPY 001', 'Driver: Chill Capybara + Yuzu Tangerine + Pixel Shades<br>Ride: RE Yellow & Black Cyber-Auto<br>Motto: Chai Fuels Legends!');
     };
 
-    // ==========================================
-    // 8. MAIN ANIMATION & GAME LOOP
-    // ==========================================
+    // =========================================================
+    // 10. MAIN ANIMATION & HERO CAMERA LOOP
+    // =========================================================
     const clock = new THREE.Clock();
 
     function updatePowerupHUD() {
       const tags = [];
-      if (activePowerups.jetpack > 0) tags.push(`<span class="p-tag" style="background:#ff6d00">🚀 NITRO FLIGHT ${Math.ceil(activePowerups.jetpack)}s</span>`);
-      if (activePowerups.magnet > 0) tags.push(`<span class="p-tag" style="background:#00b4d8">🧲 CHAI MAGNET ${Math.ceil(activePowerups.magnet)}s</span>`);
-      if (activePowerups.sneakers > 0) tags.push(`<span class="p-tag" style="background:#38b000">🔩 HYDRAULICS ${Math.ceil(activePowerups.sneakers)}s</span>`);
-      if (activePowerups.shield > 0) tags.push(`<span class="p-tag" style="background:#7209b7">🛺 BUMPER ${Math.ceil(activePowerups.shield)}s</span>`);
-      if (stumbleTimer > 0) tags.push(`<span class="p-tag" style="background:#d00000">🚨 CYBER-COP ${Math.ceil(stumbleTimer)}s</span>`);
+      if (stumbleTimer > 0) tags.push(`<span class="alert-pill">🚨 CYBER-COP ${Math.ceil(stumbleTimer)}S</span>`);
+      if (activePowerups.jetpack > 0) tags.push(`<span class="alert-pill" style="background:#ff6d00">🚀 NITRO ${Math.ceil(activePowerups.jetpack)}S</span>`);
+      if (activePowerups.magnet > 0) tags.push(`<span class="alert-pill" style="background:#00b4d8">🧲 MAGNET ${Math.ceil(activePowerups.magnet)}S</span>`);
+      if (activePowerups.sneakers > 0) tags.push(`<span class="alert-pill" style="background:#38b000">🔩 SPRINGS ${Math.ceil(activePowerups.sneakers)}S</span>`);
+      if (activePowerups.shield > 0) tags.push(`<span class="alert-pill" style="background:#7209b7">🛡️ BUMPER ${Math.ceil(activePowerups.shield)}S</span>`);
       powerupBanners.innerHTML = tags.join('');
     }
 
@@ -1516,17 +1590,15 @@
       const delta = Math.min(clock.getDelta(), 0.1);
       const elapsed = clock.getElapsedTime();
 
-      // Dynamic Camera: Orbiting Capybara & Auto on HOME, Chase Cam in PLAYING
+      // CONCEPT ART HERO CAMERA: Front-3/4 angle showing the Capybara & TN 37 CAPY 001 plate clearly while looking down the Maglev roof into the skyline!
+      camera.position.lerp(new THREE.Vector3(-2.5, 9.5, 27.5), delta * 5);
+      camera.lookAt(1.5, 4.5, -25);
+
       if (gameState === 'HOME') {
-        const camX = Math.sin(elapsed * 0.55) * 9 + 17;
-        camera.position.lerp(new THREE.Vector3(camX, 17, 20), delta * 4);
-        camera.lookAt(0, 10, -2);
-        // Iconic 2-Wheel Side-Tilt ("Auto-Skiing") showcase on Home Screen!
-        bikeWheelieRig.rotation.z = 0.36 + Math.sin(elapsed * 3) * 0.05;
-        bikeWheelieRig.rotation.x = -0.10;
-      } else {
-        camera.position.lerp(new THREE.Vector3(0, 26, -38), delta * 6);
-        camera.lookAt(0, 8, 12);
+        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, LANES[2], delta * 6);
+        playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, LANE_Y[2], delta * 6);
+        bikeWheelieRig.rotation.z = -0.34 + Math.sin(elapsed * 3) * 0.04;
+        bikeWheelieRig.rotation.y = -0.28;
       }
 
       if (gameState === 'PLAYING') {
@@ -1537,27 +1609,25 @@
         if (slideTimer > 0) slideTimer = Math.max(0, slideTimer - delta);
         updatePowerupHUD();
 
-        // 2-Wheel Side-Tilt ("Auto-Skiing") Balance Physics
         if (isHoldingWheelie) {
-          wheelieMeter += delta * 56;
+          wheelieMeter += delta * 55;
         } else {
-          wheelieMeter -= delta * 36;
+          wheelieMeter -= delta * 35;
         }
-        wheelieMeter = Math.max(0, wheelieMeter);
+        wheelieMeter = Math.max(15, wheelieMeter); // Always keep a badass slight 2-wheel tilt!
 
         if (wheelieMeter >= 100) {
-          wheelieMeter = 70;
-          triggerGameOver('You tilted the Cyber-Auto past 90 degrees and rolled off the Maglev!');
+          wheelieMeter = 65;
+          triggerGameOver('Tilted past the balance point and rolled off the Maglev roof!');
           return;
         }
 
         const inSweetSpot = wheelieMeter >= 55 && wheelieMeter <= 85;
-        const mult = (inSweetSpot ? 2 : 1) * (currentLevelIdx + 1);
-        multBadge.textContent = `${mult}x`;
+        const mult = (inSweetSpot ? 2 : 1) * Math.max(1, currentLevelIdx);
+        multBadge.textContent = `${mult}X`;
         wheelieBar.style.width = `${Math.min(100, wheelieMeter)}%`;
-        wheelieBar.style.background = wheelieMeter > 85 ? '#ff007f' : (inSweetSpot ? '#ffbe0b' : '#00f5d4');
 
-        score += delta * 18 * mult;
+        score += delta * 22 * mult;
         scoreEl.textContent = Math.floor(score);
         fishEl.textContent = fishCount;
 
@@ -1575,14 +1645,14 @@
 
         const targetX = LANES[currentLane];
         const targetBaseY = LANE_Y[currentLane];
-        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, targetX, delta * 13);
+        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, targetX, delta * 12);
 
         if (activePowerups.jetpack > 0) {
-          jumpY = THREE.MathUtils.lerp(jumpY, 14, delta * 8);
+          jumpY = THREE.MathUtils.lerp(jumpY, 12, delta * 8);
           isJumping = false;
         } else if (isJumping) {
           jumpY += jumpVel * delta;
-          jumpVel -= 95 * delta;
+          jumpVel -= 92 * delta;
           if (jumpY <= 0) {
             jumpY = 0;
             isJumping = false;
@@ -1594,40 +1664,41 @@
 
         playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, targetBaseY, delta * 12) + jumpY;
 
-        // Low-rider squash when ducking under laser gates
         const targetScaleY = slideTimer > 0 ? 0.55 : 1.0;
         bikeWheelieRig.scale.y = THREE.MathUtils.lerp(bikeWheelieRig.scale.y, targetScaleY, delta * 16);
 
-        // Tilt the Auto-Rickshaw sideways onto 2 wheels (Z-axis roll) + slight nose lift!
-        bikeWheelieRig.rotation.z = (wheelieMeter / 100) * 0.78;
-        bikeWheelieRig.rotation.x = -(wheelieMeter / 100) * 0.25;
+        // Heroic 2-wheel side-tilt angle matching the concept art!
+        bikeWheelieRig.rotation.z = -(wheelieMeter / 100) * 0.65;
+        bikeWheelieRig.rotation.y = -0.24;
 
         const currentLvlObj = LEVELS[currentLevelIdx];
         spawnTimer -= delta;
         if (spawnTimer <= 0) {
           spawnWave(currentLvlObj);
-          spawnTimer = Math.max(0.42, 1.08 - currentLevelIdx * 0.1);
+          spawnTimer = Math.max(0.45, 1.05 - currentLevelIdx * 0.08);
         }
 
-        const speed = (78 + currentLevelIdx * 12) * (activePowerups.jetpack > 0 ? 1.45 : 1.0);
+        const speed = (75 + currentLevelIdx * 11) * (activePowerups.jetpack > 0 ? 1.4 : 1.0);
         updateContinuousAudioLoops(delta, speed, activePowerups, currentLvlObj);
 
+        // Entities spawn in the background skyline (-Z) and rush toward the foreground (+Z)
         for (let i = activeEntities.length - 1; i >= 0; i--) {
           const ent = activeEntities[i];
-          ent.mesh.position.z -= speed * delta;
-          if (ent.type !== 'obstacle') ent.mesh.rotation.y += delta * 3.5;
+          ent.mesh.position.z += speed * delta;
+          if (ent.type !== 'obstacle') ent.mesh.rotation.y += delta * 2.5;
 
-          if (ent.active && ent.type === 'fish' && activePowerups.magnet > 0 && ent.mesh.position.z < 55) {
+          if (ent.active && ent.type === 'fish' && activePowerups.magnet > 0 && ent.mesh.position.z > -45) {
             ent.mesh.position.x = THREE.MathUtils.lerp(ent.mesh.position.x, playerRig.position.x, delta * 9);
-            ent.mesh.position.y = THREE.MathUtils.lerp(ent.mesh.position.y, playerRig.position.y + 5, delta * 9);
+            ent.mesh.position.y = THREE.MathUtils.lerp(ent.mesh.position.y, playerRig.position.y + 4, delta * 9);
           }
 
-          if (!ent.passedSound && ent.type === 'obstacle' && ent.mesh.position.z < -2) {
+          if (!ent.passedSound && ent.type === 'obstacle' && ent.mesh.position.z > 12) {
             ent.passedSound = true;
             SoundFX.trainFlyBy();
           }
 
-          if (ent.active && ent.mesh.position.z < 4.2 && ent.mesh.position.z > -6.2) {
+          // Hitbox check around Auto-Rickshaw Z position (Z = 6 to 14)
+          if (ent.active && ent.mesh.position.z > 6.5 && ent.mesh.position.z < 14.5) {
             const xDist = Math.abs(playerRig.position.x - ent.mesh.position.x);
             if (xDist < 3.6) {
               if (ent.type === 'fish') {
@@ -1649,27 +1720,21 @@
                   SoundFX.autoHorn();
                 }
                 activePowerups[chosen] = 9.0;
-                const labels = {
-                  jetpack: '🚀 NITRO FLIGHT',
-                  magnet: '🧲 CHAI MAGNET',
-                  sneakers: '🔩 HYDRAULIC SPRINGS',
-                  shield: '🛺 HOLO-BUMPER'
-                };
-                showToast(`${labels[chosen] || chosen} ACTIVE!`);
+                showToast(`⚡ ${chosen.toUpperCase()} ACTIVATED!`);
               } else if (ent.type === 'obstacle' && activePowerups.jetpack <= 0) {
                 const hitHigh = ent.highBarrier && slideTimer <= 0;
-                const hitLow = !ent.highBarrier && jumpY < 4.5;
+                const hitLow = !ent.highBarrier && jumpY < 4.2;
                 if (hitHigh || hitLow) {
                   ent.active = false;
                   scene.remove(ent.mesh);
-                  triggerGameOver(ent.highBarrier ? 'Clipped an overhead Neon Toll Laser! (Swipe Down to Duck!)' : 'Smashed into a Cyber-Cop Barricade! (Swipe Up to Bunny-Hop!)');
+                  triggerGameOver(ent.highBarrier ? 'Clipped an overhead Neon Laser Gate! (Swipe Down to Duck!)' : 'Hit a Floating Neon Hover-Barricade! (Swipe Up to Bunny-Hop!)');
                   return;
                 }
               }
             }
           }
 
-          if (ent.mesh.position.z < -45) {
+          if (ent.mesh.position.z > 35) {
             scene.remove(ent.mesh);
             activeEntities.splice(i, 1);
           }
@@ -1677,27 +1742,29 @@
       }
 
       if (gameState !== 'PAUSED') {
-        masterRig.position.y = Math.sin(elapsed * 2.5) * 0.35;
-        rearWheel.rotation.x += delta * 20;
-        frontWheel.rotation.x += delta * 20;
+        rearWheel.children.forEach(w => w.rotation.x += delta * 22);
+        frontWheel.rotation.x += delta * 22;
 
-        scarfVoxels.forEach(({ mesh, index }) => {
-          mesh.position.y = 10 + Math.sin(elapsed * 18 - index * 0.6) * (0.16 * index);
+        // Animate Maglev roof ribs rushing toward foreground (+Z)
+        trainSegments.forEach(seg => {
+          seg.position.z += 65 * delta;
+          if (seg.position.z > 50) seg.position.z -= 220;
         });
 
-        flameVoxels.forEach(f => {
-          const s = (0.75 + Math.sin(elapsed * 28 + f.phase) * 0.25) * (activePowerups.jetpack > 0 ? 1.5 : 1.0);
-          f.mesh.scale.set(s, s, s);
+        // Animate Cyberpunk Skyline & Billboards
+        cityStructures.forEach(c => {
+          c.group.position.z += c.speed * delta;
+          if (c.group.position.z > 45) c.group.position.z -= 280;
         });
 
-        clouds.forEach(c => {
-          c.group.position.z -= c.speed * delta;
-          if (c.group.position.z < -90) c.group.position.z = 130;
-        });
-
-        speedLines.forEach(line => {
-          line.mesh.position.z -= line.speed * delta;
-          if (line.mesh.position.z < -70) line.mesh.position.z = 110;
+        // Animate Tire Sparks & Flowing Pink Scarf
+        sparkParticles.forEach(sp => {
+          if (sp.isScarf) {
+            sp.mesh.position.y = 2.1 + Math.sin(elapsed * 18 - sp.index * 0.6) * (0.14 * sp.index);
+          } else {
+            const s = 0.6 + Math.sin(elapsed * 35 + sp.phase) * 0.4;
+            sp.mesh.scale.set(s, s, s);
+          }
         });
       }
 
