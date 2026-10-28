@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Cyber-Auto: Mumbai Metro Drift</title>
+  <title>Mumbai Auto: Metro Velocity</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -11,8 +11,8 @@
       --neon-cyan: #00f5d4;
       --neon-pink: #ff007f;
       --neon-gold: #ffbe0b;
-      --glass-bg: rgba(14, 18, 34, 0.76);
-      --glass-border: rgba(255, 190, 11, 0.55);
+      --glass-bg: rgba(12, 16, 32, 0.82);
+      --glass-border: rgba(255, 190, 11, 0.65);
       --bpm-scale: 1;
     }
     * {
@@ -37,7 +37,7 @@
     }
 
     /* =================================================================
-       DYNAMIC ISLAND HUD (TOP CENTER)
+       SPIDER-VERSE x SUBWAY SURFERS DYNAMIC ISLAND HUD
        ================================================================= */
     #hud {
       position: absolute;
@@ -62,13 +62,14 @@
 
     #dynamic-island {
       flex: 1;
-      max-width: 345px;
+      max-width: 350px;
       margin: 0 auto;
       background: var(--glass-bg);
       backdrop-filter: blur(20px) saturate(190%);
       -webkit-backdrop-filter: blur(20px) saturate(190%);
-      border: 2px solid var(--glass-border);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55), 0 0 16px rgba(255, 190, 11, 0.25);
+      border: 2.5px solid #000;
+      outline: 2px solid var(--neon-gold);
+      box-shadow: 0 6px 0 #000, 0 10px 24px rgba(0, 0, 0, 0.6);
       border-radius: 999px;
       padding: 7px 16px;
       display: flex;
@@ -77,7 +78,7 @@
       gap: 10px;
       pointer-events: auto;
       transform: scale(var(--bpm-scale));
-      transition: border-color 0.3s ease, transform 0.08s ease;
+      transition: outline-color 0.3s ease, transform 0.08s ease;
     }
 
     .island-left {
@@ -87,34 +88,37 @@
     }
     .mult-orb {
       background: linear-gradient(135deg, #ffbe0b 0%, #fb5607 100%);
-      color: #03071e;
+      color: #000;
+      border: 2px solid #000;
       font-family: 'Fredoka', sans-serif;
       font-size: 13px;
       font-weight: 700;
-      padding: 3px 9px;
+      padding: 2px 8px;
       border-radius: 999px;
-      box-shadow: 0 0 10px rgba(255, 190, 11, 0.7);
+      box-shadow: 0 2px 0 #000;
     }
     .zone-micro-tag {
       font-size: 10px;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.85);
+      font-weight: 900;
+      color: #00f5d4;
       letter-spacing: 0.6px;
       text-transform: uppercase;
+      text-shadow: 1px 1px 0 #000;
     }
 
     .island-score {
       font-family: 'Fredoka', sans-serif;
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: #ffffff;
-      text-shadow: 0 2px 8px rgba(251, 86, 7, 0.85);
+      -webkit-text-stroke: 1.2px #000;
+      text-shadow: 0 3px 0 #ff007f;
       font-variant-numeric: tabular-nums;
       transition: transform 0.08s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .island-score.bump {
-      transform: scale(1.18);
+      transform: scale(1.22) rotate(-2deg);
       color: #ffbe0b;
     }
 
@@ -123,28 +127,28 @@
       align-items: center;
       gap: 8px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       color: #ffbe0b;
+      text-shadow: 1px 1px 0 #000;
     }
 
     .glass-pause-btn {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      border: 2px solid rgba(255, 255, 255, 0.35);
-      color: #fff;
+      background: #ffbe0b;
+      border: 2.5px solid #000;
+      color: #000;
       font-weight: 900;
-      font-size: 14px;
+      font-size: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       pointer-events: auto;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+      box-shadow: 0 4px 0 #000;
     }
-    .glass-pause-btn:active { transform: scale(0.92); }
+    .glass-pause-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #000; }
 
     #powerup-banners {
       display: flex;
@@ -154,21 +158,20 @@
       justify-content: center;
     }
     .spatial-pill {
-      background: rgba(14, 18, 34, 0.88);
-      backdrop-filter: blur(12px);
-      border: 1.5px solid #ffbe0b;
+      background: #ff007f;
+      border: 2px solid #000;
       border-radius: 999px;
       padding: 4px 12px;
       font-size: 10px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.6px;
       color: #fff;
       text-transform: uppercase;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+      box-shadow: 0 3px 0 #000;
     }
 
     /* =================================================================
-       HOME SCREEN (WELL-FRAMED 360° TURNTABLE + MUMBAI METRO THEME)
+       HOME SCREEN (COMIC STYLIZED TURNTABLE + MUMBAI METRO)
        ================================================================= */
     #home-screen {
       position: absolute;
@@ -191,17 +194,18 @@
     }
     .currency-glass-pill {
       background: var(--glass-bg);
-      backdrop-filter: blur(18px) saturate(180%);
-      border: 1.5px solid var(--glass-border);
+      backdrop-filter: blur(16px);
+      border: 2.5px solid #000;
+      outline: 2px solid var(--neon-cyan);
       border-radius: 999px;
       padding: 6px 14px;
       display: flex;
       align-items: center;
       gap: 12px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       color: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+      box-shadow: 0 5px 0 #000;
     }
 
     .brand-header {
@@ -216,37 +220,41 @@
       width: 54px;
       height: 54px;
       border-radius: 15px;
-      border: 2px solid #ffbe0b;
-      box-shadow: 0 0 18px rgba(255, 190, 11, 0.65);
-      margin-bottom: 5px;
+      border: 2.5px solid #000;
+      outline: 2px solid #ffbe0b;
+      box-shadow: 0 4px 0 #000;
+      margin-bottom: 6px;
       object-fit: cover;
     }
     .Zone-pill-badge {
-      background: rgba(251, 86, 7, 0.28);
-      border: 1px solid #ffbe0b;
-      color: #ffe599;
+      background: #ff007f;
+      border: 2px solid #000;
+      color: #fff;
       padding: 3px 12px;
       border-radius: 999px;
       font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.4px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       margin-bottom: 4px;
+      box-shadow: 0 3px 0 #000;
     }
     .modern-title {
       font-family: 'Fredoka', sans-serif;
-      font-size: clamp(28px, 8vw, 42px);
-      line-height: 0.96;
-      color: #ffffff;
+      font-size: clamp(30px, 8.5vw, 44px);
+      line-height: 0.94;
+      color: #ffbe0b;
       text-transform: uppercase;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+      -webkit-text-stroke: 2px #000;
+      text-shadow: 0 5px 0 #000;
+      transform: rotate(-2deg);
     }
     .modern-title .sub-glow {
       display: block;
-      font-size: clamp(20px, 5.8vw, 30px);
-      background: linear-gradient(90deg, #ffbe0b 0%, #fb5607 50%, #00f5d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: clamp(22px, 6.2vw, 32px);
+      color: #00f5d4;
+      -webkit-text-stroke: 1.8px #000;
+      text-shadow: 0 4px 0 #000;
     }
 
     #turntable-drag-zone {
@@ -256,21 +264,21 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      padding-bottom: 12px;
+      padding-bottom: 10px;
       pointer-events: auto;
       cursor: grab;
     }
     .turntable-hint {
-      background: rgba(10, 14, 28, 0.68);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 190, 11, 0.35);
+      background: rgba(10, 14, 28, 0.85);
+      border: 2px solid #000;
       border-radius: 999px;
       padding: 4px 14px;
       font-size: 10px;
-      font-weight: 800;
+      font-weight: 900;
       color: #ffbe0b;
       letter-spacing: 0.8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 3px 0 #000;
     }
 
     .thumb-zone-footer {
@@ -285,23 +293,22 @@
     .launch-run-btn {
       width: 100%;
       max-width: 310px;
-      background: linear-gradient(135deg, #ffbe0b 0%, #fb5607 55%, #e63946 100%);
-      border: 2.5px solid #ffffff;
+      background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
+      border: 3px solid #000;
       border-radius: 999px;
-      padding: 14px 26px;
+      padding: 13px 26px;
       font-family: 'Fredoka', sans-serif;
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 700;
-      color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.45);
+      color: #000;
       letter-spacing: 0.8px;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(251, 86, 7, 0.55), inset 0 2px 0 rgba(255, 255, 255, 0.45);
+      box-shadow: 0 6px 0 #000, 0 10px 20px rgba(251, 86, 7, 0.5);
       cursor: pointer;
       transform: scale(var(--bpm-scale));
       transition: transform 0.08s ease;
     }
-    .launch-run-btn:active { transform: scale(0.95); }
+    .launch-run-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #000; }
 
     .floating-glass-dock {
       display: flex;
@@ -310,29 +317,30 @@
       width: 100%;
       max-width: 360px;
       background: var(--glass-bg);
-      backdrop-filter: blur(20px) saturate(190%);
-      border: 1.5px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      border: 2.5px solid #000;
+      outline: 2px solid var(--neon-cyan);
       border-radius: 24px;
       padding: 8px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 0 #000;
     }
     .dock-pill-item {
       flex: 1;
       border-radius: 16px;
-      padding: 8px 6px;
+      padding: 7px 6px;
       text-align: center;
       cursor: pointer;
       transition: background 0.2s ease, transform 0.1s ease;
     }
     .dock-pill-item:active {
-      background: rgba(255, 190, 11, 0.2);
+      background: rgba(255, 190, 11, 0.25);
       transform: scale(0.94);
     }
     .dock-pill-icon { font-size: 18px; display: block; margin-bottom: 2px; }
     .dock-pill-txt {
       font-size: 10px;
-      font-weight: 800;
-      color: #f8fafc;
+      font-weight: 900;
+      color: #fff;
       letter-spacing: 0.6px;
       text-transform: uppercase;
     }
@@ -343,7 +351,7 @@
     .modal-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(3, 5, 14, 0.74);
+      background: rgba(3, 5, 14, 0.78);
       backdrop-filter: blur(8px);
       display: flex;
       justify-content: center;
@@ -353,10 +361,9 @@
     .modal-backdrop.hidden { display: none; }
 
     .bottom-sheet-card {
-      background: linear-gradient(180deg, rgba(22, 26, 48, 0.96) 0%, rgba(10, 12, 24, 0.99) 100%);
-      backdrop-filter: blur(24px);
-      border-top: 2.5px solid #ffbe0b;
-      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.7);
+      background: #14182e;
+      border-top: 4px solid #ffbe0b;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
       border-radius: 28px 28px 0 0;
       padding: 12px 22px max(24px, env(safe-area-inset-bottom)) 22px;
       width: 100%;
@@ -373,61 +380,61 @@
     .sheet-drag-handle {
       width: 44px;
       height: 5px;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.35);
       border-radius: 999px;
       margin: 0 auto 14px auto;
     }
     .bottom-sheet-card h2 {
       font-family: 'Fredoka', sans-serif;
       color: #ffbe0b;
-      font-size: 21px;
+      font-size: 22px;
       margin-bottom: 8px;
+      -webkit-text-stroke: 1px #000;
     }
     .bottom-sheet-card p {
       font-size: 13px;
-      color: #cbd5e1;
+      color: #e2e8f0;
       line-height: 1.5;
       margin-bottom: 16px;
+      font-weight: 700;
     }
     .sheet-btn-col { display: flex; flex-direction: column; gap: 10px; }
     .sheet-btn {
-      background: linear-gradient(135deg, #ffbe0b 0%, #fb5607 100%);
-      color: #fff;
-      border: none;
-      padding: 13px 20px;
+      background: #ffbe0b;
+      color: #000;
+      border: 2.5px solid #000;
+      padding: 12px 20px;
       font-family: 'Fredoka', sans-serif;
       font-size: 15px;
       font-weight: 700;
       border-radius: 16px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(251, 86, 7, 0.4);
+      box-shadow: 0 4px 0 #000;
     }
     .sheet-btn.pink {
-      background: linear-gradient(135deg, #00f5d4 0%, #0096c7 100%);
-      color: #03071e;
+      background: #00f5d4;
+      color: #000;
     }
     .sheet-btn.ghost {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: none;
     }
     .setting-row, .level-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 190, 11, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid #000;
       padding: 10px 14px;
       border-radius: 14px;
       margin-bottom: 8px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       text-align: left;
     }
     .level-item.active {
-      border: 2px solid #ffbe0b;
-      background: rgba(255, 190, 11, 0.16);
+      border: 2.5px solid #ffbe0b;
+      background: rgba(255, 190, 11, 0.2);
     }
     .livery-grid {
       display: grid;
@@ -436,8 +443,8 @@
       margin-bottom: 14px;
     }
     .livery-swatch {
-      background: rgba(255,255,255,0.06);
-      border: 2px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      border: 2px solid #000;
       border-radius: 14px;
       padding: 10px 6px;
       cursor: pointer;
@@ -445,8 +452,9 @@
       font-weight: 800;
       color: #fff;
     }
-    .livery-swatch.active { border-color: #ffbe0b; background: rgba(255, 190, 11, 0.2); }
+    .livery-swatch.active { border: 2.5px solid #ffbe0b; background: rgba(255, 190, 11, 0.22); }
 
+    /* SPIDER-VERSE COMIC IMPACT POPUPS */
     #floating-popups {
       position: absolute;
       inset: 0;
@@ -457,32 +465,33 @@
     .combo-pop {
       position: absolute;
       left: 50%;
-      top: 52%;
+      top: 50%;
       font-family: 'Fredoka', sans-serif;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       color: #ffbe0b;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
-      animation: floatUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      -webkit-text-stroke: 1.5px #000;
+      text-shadow: 3px 4px 0 #ff007f;
+      animation: comicPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    @keyframes floatUpFade {
-      0% { transform: translate(-50%, 0) scale(0.6); opacity: 1; }
-      50% { transform: translate(-50%, -38px) scale(1.2); opacity: 1; }
-      100% { transform: translate(-50%, -72px) scale(0.95); opacity: 0; }
+    @keyframes comicPop {
+      0% { transform: translate(-50%, 0) scale(0.4) rotate(-8deg); opacity: 1; }
+      45% { transform: translate(-50%, -42px) scale(1.3) rotate(4deg); opacity: 1; }
+      100% { transform: translate(-50%, -78px) scale(0.95) rotate(-2deg); opacity: 0; }
     }
     #event-toast {
       position: absolute;
       top: 96px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      border: 1.5px solid #ffbe0b;
-      padding: 7px 18px;
+      background: #ffbe0b;
+      border: 2.5px solid #000;
+      box-shadow: 0 4px 0 #000;
+      padding: 6px 18px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 800;
-      color: #ffbe0b;
+      font-weight: 900;
+      color: #000;
       z-index: 18;
       pointer-events: none;
       opacity: 0;
@@ -493,13 +502,13 @@
   </style>
 
   <script src="three.min.js" onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';"></script>
+  <script src="GLTFLoader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';"></script>
   <script src="CopyShader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js';"></script>
   <script src="LuminosityHighPassShader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js';"></script>
   <script src="EffectComposer.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js';"></script>
   <script src="RenderPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js';"></script>
   <script src="ShaderPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js';"></script>
   <script src="UnrealBloomPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js';"></script>
-  <script src="GLTFLoader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';"></script>
 </head>
 <body>
 
@@ -571,7 +580,7 @@
   </div>
 
   <div id="floating-popups"></div>
-  <div id="event-toast">CUTTING CHAI POWER!</div>
+  <div id="event-toast">JHAKAAS DRIFT!</div>
 
   <!-- SWIPE-DOWN BOTTOM DRAWER SHEET -->
   <div id="modal-backdrop" class="modal-backdrop hidden">
@@ -598,9 +607,9 @@
     };
 
     const LIVERIES = [
-      { name: 'Mumbai Kaali-Peeli', hex: 0xffbe0b, baseHex: 0x11131a, accent: '#ffbe0b' },
-      { name: 'Bandra Neon Pink', hex: 0xff007f, baseHex: 0x190a28, accent: '#ff007f' },
-      { name: 'Worli Sea-Link Cyan', hex: 0x00f5d4, baseHex: 0x081c24, accent: '#00f5d4' }
+      { name: 'Mumbai Kaali-Peeli', hex: 0xffbe0b, baseHex: 0x14161f, accent: '#ffbe0b' },
+      { name: 'Bandra Neon Pink', hex: 0xff007f, baseHex: 0x1c0b2b, accent: '#ff007f' },
+      { name: 'Worli Sea-Link Cyan', hex: 0x00f5d4, baseHex: 0x091e26, accent: '#00f5d4' }
     ];
 
     function ensureAudio() {
@@ -628,7 +637,7 @@
 
         const s = this.step % 16;
         if (s === 0 || s === 4 || s === 8 || s === 12) {
-          bpmPulseValue = 1.032;
+          bpmPulseValue = 1.035;
           SoundFX._tone(130, 'sine', 0.11, 36, 0.14);
         }
         if (s === 4 || s === 12) {
@@ -743,7 +752,7 @@
     ];
 
     // =========================================================================
-    // 3. THREE.JS SCENE SETUP & SUBWAY SURFERS CURVED WORLD SHADER
+    // 3. THREE.JS SCENE SETUP + SPIDER-VERSE TOON RAMP & INVERTED HULL OUTLINES
     // =========================================================================
     const container = document.getElementById('canvas-container');
     const scene = new THREE.Scene();
@@ -753,8 +762,9 @@
     const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMapping = THREE.LinearToneMapping;
     renderer.toneMappingExposure = 1.0;
+    renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
@@ -765,9 +775,9 @@
       const renderScene = new THREE.RenderPass(scene, camera);
       bloomPass = new THREE.UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.32, // Clean, subtle bloom so models stay sharp!
+        0.28,
         0.4,
-        0.90
+        0.88
       );
       composer = new THREE.EffectComposer(renderer);
       composer.addPass(renderScene);
@@ -794,6 +804,37 @@
       return material;
     }
 
+    // 3-Step Cel-Shading Gradient Ramp Texture (Direction 1: Spider-Verse / Hi-Fi Rush look!)
+    const toonGradientMap = (function createToonRamp() {
+      const colors = new Uint8Array([85, 165, 255]);
+      const tex = new THREE.DataTexture(colors, 3, 1, THREE.LuminanceFormat);
+      tex.minFilter = THREE.NearestFilter;
+      tex.magFilter = THREE.NearestFilter;
+      tex.needsUpdate = true;
+      return tex;
+    })();
+
+    const comicOutlineMat = new THREE.MeshBasicMaterial({ color: 0x08070c, side: THREE.BackSide });
+    function addComicOutline(mesh, thickness = 1.06) {
+      const outline = new THREE.Mesh(mesh.geometry, comicOutlineMat);
+      outline.scale.set(thickness, thickness, thickness);
+      mesh.add(outline);
+      return mesh;
+    }
+
+    // Soft Ground Contact Shadow Blob Texture (Direction 3: Eliminates floating look!)
+    const contactShadowTex = (function createContactShadowTexture() {
+      const c = document.createElement('canvas'); c.width = 128; c.height = 128;
+      const ctx = c.getContext('2d');
+      const grad = ctx.createRadialGradient(64, 64, 8, 64, 64, 60);
+      grad.addColorStop(0.0, 'rgba(0, 0, 0, 0.78)');
+      grad.addColorStop(0.55, 'rgba(0, 0, 0, 0.42)');
+      grad.addColorStop(1.0, 'rgba(0, 0, 0, 0.0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 128, 128);
+      return new THREE.CanvasTexture(c);
+    })();
+
     let skyDomeMat = null;
     function updateSkyDomeTexture(topHex, midHex, botHex) {
       const c = document.createElement('canvas'); c.width = 64; c.height = 512;
@@ -811,29 +852,28 @@
     }
     updateSkyDomeTexture('#160d2e', '#6b1d5c', '#ff7b00');
 
-    scene.add(new THREE.AmbientLight(0xffe8d6, 0.85));
-    const sunLight = new THREE.DirectionalLight(0xffd280, 1.25);
-    sunLight.position.set(25, 65, 35);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+    const sunLight = new THREE.DirectionalLight(0xfffaed, 0.70);
+    sunLight.position.set(25, 60, 35);
     sunLight.castShadow = true;
     scene.add(sunLight);
 
-    // Warm street lantern light from Left (Slums) & Cool cyan glass reflection from Right (High-Rises)
-    const slumWarmLight = new THREE.PointLight(0xff9e00, 2.0, 75);
+    const slumWarmLight = new THREE.PointLight(0xff9e00, 0.85, 75);
     slumWarmLight.position.set(-14, 10, 8);
     scene.add(slumWarmLight);
 
-    const towerCoolLight = new THREE.PointLight(0x00f5d4, 2.0, 75);
+    const towerCoolLight = new THREE.PointLight(0x00f5d4, 0.85, 75);
     towerCoolLight.position.set(14, 14, 8);
     scene.add(towerCoolLight);
 
     // =========================================================================
-    // 4. PROCEDURAL TEXTURES FOR MUMBAI VIADUCT, SLUMS & LUXURY TOWERS
+    // 4. PROCEDURAL TEXTURES FOR MUMBAI VIADUCT, HINDI NEON SIGNS & TOWERS
     // =========================================================================
     function makeTextCanvasTexture(bgHex, borderHex, lines, width = 512, height = 256, textColor = '#000') {
       const c = document.createElement('canvas'); c.width = width; c.height = height;
       const ctx = c.getContext('2d');
       ctx.fillStyle = bgHex; ctx.fillRect(0, 0, width, height);
-      if (borderHex) { ctx.strokeStyle = borderHex; ctx.lineWidth = 12; ctx.strokeRect(6, 6, width - 12, height - 12); }
+      if (borderHex) { ctx.strokeStyle = borderHex; ctx.lineWidth = 14; ctx.strokeRect(7, 7, width - 14, height - 14); }
       ctx.fillStyle = textColor; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const fontSize = Math.floor(height / (lines.length + 0.75));
       ctx.font = `900 ${fontSize}px "Arial Black", Impact, sans-serif`;
@@ -841,30 +881,29 @@
       return new THREE.CanvasTexture(c);
     }
 
-    // Mumbai Metro Flat Concrete & Ballast 3-Lane Track Texture
     function makeMumbaiMetroTrackTexture() {
       const c = document.createElement('canvas'); c.width = 512; c.height = 512;
       const ctx = c.getContext('2d');
-      ctx.fillStyle = '#2b2d38';
+      ctx.fillStyle = '#252834';
       ctx.fillRect(0, 0, 512, 512);
 
-      // Concrete sleep ties across the 3 lanes
-      ctx.fillStyle = '#1e2029';
+      // Halftone / ballast texture grit
+      ctx.fillStyle = '#1b1d26';
       for (let y = 0; y < 512; y += 32) {
-        ctx.fillRect(16, y, 480, 14);
+        ctx.fillRect(14, y, 484, 15);
       }
 
-      // 3 pairs of steel metro rails (Left Lane, Center Lane, Right Lane)
-      ctx.fillStyle = '#94a3b8';
+      // 3 pairs of shiny steel metro rails
+      ctx.fillStyle = '#cbd5e1';
       [55, 115, 226, 286, 397, 457].forEach(rx => {
-        ctx.fillRect(rx, 0, 8, 512);
+        ctx.fillRect(rx, 0, 9, 512);
       });
 
-      // Yellow/Black hazard lane dividers
+      // Comic bold yellow/black lane stripes
       ctx.fillStyle = '#ffbe0b';
       for (let y = 0; y < 512; y += 64) {
-        ctx.fillRect(168, y, 8, 36);
-        ctx.fillRect(336, y, 8, 36);
+        ctx.fillRect(168, y, 10, 38);
+        ctx.fillRect(334, y, 10, 38);
       }
 
       const tex = new THREE.CanvasTexture(c);
@@ -874,7 +913,6 @@
       return tex;
     }
 
-    // Luxury BKC Glass Skyscraper Facade Texture (Right Side)
     function makeLuxuryTowerTexture() {
       const c = document.createElement('canvas'); c.width = 256; c.height = 512;
       const ctx = c.getContext('2d');
@@ -884,11 +922,10 @@
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, 256, 512);
 
-      // Sleek vertical glass curtain-wall mullions & warm penthouse lights
       for (let y = 8; y < 500; y += 14) {
         for (let x = 8; x < 244; x += 22) {
           const lit = Math.random() < 0.65;
-          ctx.fillStyle = lit ? (Math.random() < 0.3 ? '#ffea9f' : '#64ffda') : '#172a45';
+          ctx.fillStyle = lit ? (Math.random() < 0.35 ? '#ffea9f' : '#00f5d4') : '#172a45';
           ctx.fillRect(x, y, 16, 10);
         }
       }
@@ -898,25 +935,12 @@
       return tex;
     }
 
-    // Capybara Coarse Fur Grain Texture
-    function makeCapyFurTexture() {
-      const c = document.createElement('canvas'); c.width = 128; c.height = 128;
-      const ctx = c.getContext('2d');
-      ctx.fillStyle = '#9c5a25';
-      ctx.fillRect(0, 0, 128, 128);
-      for (let i = 0; i < 600; i++) {
-        ctx.fillStyle = i % 2 === 0 ? '#854718' : '#b56e33';
-        ctx.fillRect(Math.random() * 128, Math.random() * 128, 2, 5);
-      }
-      return new THREE.CanvasTexture(c);
-    }
-
     const masterRig = new THREE.Group(); scene.add(masterRig);
     const jetGroup = new THREE.Group(); masterRig.add(jetGroup);
     const playerRig = new THREE.Group(); jetGroup.add(playerRig);
 
     // =========================================================================
-    // 5. FLAT ELEVATED MUMBAI METRO CONCRETE VIADUCT (ZERO FLOATING OBSTACLES!)
+    // 5. FLAT MUMBAI METRO VIADUCT + HINDI/ENGLISH NEON SIGNS
     // =========================================================================
     const trainSegments = [];
     const metroTrackTex = makeMumbaiMetroTrackTexture();
@@ -924,55 +948,63 @@
     (function buildMumbaiMetroViaduct() {
       const trackSurfaceMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
         map: metroTrackTex,
-        roughness: 0.65,
-        metalness: 0.25
+        roughness: 0.45,
+        metalness: 0.35
       }));
-      const concreteMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
+      const concreteMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({
         color: 0x64748b,
-        roughness: 0.85,
-        metalness: 0.1
+        gradientMap: toonGradientMap
       }));
       const yellowStripeMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffbe0b }));
       const cyanNeonMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0x00f5d4 }));
 
-      // FLAT Viaduct Roadbed Box (Top surface is exactly at Y = 0.0 across all 3 lanes!)
+      const signTexChai = makeTextCanvasTexture('#1a0826', '#ffbe0b', ['कटिंग चाय ₹10', 'GARMA GARAM ☕'], 256, 128, '#ffbe0b');
+      const signTexMetro = makeTextCanvasTexture('#061a2e', '#00f5d4', ['मुंबई मेट्रो', 'BKC FAST LINE'], 256, 128, '#00f5d4');
+      const signMatChai = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ map: signTexChai, side: THREE.DoubleSide }));
+      const signMatMetro = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ map: signTexMetro, side: THREE.DoubleSide }));
+
       const roadbedGeo = new THREE.BoxGeometry(13.2, 2.4, 290, 12, 1, 56);
       const roadbed = new THREE.Mesh(roadbedGeo, trackSurfaceMat);
       roadbed.position.set(0, -1.2, -90);
       roadbed.receiveShadow = true;
       jetGroup.add(roadbed);
 
-      // Left & Right Concrete Viaduct Parapet Guard Walls
       [-6.8, 6.8].forEach((wx, idx) => {
         const wall = new THREE.Mesh(new THREE.BoxGeometry(0.65, 1.5, 290, 1, 1, 56), concreteMat);
         wall.position.set(wx, 0.45, -90);
         jetGroup.add(wall);
 
-        const topRail = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.2, 290, 1, 1, 56), idx === 0 ? yellowStripeMat : cyanNeonMat);
+        const topRail = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.22, 290, 1, 1, 56), idx === 0 ? yellowStripeMat : cyanNeonMat);
         topRail.position.set(wx, 1.25, -90);
         jetGroup.add(topRail);
       });
 
-      // Overhead Metro Electric Catenary Gantry Arches & Concrete Pillars every 18 units
-      for (let z = -220; z <= 40; z += 18) {
+      for (let z = -220; z <= 8; z += 18) {
         const seg = new THREE.Group();
         seg.position.z = z;
 
-        // Concrete Viaduct Pier Column underneath
         const pier = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 2.2, 26, 12), concreteMat);
         pier.position.set(0, -15, 0);
         seg.add(pier);
 
-        // Overhead Steel Catenary Masts on Left & Right Walls
         [-6.8, 6.8].forEach(mx => {
           const mast = new THREE.Mesh(new THREE.BoxGeometry(0.35, 9.5, 0.35), concreteMat);
           mast.position.set(mx, 5.5, 0);
           seg.add(mast);
         });
-        // Overhead Cross-Beam Wire Support (High at Y = 10.2 so player never hits it)
-        const crossBeam = new THREE.Mesh(new THREE.BoxGeometry(14.2, 0.3, 0.3), concreteMat);
+
+        const crossBeam = new THREE.Mesh(new THREE.BoxGeometry(14.2, 0.32, 0.32), concreteMat);
         crossBeam.position.set(0, 10.2, 0);
         seg.add(crossBeam);
+
+        // Trackside Hindi/English Neon Signs hanging from the gantry masts!
+        if (Math.abs(z) % 36 === 0) {
+          const leftSign = new THREE.Mesh(new THREE.PlaneGeometry(3.8, 1.9), signMatChai);
+          leftSign.position.set(-5.0, 8.2, 0.2);
+          const rightSign = new THREE.Mesh(new THREE.PlaneGeometry(3.8, 1.9), signMatMetro);
+          rightSign.position.set(5.0, 8.2, 0.2);
+          seg.add(leftSign, rightSign);
+        }
 
         jetGroup.add(seg);
         trainSegments.push(seg);
@@ -980,39 +1012,72 @@
     })();
 
     // =========================================================================
-    // 6. SCULPTED INDIAN AUTO-RICKSHAW ("TN 41 CAPY 001") & BOXY CAPYBARA
+    // 6. BEVELED CEL-SHADED BAJAJ RE AUTO & SCULPTED CAPYBARA + CONTACT SHADOW
     // =========================================================================
     const bikeWheelieRig = new THREE.Group();
-    bikeWheelieRig.position.set(0, 0.0, 9.2); // Sits flush on Y = 0.0 viaduct deck!
+    bikeWheelieRig.position.set(0, 0.0, 9.2);
     bikeWheelieRig.scale.set(0.62, 0.62, 0.62);
     playerRig.add(bikeWheelieRig);
+
+    // Ground Contact Shadow Decal (Stays on Y = 0.03 track surface even when Auto jumps!)
+    const vehicleContactShadow = new THREE.Mesh(
+      new THREE.PlaneGeometry(5.2, 6.8),
+      new THREE.MeshBasicMaterial({ map: contactShadowTex, transparent: true, opacity: 0.85, depthWrite: false })
+    );
+    vehicleContactShadow.rotation.x = -Math.PI / 2;
+    vehicleContactShadow.position.set(0, 0.03, 9.2);
+    playerRig.add(vehicleContactShadow);
 
     const autoVisualGroup = new THREE.Group();
     bikeWheelieRig.add(autoVisualGroup);
 
     const sparkParticles = [], pickupBurstParticles = [], thrusterFlames = [];
-    let rearWheel, frontWheel, pelicanGroup, autoLiveryMaterial, autoBaseMaterial, diegeticTiltArc, turntableRing;
+    let rearWheel, frontWheel, pelicanGroup, capyEyelids = [], autoLiveryMaterial, autoBaseMaterial, diegeticTiltArc, turntableRing;
+    let leftTireTrail, rightTireTrail;
 
-    (function buildTrueIndianAutoAndCapybara() {
-      autoLiveryMaterial = new THREE.MeshStandardMaterial({ color: LIVERIES[0].hex, roughness: 0.22, metalness: 0.25 });
-      autoBaseMaterial = new THREE.MeshStandardMaterial({ color: LIVERIES[0].baseHex, roughness: 0.3, metalness: 0.35 });
-      const rexineBlackMat = new THREE.MeshStandardMaterial({ color: 0x1a1c24, roughness: 0.75, metalness: 0.08 });
-      const chromeMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.12, metalness: 0.92 });
-      const glassMat = new THREE.MeshStandardMaterial({ color: 0x99e6ff, transparent: true, opacity: 0.42, roughness: 0.08 });
-      const tireMat = new THREE.MeshStandardMaterial({ color: 0x111217, roughness: 0.85 });
-      const seatLeatherMat = new THREE.MeshStandardMaterial({ color: 0x5c2c16, roughness: 0.6 });
+    // Helper: Create Beveled Rounded 3D Box so nothing has sharp Lego 90-degree edges!
+    function createRoundedBoxGeo(w, h, d, bevel = 0.22) {
+      const shape = new THREE.Shape();
+      const hw = (w - bevel * 2) / 2;
+      const hh = (h - bevel * 2) / 2;
+      shape.moveTo(-hw, -hh);
+      shape.lineTo(hw, -hh);
+      shape.lineTo(hw, hh);
+      shape.lineTo(-hw, hh);
+      shape.closePath();
+      const geo = new THREE.ExtrudeGeometry(shape, {
+        depth: Math.max(0.1, d - bevel * 2),
+        bevelEnabled: true,
+        bevelSegments: 4,
+        steps: 1,
+        bevelSize: bevel,
+        bevelThickness: bevel
+      });
+      geo.center();
+      return geo;
+    }
+
+    (function buildCelShadedAutoAndCapybara() {
+      autoLiveryMaterial = new THREE.MeshToonMaterial({ color: LIVERIES[0].hex, gradientMap: toonGradientMap });
+      autoBaseMaterial = new THREE.MeshToonMaterial({ color: LIVERIES[0].baseHex, gradientMap: toonGradientMap });
+      const rexineBlackMat = new THREE.MeshToonMaterial({ color: 0x1e222d, gradientMap: toonGradientMap });
+      const chromeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.12, metalness: 0.9 });
+      const glassMat = new THREE.MeshStandardMaterial({ color: 0x80e5ff, transparent: true, opacity: 0.48, roughness: 0.08 });
+      const tireMat = new THREE.MeshToonMaterial({ color: 0x121318, gradientMap: toonGradientMap });
+      const seatLeatherMat = new THREE.MeshToonMaterial({ color: 0x6e3219, gradientMap: toonGradientMap });
 
       function makeWheel() {
         const wg = new THREE.Group();
-        const tire = new THREE.Mesh(new THREE.CylinderGeometry(1.15, 1.15, 0.85, 24), tireMat);
+        const tire = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(1.15, 1.15, 0.85, 24), tireMat), 1.08);
         tire.rotation.z = Math.PI / 2;
-        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.68, 0.68, 0.9, 16), chromeMat);
+        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.68, 0.68, 0.92, 16), chromeMat);
         rim.rotation.z = Math.PI / 2;
-        wg.add(tire, rim);
+        const hubCap = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.98, 12), autoLiveryMaterial);
+        hubCap.rotation.z = Math.PI / 2;
+        wg.add(tire, rim, hubCap);
         return wg;
       }
 
-      // 1. Rear Axle Wheels (Z = +2.8) & Front Steerable Fork Wheel (Z = -4.2)
       rearWheel = new THREE.Group();
       rearWheel.position.set(0, 1.15, 2.8);
       const rL = makeWheel(); rL.position.x = -2.75;
@@ -1024,88 +1089,80 @@
       frontWheel.position.set(0, 1.15, -4.2);
       autoVisualGroup.add(frontWheel);
 
-      // 2. Sculpted Bajaj RE Tapered Front Leg-Shield Nose & Front Mudguard (At Z = -3.6)
-      const frontMudguard = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, 1.1, 16, 1, false, 0, Math.PI), autoLiveryMaterial);
+      // Front Mudguard & Sculpted Tapered Bajaj RE Front Leg-Shield
+      const frontMudguard = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, 1.1, 16, 1, false, 0, Math.PI), autoLiveryMaterial), 1.06);
       frontMudguard.rotation.z = Math.PI / 2;
       frontMudguard.position.set(0, 1.35, -4.2);
       autoVisualGroup.add(frontMudguard);
 
-      // Rounded Tapered Front Nose Cone (Distinctive 3-Wheeler Auto Front!)
-      const frontNoseLower = new THREE.Mesh(new THREE.CylinderGeometry(1.7, 2.4, 2.4, 20), autoBaseMaterial);
+      const frontNoseLower = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(1.65, 2.35, 2.4, 24), autoBaseMaterial), 1.05);
       frontNoseLower.position.set(0, 2.3, -2.9);
-      const frontNoseUpper = new THREE.Mesh(new THREE.CylinderGeometry(1.5, 1.7, 1.8, 20), autoLiveryMaterial);
+      const frontNoseUpper = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(1.45, 1.65, 1.8, 24), autoLiveryMaterial), 1.05);
       frontNoseUpper.position.set(0, 4.1, -2.7);
       autoVisualGroup.add(frontNoseLower, frontNoseUpper);
 
-      // Iconic Single Round Chrome Headlight on Front Nose
-      const headlightPod = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.5, 16), chromeMat);
+      // Chrome Cyclops Headlight
+      const headlightPod = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.5, 16), chromeMat), 1.08);
       headlightPod.rotation.x = Math.PI / 2;
       headlightPod.position.set(0, 3.2, -4.2);
-      const headlightLens = new THREE.Mesh(new THREE.SphereGeometry(0.48, 12, 12), new THREE.MeshBasicMaterial({ color: 0xffffcc }));
+      const headlightLens = new THREE.Mesh(new THREE.SphereGeometry(0.48, 12, 12), new THREE.MeshBasicMaterial({ color: 0xffffdd }));
       headlightLens.position.set(0, 3.2, -4.4);
       autoVisualGroup.add(headlightPod, headlightLens);
 
-      // Angled Split Front Windshield with Black Center Divider & Wiper
+      // Beveled Split Front Windshield
       const windshieldGroup = new THREE.Group();
       windshieldGroup.position.set(0, 5.7, -2.35);
       windshieldGroup.rotation.x = 0.22;
-      const wsFrame = new THREE.Mesh(new THREE.BoxGeometry(3.8, 2.1, 0.22), autoLiveryMaterial);
-      const wsGlass = new THREE.Mesh(new THREE.BoxGeometry(3.4, 1.75, 0.26), glassMat);
-      const wsCenterBar = new THREE.Mesh(new THREE.BoxGeometry(0.18, 1.85, 0.3), rexineBlackMat);
+      const wsFrame = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(3.9, 2.15, 0.28, 0.1), autoLiveryMaterial), 1.05);
+      const wsGlass = new THREE.Mesh(new THREE.BoxGeometry(3.4, 1.75, 0.32), glassMat);
+      const wsCenterBar = new THREE.Mesh(new THREE.BoxGeometry(0.18, 1.85, 0.35), rexineBlackMat);
       windshieldGroup.add(wsFrame, wsGlass, wsCenterBar);
       autoVisualGroup.add(windshieldGroup);
 
-      // Chrome Steering Handlebars & Driver Bench Seat Inside Cab
-      const handlebars = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.1, 2.8, 8), chromeMat);
+      // Handlebars & Cushioned Driver Bench Seat
+      const handlebars = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 2.9, 8), chromeMat);
       handlebars.rotation.z = Math.PI / 2;
       handlebars.position.set(0, 4.4, -1.6);
-      const driverSeat = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.9, 2.2), seatLeatherMat);
+      const driverSeat = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(3.8, 1.0, 2.2, 0.2), seatLeatherMat), 1.05);
       driverSeat.position.set(0, 2.9, -0.3);
       autoVisualGroup.add(handlebars, driverSeat);
 
-      // 3. Curved Rear Passenger Body Tub & Flared Wheel Arches
-      const floorPan = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.6, 6.4), autoBaseMaterial);
-      floorPan.position.set(0, 1.4, 0.2);
-      autoVisualGroup.add(floorPan);
+      // Smooth Beveled Rear Body Tub (No sharp Lego box!)
+      const lowerTub = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(5.4, 2.1, 6.0, 0.35), autoBaseMaterial), 1.04);
+      lowerTub.position.set(0, 2.3, 0.5);
+      const upperYellowBelt = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(5.55, 1.55, 5.8, 0.32), autoLiveryMaterial), 1.04);
+      upperYellowBelt.position.set(0, 3.95, 0.5);
+      autoVisualGroup.add(lowerTub, upperYellowBelt);
 
-      // Curved Rear Lower Black Cowl + Yellow Upper Passenger Tub
-      const rearLowerTub = new THREE.Mesh(new THREE.CylinderGeometry(2.75, 2.75, 2.0, 24, 1, false, -Math.PI * 0.55, Math.PI * 1.1), autoBaseMaterial);
-      rearLowerTub.position.set(0, 2.3, 0.9);
-      const rearUpperTub = new THREE.Mesh(new THREE.CylinderGeometry(2.78, 2.78, 1.65, 24, 1, false, -Math.PI * 0.55, Math.PI * 1.1), autoLiveryMaterial);
-      rearUpperTub.position.set(0, 3.9, 0.9);
-      autoVisualGroup.add(rearLowerTub, rearUpperTub);
-
-      // Flared Rear Fender Mudguards over Left & Right Rear Wheels
+      // Flared Rear Wheel Fenders
       [-2.75, 2.75].forEach(fx => {
-        const arch = new THREE.Mesh(new THREE.CylinderGeometry(1.42, 1.42, 1.1, 16, 1, false, 0, Math.PI), autoLiveryMaterial);
+        const arch = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(1.42, 1.42, 1.1, 16, 1, false, 0, Math.PI), autoLiveryMaterial), 1.06);
         arch.rotation.z = Math.PI / 2;
         arch.position.set(fx, 1.35, 2.8);
         autoVisualGroup.add(arch);
       });
 
-      // Flat Rear Engine Access Door with License Plate ("TN 41 CAPY 001"), "RE" Badge & Taillights
-      const rearTailgate = new THREE.Mesh(new THREE.BoxGeometry(4.2, 2.8, 0.4), autoBaseMaterial);
-      rearTailgate.position.set(0, 2.7, 3.45);
-      const chromeBumper = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 5.4, 12), chromeMat);
+      // Chrome Rear Bumper, Number Plate ("TN 41 CAPY 001") & Bajaj RE Emblem
+      const chromeBumper = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 5.5, 12), chromeMat), 1.06);
       chromeBumper.rotation.z = Math.PI / 2;
       chromeBumper.position.set(0, 1.35, 3.75);
-      autoVisualGroup.add(rearTailgate, chromeBumper);
+      autoVisualGroup.add(chromeBumper);
 
-      const plateTex = makeTextCanvasTexture('#ffbe0b', '#111111', ['TN 41', 'CAPY 001'], 256, 128, '#000000');
+      const plateTex = makeTextCanvasTexture('#ffbe0b', '#000000', ['TN 41', 'CAPY 001'], 256, 128, '#000000');
       const plateMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.1, 1.05), new THREE.MeshBasicMaterial({ map: plateTex }));
-      plateMesh.position.set(0, 2.15, 3.68);
+      plateMesh.position.set(0, 2.2, 3.55);
       autoVisualGroup.add(plateMesh);
 
       const reTex = makeTextCanvasTexture('#111111', '#ffffff', ['Bajaj RE'], 180, 70, '#ffbe0b');
-      const reMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.48), new THREE.MeshBasicMaterial({ map: reTex }));
-      reMesh.position.set(0, 3.15, 3.68);
+      const reMesh = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 0.5), new THREE.MeshBasicMaterial({ map: reTex }));
+      reMesh.position.set(0, 3.25, 3.55);
       autoVisualGroup.add(reMesh);
 
       [-1.95, 1.95].forEach(tx => {
         const redLight = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.65, 0.3), new THREE.MeshBasicMaterial({ color: 0xff1e00 }));
-        redLight.position.set(tx, 2.8, 3.62);
-        const amberLight = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.4, 0.3), new THREE.MeshBasicMaterial({ color: 0xffaa00 }));
-        amberLight.position.set(tx, 3.38, 3.62);
+        redLight.position.set(tx, 2.8, 3.52);
+        const amberLight = new THREE.Mesh(new THREE.BoxGeometry(0.75, 0.4, 0.3), new THREE.MeshBasicMaterial({ color: 0xffbe0b }));
+        amberLight.position.set(tx, 3.38, 3.52);
         autoVisualGroup.add(redLight, amberLight);
       });
 
@@ -1124,125 +1181,127 @@
         thrusterFlames.push({ outer: outerFlame, core: coreFlame, phase: Math.random() * 6 });
       });
 
-      // Iconic Curved Black Rexine Soft-Top Auto Canopy with Panoramic Sunroof Opening for Capybara!
-      const rearCanopyArch = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.32, 12, 24, Math.PI), rexineBlackMat);
-      rearCanopyArch.position.set(0, 4.7, 2.9);
-      const midCanopyArch = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.28, 12, 24, Math.PI), rexineBlackMat);
-      midCanopyArch.position.set(0, 4.7, 0.6);
+      // Curved Black Rexine Soft-Top Frame Arches
+      const rearCanopyArch = addComicOutline(new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.3, 12, 24, Math.PI), rexineBlackMat), 1.05);
+      rearCanopyArch.position.set(0, 4.6, 2.8);
+      const midCanopyArch = addComicOutline(new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.26, 12, 24, Math.PI), rexineBlackMat), 1.05);
+      midCanopyArch.position.set(0, 4.6, 0.5);
       autoVisualGroup.add(rearCanopyArch, midCanopyArch);
 
-      // Rear Black Rexine Hood Back-Curtain & Side Piping
-      const hoodBackPanel = new THREE.Mesh(new THREE.CylinderGeometry(2.55, 2.65, 2.3, 20, 1, true, -Math.PI * 0.45, Math.PI * 0.9), rexineBlackMat);
-      hoodBackPanel.position.set(0, 5.6, 0.8);
-      autoVisualGroup.add(hoodBackPanel);
+      // Neon Tire Light Ribbon Trails streaming behind the Rear Wheels!
+      const ribbonGeo = new THREE.PlaneGeometry(0.55, 8.5);
+      ribbonGeo.rotateX(-Math.PI / 2);
+      const ribbonMat = new THREE.MeshBasicMaterial({ color: 0x00f5d4, transparent: true, opacity: 0.55, side: THREE.DoubleSide });
+      leftTireTrail = new THREE.Mesh(ribbonGeo, ribbonMat);
+      leftTireTrail.position.set(-2.75, 0.15, 7.2);
+      rightTireTrail = new THREE.Mesh(ribbonGeo, ribbonMat);
+      rightTireTrail.position.set(2.75, 0.15, 7.2);
+      autoVisualGroup.add(leftTireTrail, rightTireTrail);
 
       // =====================================================================
-      // SCULPTED BOXY-SNOUTED CAPYBARA DRIVER (NO SNOWMAN SPHERES!)
+      // BEVELED CEL-SHADED CAPYBARA WITH EXPRESSIVE EYES, EARS & SNOUT
       // =====================================================================
       pelicanGroup = new THREE.Group();
       pelicanGroup.position.set(0, 5.2, -0.1);
       autoVisualGroup.add(pelicanGroup);
 
-      const furTex = makeCapyFurTexture();
-      const capyFurMat = new THREE.MeshStandardMaterial({ map: furTex, roughness: 0.78, metalness: 0.02 });
-      const darkMuzzleMat = new THREE.MeshStandardMaterial({ color: 0x4a2810, roughness: 0.82 });
-      const nostrilMat = new THREE.MeshBasicMaterial({ color: 0x110804 });
-      const pinkScarfMat = new THREE.MeshStandardMaterial({ color: 0xff007f, roughness: 0.4, side: THREE.DoubleSide });
-      const orangeMat = new THREE.MeshStandardMaterial({ color: 0xff6d00, roughness: 0.22 });
-      const leafMat = new THREE.MeshStandardMaterial({ color: 0x38b000, roughness: 0.38 });
+      const capyFurMat = new THREE.MeshToonMaterial({ color: 0xb56928, gradientMap: toonGradientMap });
+      const darkMuzzleMat = new THREE.MeshToonMaterial({ color: 0x542c10, gradientMap: toonGradientMap });
+      const blackInkMat = new THREE.MeshBasicMaterial({ color: 0x08070c });
+      const eyeWhiteMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const pinkScarfMat = new THREE.MeshToonMaterial({ color: 0xff007f, gradientMap: toonGradientMap, side: THREE.DoubleSide });
+      const orangeMat = new THREE.MeshToonMaterial({ color: 0xff6d00, gradientMap: toonGradientMap });
+      const leafMat = new THREE.MeshToonMaterial({ color: 0x38b000, gradientMap: toonGradientMap });
 
-      // 1. Broad Fur-Textured Shoulders & Paws Gripping Handlebars
-      const torso = new THREE.Mesh(new THREE.CylinderGeometry(1.55, 1.85, 2.6, 18), capyFurMat);
+      // Plump Beveled Torso & Arms
+      const torso = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(3.2, 2.6, 2.8, 0.65), capyFurMat), 1.06);
       torso.position.set(0, 0.2, 0.2);
       pelicanGroup.add(torso);
 
-      [-1.3, 1.3].forEach(px => {
-        const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.42, 2.2, 12), capyFurMat);
+      [-1.35, 1.35].forEach(px => {
+        const arm = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.42, 2.2, 12), capyFurMat), 1.07);
         arm.rotation.x = Math.PI / 2.6;
         arm.position.set(px, 0.5, -0.9);
         pelicanGroup.add(arm);
       });
 
-      // 2. Authentic Capybara Head Group (Turned slightly at 22 degrees so its iconic boxy profile & shades are visible from behind AND on the turntable!)
+      // Sculpted Beveled Capybara Head (Angled 25 deg so you see its snout, eyes, shades & ears clearly!)
       const capyHeadGroup = new THREE.Group();
       capyHeadGroup.position.set(0, 2.35, -0.1);
-      capyHeadGroup.rotation.y = -0.32; // Heroic 3/4 look-back angle!
+      capyHeadGroup.rotation.y = -0.38;
       pelicanGroup.add(capyHeadGroup);
 
-      // Flat-topped elongated skull + signature rectangular blunt Capybara snout!
-      const skullBack = new THREE.Mesh(new THREE.BoxGeometry(2.5, 2.2, 2.6), capyFurMat);
-      const skullRound = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.35, 2.2, 16), capyFurMat);
-      skullRound.position.set(0, 0, 0.2);
-      capyHeadGroup.add(skullBack, skullRound);
+      const headMain = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(2.65, 2.25, 2.75, 0.55), capyFurMat), 1.06);
+      const snoutBlock = addComicOutline(new THREE.Mesh(createRoundedBoxGeo(2.2, 1.9, 2.1, 0.48), darkMuzzleMat), 1.06);
+      snoutBlock.position.set(0, -0.1, -1.65);
+      capyHeadGroup.add(headMain, snoutBlock);
 
-      // Iconic Boxy Dark-Brown Capybara Muzzle / Nose Block extending forward (-Z)
-      const boxyMuzzle = new THREE.Mesh(new THREE.BoxGeometry(2.15, 1.85, 2.1), darkMuzzleMat);
-      boxyMuzzle.position.set(0, -0.1, -1.65);
-      const noseBridge = new THREE.Mesh(new THREE.BoxGeometry(1.95, 0.5, 2.0), capyFurMat);
-      noseBridge.position.set(0, 0.92, -1.5);
-      capyHeadGroup.add(boxyMuzzle, noseBridge);
-
-      // Cute Oval Nostrils & Calm Capybara Mouth Indentation on Front Muzzle
-      [-0.55, 0.55].forEach(nx => {
-        const nostril = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 10), nostrilMat);
-        nostril.position.set(nx, 0.35, -2.7);
+      // Cute Nostrils, Whiskers & Calm Capybara Smile
+      [-0.52, 0.52].forEach(nx => {
+        const nostril = new THREE.Mesh(new THREE.SphereGeometry(0.22, 10, 10), blackInkMat);
+        nostril.position.set(nx, 0.32, -2.68);
         capyHeadGroup.add(nostril);
       });
-      const mouthLine = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.12, 0.15), nostrilMat);
-      mouthLine.position.set(0, -0.55, -2.7);
-      capyHeadGroup.add(mouthLine);
+      const smileArc = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.06, 8, 12, Math.PI), blackInkMat);
+      smileArc.rotation.x = Math.PI;
+      smileArc.position.set(0, -0.45, -2.68);
+      capyHeadGroup.add(smileArc);
 
-      // Small Rounded Laid-Back Capybara Ears on Rear-Top Corners of Skull
+      // Expressive Blinking Capybara Eyes Peeking Above the Cool Shades!
+      [-1.28, 1.28].forEach(ex => {
+        const eyeBg = new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 12), blackInkMat);
+        eyeBg.position.set(ex, 0.65, -0.65);
+        const eyeSparkle = new THREE.Mesh(new THREE.SphereGeometry(0.11, 8, 8), eyeWhiteMat);
+        eyeSparkle.position.set(ex + (ex < 0 ? -0.12 : 0.12), 0.74, -0.78);
+        capyHeadGroup.add(eyeBg, eyeSparkle);
+        capyEyelids.push(eyeBg);
+      });
+
+      // Cute Rounded Capybara Ears with Pink Inner Ear
       [-1.15, 1.15].forEach(ex => {
-        const ear = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.28, 0.75, 12), darkMuzzleMat);
+        const ear = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.3, 0.8, 14), darkMuzzleMat), 1.08);
         ear.rotation.z = ex < 0 ? 0.45 : -0.45;
         ear.rotation.x = -0.35;
-        ear.position.set(ex, 1.35, 0.65);
+        ear.position.set(ex, 1.38, 0.65);
         capyHeadGroup.add(ear);
       });
 
-      // Crisp "Deal-With-It" Pixel Sunglasses with White Pixel Glints!
+      // Deal-With-It Pixel Sunglasses perched on the snout
       const shadesFrame = new THREE.Group();
-      shadesFrame.position.set(0, 0.55, -1.55);
-      const topBar = new THREE.Mesh(new THREE.BoxGeometry(2.85, 0.26, 2.4), nostrilMat);
+      shadesFrame.position.set(0, 0.35, -1.55);
+      const topBar = new THREE.Mesh(new THREE.BoxGeometry(2.85, 0.24, 2.3), blackInkMat);
       shadesFrame.add(topBar);
       [-0.82, 0.82].forEach(lx => {
-        const frontLens = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.72, 0.25), nostrilMat);
-        frontLens.position.set(lx, -0.25, -1.15);
+        const frontLens = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.68, 0.25), blackInkMat);
+        frontLens.position.set(lx, -0.22, -1.12);
         shadesFrame.add(frontLens);
         for (let p = 0; p < 3; p++) {
-          const glint = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.16, 0.3), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-          glint.position.set(lx - 0.22 + p * 0.18, -0.08 - p * 0.15, -1.18);
+          const glint = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.16, 0.3), eyeWhiteMat);
+          glint.position.set(lx - 0.22 + p * 0.18, -0.06 - p * 0.14, -1.15);
           shadesFrame.add(glint);
         }
       });
-      // Side temples of sunglasses
-      [-1.38, 1.38].forEach(sx => {
-        const sideLens = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.62, 2.2), nostrilMat);
-        sideLens.position.set(sx, -0.2, 0.0);
-        shadesFrame.add(sideLens);
-      });
       capyHeadGroup.add(shadesFrame);
 
-      // Glossy Yuzu Tangerine + Leaf Balanced on Flat Top of Capybara's Head
-      const tangerine = new THREE.Mesh(new THREE.SphereGeometry(0.76, 20, 20), orangeMat);
+      // Outlined Yuzu Tangerine + Leaf on Top of Head
+      const tangerine = addComicOutline(new THREE.Mesh(new THREE.SphereGeometry(0.76, 20, 20), orangeMat), 1.08);
       tangerine.scale.set(1.08, 0.86, 1.08);
       tangerine.position.set(0, 1.65, -0.1);
-      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.85, 10), leafMat);
+      const leaf = addComicOutline(new THREE.Mesh(new THREE.ConeGeometry(0.28, 0.85, 10), leafMat), 1.08);
       leaf.scale.set(1.0, 1.0, 0.35);
       leaf.rotation.z = -1.15;
       leaf.position.set(0.42, 2.28, -0.1);
       capyHeadGroup.add(tangerine, leaf);
 
       // Flowing Hot-Pink Scarf & Dual Streaming Tails
-      const neckWrap = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.34, 12, 24), pinkScarfMat);
+      const neckWrap = addComicOutline(new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.34, 12, 24), pinkScarfMat), 1.06);
       neckWrap.rotation.x = Math.PI / 2;
       neckWrap.position.set(0, 1.15, 0.1);
       pelicanGroup.add(neckWrap);
 
       for (let tail = 0; tail < 2; tail++) {
         for (let i = 0; i < 9; i++) {
-          const seg = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.18, 0.72 - i * 0.04), pinkScarfMat);
+          const seg = addComicOutline(new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.18, 0.72 - i * 0.04), pinkScarfMat), 1.06);
           const bx = 1.2 + i * 0.52;
           const by = (tail === 0 ? 1.35 : 0.75) + i * 0.04;
           const bz = 0.4 + tail * 0.35 + i * 0.15;
@@ -1252,7 +1311,7 @@
         }
       }
 
-      // Left-Wheel Grinding Sparks
+      // Left-Wheel Sparks
       const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffbe0b });
       for (let i = 0; i < 16; i++) {
         const sp = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.14, 1.6), sparkMat);
@@ -1261,7 +1320,6 @@
         sparkParticles.push({ mesh: sp, phase: Math.random() * 6 });
       }
 
-      // Diegetic 3D Tilt Arc & Home Turntable Ring (Flush on Track Y = 0.12)
       diegeticTiltArc = new THREE.Mesh(
         new THREE.RingGeometry(4.0, 4.55, 32, 1, 0, Math.PI),
         new THREE.MeshBasicMaterial({ color: 0x00f5d4, side: THREE.DoubleSide, transparent: true, opacity: 0.78 })
@@ -1277,115 +1335,66 @@
       turntableRing.rotation.x = -Math.PI / 2;
       turntableRing.position.set(0, 0.12, 0.2);
       bikeWheelieRig.add(turntableRing);
-    })();
 
-    // =========================================================================
-    // 6.1 GLTF / GLB SUBWAY SURFERS CEL-SHADED MODEL LOADER PIPELINE
-    // =========================================================================
-    let externalAutoMesh = null;
-    let externalCapyMesh = null;
-
-    function loadExternalGLBModels() {
-      if (typeof THREE.GLTFLoader === 'undefined') {
-        console.warn('[GLTFLoader] THREE.GLTFLoader not available, using procedural model.');
-        return;
-      }
-      const loader = new THREE.GLTFLoader();
-
-      // Hook 1: models/auto_rickshaw.glb -> autoVisualGroup
-      loader.load(
-        'models/auto_rickshaw.glb',
-        (gltf) => {
+      // Optional External .GLB Model Hot-Swap Hook (Direction 3):
+      if (typeof THREE.GLTFLoader !== 'undefined') {
+        const loader = new THREE.GLTFLoader();
+        loader.load('models/auto_rickshaw.glb', (gltf) => {
           const model = gltf.scene || (gltf.scenes && gltf.scenes[0]);
           if (!model) return;
-          console.log('[GLTFLoader] Successfully loaded models/auto_rickshaw.glb');
           model.traverse((child) => {
             if (child.isMesh) {
               child.castShadow = true;
               child.receiveShadow = true;
-              if (child.material) {
-                applySubwaySurfersCurveShader(child.material);
-              }
+              if (child.material) applySubwaySurfersCurveShader(child.material);
             }
           });
-          // Hide procedural auto body meshes while keeping pelicanGroup, wheels, and FX
           autoVisualGroup.children.forEach((child) => {
-            if (
-              child !== pelicanGroup &&
-              child !== rearWheel &&
-              child !== frontWheel &&
-              child !== diegeticTiltArc &&
-              child !== turntableRing
-            ) {
+            if (child !== pelicanGroup && child !== rearWheel && child !== frontWheel && child !== diegeticTiltArc && child !== turntableRing && child !== leftTireTrail && child !== rightTireTrail) {
               child.visible = false;
             }
           });
-          externalAutoMesh = model;
           autoVisualGroup.add(model);
-        },
-        undefined,
-        (err) => {
-          // Graceful fallback to procedural Bajaj RE auto when file is not yet placed
-        }
-      );
+        }, undefined, () => {});
 
-      // Hook 2: models/capybara.glb -> pelicanGroup
-      loader.load(
-        'models/capybara.glb',
-        (gltf) => {
+        loader.load('models/capybara.glb', (gltf) => {
           const model = gltf.scene || (gltf.scenes && gltf.scenes[0]);
           if (!model) return;
-          console.log('[GLTFLoader] Successfully loaded models/capybara.glb');
           model.traverse((child) => {
             if (child.isMesh) {
               child.castShadow = true;
               child.receiveShadow = true;
-              if (child.material) {
-                applySubwaySurfersCurveShader(child.material);
-              }
+              if (child.material) applySubwaySurfersCurveShader(child.material);
             }
           });
-          // Hide procedural capybara body parts
-          pelicanGroup.children.forEach((child) => {
-            child.visible = false;
-          });
-          externalCapyMesh = model;
+          pelicanGroup.children.forEach(child => child.visible = false);
           pelicanGroup.add(model);
-        },
-        undefined,
-        (err) => {
-          // Graceful fallback to procedural sculpted capybara when file is not yet placed
-        }
-      );
-    }
-
-    loadExternalGLBModels();
+        }, undefined, () => {});
+      }
+    })();
 
     // =========================================================================
     // 7. MUMBAI CONTRAST WORLD: DHARAVI SLUMS (LEFT) vs. BKC HIGH-RISES (RIGHT)
     // =========================================================================
     const cityStructures = [];
     (function buildMumbaiDualContrastWorld() {
-      // Warm Golden Mumbai Sunset Disc on the Horizon
       const sunGroup = new THREE.Group();
       sunGroup.position.set(0, 32, -245);
       const sunDisc = new THREE.Mesh(new THREE.CircleGeometry(28, 32), new THREE.MeshBasicMaterial({ color: 0xff9e00 }));
       sunGroup.add(sunDisc);
       scene.add(sunGroup);
 
-      // Materials for LEFT SIDE: Dharavi Chawls & Slums (Terracotta, Teal, Ochre, Blue Tarps, Rusted Tin, Sintex Tanks)
       const slumWallMats = [
-        applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xc85a32, roughness: 0.9 })), // Terracotta brick
-        applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x2b9348, roughness: 0.85 })), // Lime green plaster
-        applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xd99b26, roughness: 0.85 })), // Mustard ochre
-        applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x0077b6, roughness: 0.85 }))  // Chawl blue
+        applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0xc85a32, gradientMap: toonGradientMap })),
+        applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0x2b9348, gradientMap: toonGradientMap })),
+        applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0xd99b26, gradientMap: toonGradientMap })),
+        applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0x0077b6, gradientMap: toonGradientMap }))
       ];
-      const blueTarpMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x0096c7, roughness: 0.4 }));
-      const rustedTinMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x6c462f, roughness: 0.7, metalness: 0.4 }));
-      const sintexTankMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x023e8a, roughness: 0.3 }));
+      const blueTarpMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0x0096c7, gradientMap: toonGradientMap }));
+      const rustedTinMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0x6c462f, gradientMap: toonGradientMap }));
+      const sintexTankMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0x023e8a, gradientMap: toonGradientMap }));
       const warmBulbMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffd166 }));
 
-      // Materials for RIGHT SIDE: BKC / Worli Luxury Glass High-Rises
       const luxuryGlassTex = makeLuxuryTowerTexture();
       const luxuryTowerMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
         map: luxuryGlassTex,
@@ -1398,9 +1407,7 @@
       for (let i = 0; i < 30; i++) {
         const z = -250 + i * 10;
 
-        // -----------------------------------------------------------------
-        // LEFT SIDE (X < 0): Dense Multi-Tiered Mumbai Slum / Chawl Cluster
-        // -----------------------------------------------------------------
+        // LEFT SIDE (X < 0): Dense Multi-Tiered Dharavi Chawls & Slums
         const slumCluster = new THREE.Group();
         for (let tier = 0; tier < 3; tier++) {
           const sw = 6 + Math.random() * 4;
@@ -1409,30 +1416,27 @@
           const sx = -12 - tier * 5.5 - Math.random() * 2;
           const sy = -6 + tier * 3.8;
 
-          const shanty = new THREE.Mesh(
-            new THREE.BoxGeometry(sw, sh, sd),
-            slumWallMats[(i + tier) % slumWallMats.length]
-          );
+          const shanty = new THREE.Mesh(new THREE.BoxGeometry(sw, sh, sd), slumWallMats[(i + tier) % slumWallMats.length]);
           shanty.position.set(sx, sy, 0);
           slumCluster.add(shanty);
 
-          // Corrugated Tin or Bright Blue Monsoon Tarpaulin Roof
-          const roof = new THREE.Mesh(
-            new THREE.BoxGeometry(sw + 0.6, 0.35, sd + 0.6),
-            (i + tier) % 2 === 0 ? blueTarpMat : rustedTinMat
-          );
+          const roof = new THREE.Mesh(new THREE.BoxGeometry(sw + 0.6, 0.35, sd + 0.6), (i + tier) % 2 === 0 ? blueTarpMat : rustedTinMat);
           roof.position.set(sx, sy + sh / 2 + 0.15, 0);
           roof.rotation.z = 0.08;
           slumCluster.add(roof);
 
-          // Rooftop Cylindrical Blue Water Tank (Sintex style)
+          // Glowing Window Cutouts on Slum Rooms
+          const winGlow = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 1.1), warmBulbMat);
+          winGlow.position.set(sx + sw / 2 + 0.05, sy + 0.5, 0);
+          winGlow.rotation.y = Math.PI / 2;
+          slumCluster.add(winGlow);
+
           if (tier === 1 && i % 2 === 0) {
             const tank = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.8, 1.6, 10), sintexTankMat);
             tank.position.set(sx, sy + sh / 2 + 1.0, 0);
             slumCluster.add(tank);
           }
 
-          // Warm Glowing Street-Market / Chai-Tapri Lantern Bulbs
           if (tier === 0) {
             const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.35, 8, 8), warmBulbMat);
             bulb.position.set(sx + sw / 2 + 0.3, sy + 1.2, 0);
@@ -1443,9 +1447,7 @@
         scene.add(slumCluster);
         cityStructures.push({ group: slumCluster, speed: 42 });
 
-        // -----------------------------------------------------------------
-        // RIGHT SIDE (X > 0): Gleaming BKC / South Mumbai Luxury Apartments
-        // -----------------------------------------------------------------
+        // RIGHT SIDE (X > 0): BKC / Worli Luxury Glass High-Rises
         const luxuryGroup = new THREE.Group();
         const tw = 11 + (i % 3) * 3;
         const th = 55 + (i % 4) * 18;
@@ -1455,11 +1457,7 @@
         glassTower.position.set(tx, th / 2 - 18, 0);
         luxuryGroup.add(glassTower);
 
-        // Illuminated Penthouse Sky-Crown & Helipad Ring
-        const crown = new THREE.Mesh(
-          new THREE.BoxGeometry(tw + 0.5, 1.2, tw + 0.5),
-          i % 2 === 0 ? skybridgeMat : helipadMat
-        );
+        const crown = new THREE.Mesh(new THREE.BoxGeometry(tw + 0.5, 1.2, tw + 0.5), i % 2 === 0 ? skybridgeMat : helipadMat);
         crown.position.set(tx, th - 18, 0);
         luxuryGroup.add(crown);
 
@@ -1470,24 +1468,30 @@
     })();
 
     // =========================================================================
-    // 8. 100% GROUNDED MUMBAI METRO OBSTACLES & CUTTING CHAI GLASSES
+    // 8. GROUNDED CEL-SHADED OBSTACLES + CONTACT SHADOWS & CHAI CUPS
     // =========================================================================
     const LANES = [-4.0, 0, 4.0];
-    const LANE_Y = [0.0, 0.0, 0.0]; // Flat concrete viaduct deck at Y = 0.0!
+    const LANE_Y = [0.0, 0.0, 0.0];
     const activeEntities = [];
 
-    const darkSteelMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.7, roughness: 0.3 }));
-    const policeYellowMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xffbe0b, roughness: 0.3 }));
+    const darkSteelMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0x1e293b, gradientMap: toonGradientMap }));
+    const policeYellowMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0xffbe0b, gradientMap: toonGradientMap }));
     const hazardRedMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xff1e1e }));
     const glassOuterMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xd8f3dc, transparent: true, opacity: 0.45, roughness: 0.1 }));
-    const chaiLiquidMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xc87a28, roughness: 0.35 }));
-    const steamWispMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.45 }));
+    const chaiLiquidMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: 0xc87a28, gradientMap: toonGradientMap }));
+    const steamWispMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 }));
+    const obsShadowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ map: contactShadowTex, transparent: true, opacity: 0.75, depthWrite: false }));
 
     function createChaiCupMesh() {
       const g = new THREE.Group();
+      const shadow = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.2), obsShadowMat);
+      shadow.rotation.x = -Math.PI / 2;
+      shadow.position.y = 0.03;
+      g.add(shadow);
+
       const glassOuter = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.62, 2.1, 16), glassOuterMat);
       glassOuter.position.y = 1.2;
-      const chaiLiquid = new THREE.Mesh(new THREE.CylinderGeometry(0.76, 0.58, 1.7, 16), chaiLiquidMat);
+      const chaiLiquid = addComicOutline(new THREE.Mesh(new THREE.CylinderGeometry(0.76, 0.58, 1.7, 16), chaiLiquidMat), 1.06);
       chaiLiquid.position.y = 1.1;
       const foamRim = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.78, 0.2, 16), policeYellowMat);
       foamRim.position.y = 2.0;
@@ -1501,26 +1505,29 @@
       return g;
     }
 
-    // Grounded Obstacles: Base sits at Y = 0.0 directly on the Metro concrete roadbed!
     function createObstacleMesh(highBarrier = false) {
       const g = new THREE.Group();
+      // Ground Contact Shadow Blob under every obstacle so it looks 100% planted on the track!
+      const shadow = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 2.8), obsShadowMat);
+      shadow.rotation.x = -Math.PI / 2;
+      shadow.position.y = 0.03;
+      g.add(shadow);
+
       if (highBarrier) {
-        // Grounded Overhead Metro Signal Gantry (Pillars planted at Y = 0.0, beam at Y = 5.4 — Swipe Down to Duck!)
-        const pL = new THREE.Mesh(new THREE.BoxGeometry(0.45, 6.2, 0.45), darkSteelMat);
+        const pL = addComicOutline(new THREE.Mesh(new THREE.BoxGeometry(0.45, 6.2, 0.45), darkSteelMat), 1.06);
         pL.position.set(-1.95, 3.1, 0);
-        const pR = new THREE.Mesh(new THREE.BoxGeometry(0.45, 6.2, 0.45), darkSteelMat);
+        const pR = addComicOutline(new THREE.Mesh(new THREE.BoxGeometry(0.45, 6.2, 0.45), darkSteelMat), 1.06);
         pR.position.set(1.95, 3.1, 0);
         const footL = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.3, 1.2), policeYellowMat);
         footL.position.set(-1.95, 0.15, 0);
         const footR = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.3, 1.2), policeYellowMat);
         footR.position.set(1.95, 0.15, 0);
-        const overheadBoard = new THREE.Mesh(new THREE.BoxGeometry(4.3, 1.5, 0.6), policeYellowMat);
+        const overheadBoard = addComicOutline(new THREE.Mesh(new THREE.BoxGeometry(4.3, 1.5, 0.6), policeYellowMat), 1.05);
         overheadBoard.position.set(0, 5.4, 0);
         const redLaserStrip = new THREE.Mesh(new THREE.BoxGeometry(4.1, 0.35, 0.7), hazardRedMat);
         redLaserStrip.position.set(0, 4.75, 0);
         g.add(pL, pR, footL, footR, overheadBoard, redLaserStrip);
       } else {
-        // Grounded Mumbai Traffic / Metro Police Barricade (Planted firmly on the track at Y = 0.0 — Swipe Up to Bunny-Hop!)
         const baseBlockL = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.4, 1.6), darkSteelMat);
         baseBlockL.position.set(-1.5, 0.2, 0);
         const baseBlockR = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.4, 1.6), darkSteelMat);
@@ -1529,7 +1536,7 @@
         postL.position.set(-1.5, 1.15, 0);
         const postR = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 2.3, 8), darkSteelMat);
         postR.position.set(1.5, 1.15, 0);
-        const mainBoard = new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.1, 0.35), policeYellowMat);
+        const mainBoard = addComicOutline(new THREE.Mesh(new THREE.BoxGeometry(3.5, 1.1, 0.35), policeYellowMat), 1.06);
         mainBoard.position.set(0, 1.5, 0);
         const redReflector = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.3, 0.4), hazardRedMat);
         redReflector.position.set(0, 1.5, 0);
@@ -1542,8 +1549,8 @@
       const g = new THREE.Group();
       const colors = { jetpack: 0xff6d00, magnet: 0x00f5d4, sneakers: 0x38b000, mystery: 0xff007f };
       const c = colors[pType] || 0xffbe0b;
-      const orbMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: c, roughness: 0.2, metalness: 0.6 }));
-      const orb = new THREE.Mesh(new THREE.OctahedronGeometry(1.1, 1), orbMat);
+      const orbMat = applySubwaySurfersCurveShader(new THREE.MeshToonMaterial({ color: c, gradientMap: toonGradientMap }));
+      const orb = addComicOutline(new THREE.Mesh(new THREE.OctahedronGeometry(1.1, 1), orbMat), 1.08);
       orb.position.y = 1.6;
       const ring = new THREE.Mesh(new THREE.TorusGeometry(1.45, 0.12, 10, 24), policeYellowMat);
       ring.position.y = 1.6;
@@ -1564,11 +1571,13 @@
       }
     }
 
-    function showFloatingComboText(txt) {
+    const COMIC_WORDS = ['CHAI! ☕', 'JHAKAAS! ⚡', 'DHOOM! 🔥', 'FULL POWER! 🛺'];
+    function showFloatingComboText(pts) {
       const containerEl = document.getElementById('floating-popups');
       const el = document.createElement('div');
       el.className = 'combo-pop';
-      el.textContent = txt;
+      const word = COMIC_WORDS[Math.floor(Math.random() * COMIC_WORDS.length)];
+      el.textContent = `${word} +₹${pts}`;
       containerEl.appendChild(el);
       setTimeout(() => el.remove(), 700);
     }
@@ -1592,7 +1601,6 @@
       }
 
       const x = LANES[laneIdx];
-      // Obstacles always sit at Y = 0.0 on the flat Metro deck; Chai cups float higher during Jetpack!
       const y = (type === 'fish' && activePowerups.jetpack > 0) ? 9.5 : 0.0;
       mesh.position.set(x, y, -175);
       scene.add(mesh);
@@ -1606,7 +1614,7 @@
     let currentLane = 1;
     let jumpY = 0, jumpVel = 0, isJumping = false, slideTimer = 0, stumbleTimer = 0, cameraShake = 0;
     let wheelieMeter = 68, isHoldingWheelie = false;
-    let turntableAngle = 0.55, isDraggingTurntable = false, dragLastX = 0;
+    let turntableAngle = 2.45, isDraggingTurntable = false, dragLastX = 0;
 
     let score = 0, displayedScore = 0, fishCount = 0, comboFish = 0, currentLevelIdx = 0;
     let bestScore = parseInt(localStorage.getItem('cyberauto_best') || '765', 10);
@@ -1827,6 +1835,8 @@
 
       turntableRing.visible = false;
       diegeticTiltArc.visible = true;
+      leftTireTrail.visible = true;
+      rightTireTrail.visible = true;
       seedShowcaseChaiLine();
 
       applyThemeVisuals(LEVELS[currentLevelIdx]);
@@ -1851,6 +1861,8 @@
       activePowerups.jetpack = 0;
       turntableRing.visible = true;
       diegeticTiltArc.visible = false;
+      leftTireTrail.visible = false;
+      rightTireTrail.visible = false;
       seedShowcaseChaiLine();
       hud.classList.add('hidden');
       modalBackdrop.classList.add('hidden');
@@ -1964,7 +1976,7 @@
       SoundFX.popupOpen();
       const swatchesHtml = LIVERIES.map((liv, idx) => `
         <div class="livery-swatch ${Settings.liveryIdx === idx ? 'active' : ''}" data-lidx="${idx}">
-          <div style="width:24px; height:24px; border-radius:50%; background:${liv.accent}; margin:0 auto 6px auto; border:2px solid #fff;"></div>
+          <div style="width:24px; height:24px; border-radius:50%; background:${liv.accent}; margin:0 auto 6px auto; border:2px solid #000;"></div>
           ${liv.name}
         </div>
       `).join('');
@@ -2073,21 +2085,21 @@
     document.getElementById('btn-missions').onclick = () => openInfoModal('📋 MUMBAI METRO QUESTS', '1. Hold 2-Wheel Auto-Tilt in the Gold Zone for 2X Meter Fare<br>2. Collect Steaming Cutting Chai glasses<br>3. Dodge Grounded Police Barricades & Signal Gantries!');
     document.getElementById('btn-me').onclick = () => {
       SoundFX.autoHorn();
-      openInfoModal('🐹 TN 41 CAPY 001 PROFILE', 'Driver: Boxy-Snouted Chill Capybara + Yuzu Tangerine<br>Ride: Bajaj RE Kaali-Peeli 3-Wheeler Auto-Rickshaw<br>Route: Dharavi Slums (Left) ↔ BKC Luxury Towers (Right)');
+      openInfoModal('🐹 TN 41 CAPY 001 PROFILE', 'Driver: Cel-Shaded Chill Capybara + Yuzu Tangerine<br>Ride: Bajaj RE Kaali-Peeli 3-Wheeler Auto-Rickshaw<br>Route: Dharavi Slums (Left) ↔ BKC Luxury Towers (Right)');
     };
 
     // =========================================================================
-    // 11. MAIN ANIMATION & ALTITUDE-TRACKING CAMERA LOOP
+    // 11. MAIN ANIMATION, BLINKING CAPYBARA & ALTITUDE-TRACKING CAMERA LOOP
     // =========================================================================
     const clock = new THREE.Clock();
 
     function updatePowerupHUD() {
       const tags = [];
-      if (stumbleTimer > 0) tags.push(`<span class="spatial-pill" style="border-color:#ff2a2a;">⚠️ WALL WARNING ${Math.ceil(stumbleTimer)}S</span>`);
-      if (activePowerups.jetpack > 0) tags.push(`<span class="spatial-pill" style="border-color:#ff6d00;">🚀 NITRO JET ${Math.ceil(activePowerups.jetpack)}S</span>`);
-      if (activePowerups.magnet > 0) tags.push(`<span class="spatial-pill" style="border-color:#00f5d4;">🧲 CHAI MAGNET ${Math.ceil(activePowerups.magnet)}S</span>`);
-      if (activePowerups.sneakers > 0) tags.push(`<span class="spatial-pill" style="border-color:#38b000;">🔩 SPRINGS ${Math.ceil(activePowerups.sneakers)}S</span>`);
-      if (activePowerups.shield > 0) tags.push(`<span class="spatial-pill" style="border-color:#ff007f;">🛡️ BUMPER ${Math.ceil(activePowerups.shield)}S</span>`);
+      if (stumbleTimer > 0) tags.push(`<span class="spatial-pill" style="background:#ff2a2a;">⚠️ WALL WARNING ${Math.ceil(stumbleTimer)}S</span>`);
+      if (activePowerups.jetpack > 0) tags.push(`<span class="spatial-pill" style="background:#ff6d00;">🚀 NITRO JET ${Math.ceil(activePowerups.jetpack)}S</span>`);
+      if (activePowerups.magnet > 0) tags.push(`<span class="spatial-pill" style="background:#0096c7;">🧲 CHAI MAGNET ${Math.ceil(activePowerups.magnet)}S</span>`);
+      if (activePowerups.sneakers > 0) tags.push(`<span class="spatial-pill" style="background:#38b000;">🔩 SPRINGS ${Math.ceil(activePowerups.sneakers)}S</span>`);
+      if (activePowerups.shield > 0) tags.push(`<span class="spatial-pill" style="background:#7209b7;">🛡️ BUMPER ${Math.ceil(activePowerups.shield)}S</span>`);
       powerupBanners.innerHTML = tags.join('');
     }
 
@@ -2099,33 +2111,38 @@
       worldCurveUniforms.uCurveX.value = Math.sin(elapsed * 0.32) * 0.00007;
       SubwayBGM.update(delta, activePowerups.jetpack > 0);
 
+      // Expressive Capybara Eye Blinking & 2-Stroke Engine Suspension Bounce!
+      const isBlinking = (elapsed % 3.8) > 3.65;
+      capyEyelids.forEach(eye => {
+        eye.scale.y = isBlinking ? 0.12 : 1.0;
+      });
+      autoVisualGroup.position.y = Math.abs(Math.sin(elapsed * 22)) * 0.08;
+
       if (cameraShake > 0) cameraShake = Math.max(0, cameraShake - delta * 2.2);
       const shakeX = (Math.random() - 0.5) * cameraShake * 1.2;
       const shakeY = (Math.random() - 0.5) * cameraShake * 1.2;
 
-      // =====================================================================
-      // STATE 1: WELL-FRAMED 360° TURNTABLE SHOWCASE (HOME SCREEN)
-      //   Camera placed at Z = 23.5 looking at Z = 9.2 so the entire 3-wheeler
-      //   Auto-Rickshaw AND the Capybara fit comfortably in the middle!
-      // =====================================================================
+      // Update Ground Contact Shadow position & scale based on altitude (`jumpY`)
+      vehicleContactShadow.position.x = playerRig.position.x;
+      const shadowScale = Math.max(0.35, 1.0 - jumpY * 0.06);
+      vehicleContactShadow.scale.set(shadowScale, shadowScale, 1);
+      vehicleContactShadow.material.opacity = Math.max(0.2, 0.85 - jumpY * 0.05);
+
       if (gameState === 'HOME') {
         turntableRing.visible = true;
         diegeticTiltArc.visible = false;
-        if (!isDraggingTurntable) turntableAngle += delta * 0.55;
+        leftTireTrail.visible = false;
+        rightTireTrail.visible = false;
+        if (!isDraggingTurntable) turntableAngle += delta * 0.45;
         playerRig.position.set(0, 0, 0);
         bikeWheelieRig.rotation.y = turntableAngle;
         bikeWheelieRig.rotation.z = 0.22 + Math.sin(elapsed * 3.0) * 0.03;
         turntableRing.rotation.z = elapsed * 1.5;
 
-        camera.position.lerp(new THREE.Vector3(0, 7.2, 23.5), delta * 5);
-        camera.lookAt(0, 2.8, 9.2);
+        camera.position.lerp(new THREE.Vector3(0, 6.2, 27.5), delta * 5);
+        camera.lookAt(0, 2.8, 0);
       }
 
-      // =====================================================================
-      // STATE 2: ALTITUDE-TRACKING PORTRAIT CHASE CAMERA (PLAYING)
-      //   Camera Y dynamically tracks `jumpY * 0.92` so the Auto NEVER flies
-      //   up into the top of the screen during Jetpack or Jumps!
-      // =====================================================================
       if (gameState === 'PLAYING') {
         const targetFov = activePowerups.jetpack > 0 ? 60 : 54;
         if (Math.abs(camera.fov - targetFov) > 0.1) {
@@ -2158,7 +2175,11 @@
         const arcScale = 0.65 + (wheelieMeter / 100) * 0.55;
         diegeticTiltArc.scale.set(arcScale, arcScale, 1);
 
-        dynamicIsland.style.borderColor = inSweetSpot ? 'rgba(255, 190, 11, 0.85)' : 'rgba(0, 245, 212, 0.45)';
+        // Tire ribbon color changes to gold when in 2X sweet spot!
+        leftTireTrail.material.color.setHex(inSweetSpot ? 0xffbe0b : 0x00f5d4);
+        rightTireTrail.material.color.setHex(inSweetSpot ? 0xffbe0b : 0x00f5d4);
+
+        dynamicIsland.style.outlineColor = inSweetSpot ? '#ffbe0b' : '#00f5d4';
 
         score += delta * 24 * mult;
         if (Math.floor(score) > displayedScore) {
@@ -2203,12 +2224,12 @@
 
         playerRig.position.y = jumpY;
 
-        // ALTITUDE-TRACKING CAMERA: Moves up with `jumpY` so Jetpack never hides the Auto at the top edge!
+        // ALTITUDE-TRACKING CAMERA: Moves up with `jumpY` so Jetpack never hides the Auto!
         const camFollowX = playerRig.position.x * 0.45 + shakeX;
-        const camFollowY = 13.8 + jumpY * 0.92 + shakeY;
-        const lookTargetY = 2.0 + jumpY * 0.85;
-        camera.position.lerp(new THREE.Vector3(camFollowX, camFollowY, 21.5), delta * 8);
-        camera.lookAt(playerRig.position.x * 0.25, lookTargetY, -55);
+        const camFollowY = 8.8 + jumpY * 0.92 + shakeY;
+        const lookTargetY = 2.4 + jumpY * 0.85;
+        camera.position.lerp(new THREE.Vector3(camFollowX, camFollowY, 24.5), delta * 8);
+        camera.lookAt(playerRig.position.x * 0.25, lookTargetY, -26);
 
         const targetScaleY = slideTimer > 0 ? 0.38 : 0.62;
         bikeWheelieRig.scale.y = THREE.MathUtils.lerp(bikeWheelieRig.scale.y, targetScaleY, delta * 16);
@@ -2255,7 +2276,7 @@
                 SoundFX.chaiClink(comboFish);
                 SoundFX.odoTick();
                 spawnPickupBurst(ent.mesh.position, 0xffbe0b);
-                showFloatingComboText(`+₹${pts} ☕`);
+                showFloatingComboText(pts);
                 scene.remove(ent.mesh);
               } else if (ent.type === 'powerup') {
                 ent.active = false;
@@ -2304,7 +2325,7 @@
 
         trainSegments.forEach(seg => {
           seg.position.z += 68 * delta;
-          if (seg.position.z > 40) seg.position.z -= 260;
+          if (seg.position.z > 10) seg.position.z -= 234;
         });
 
         cityStructures.forEach(c => {
