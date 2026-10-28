@@ -15,10 +15,9 @@
     }
     body {
       overflow: hidden;
-      background: linear-gradient(180deg, #050716 0%, #120e36 45%, #3b0d54 75%, #ff007f 100%);
-      font-family: 'Courier New', Courier, monospace;
+      background: #060818;
+      font-family: 'Arial Black', Impact, 'Courier New', sans-serif;
       color: #fff;
-      transition: background 1.2s ease;
     }
     #canvas-container {
       width: 100vw;
@@ -27,13 +26,13 @@
     }
 
     /* ==========================================
-       EXACT CONCEPT ART HUD OVERLAY
+       SUBWAY SURFERS TIER GLOSSY ARCADE HUD
        ========================================== */
     #hud {
       position: absolute;
-      top: max(14px, env(safe-area-inset-top));
-      left: 18px;
-      right: 18px;
+      top: max(12px, env(safe-area-inset-top));
+      left: 16px;
+      right: 16px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -43,33 +42,42 @@
     #hud.hidden { display: none; }
 
     .cyber-hud-box {
-      background: rgba(8, 11, 24, 0.88);
+      background: linear-gradient(180deg, rgba(14, 20, 46, 0.92) 0%, rgba(6, 9, 22, 0.94) 100%);
       border: 3px solid #00f5d4;
-      box-shadow: 0 0 14px rgba(0, 245, 212, 0.55), inset 0 0 10px rgba(0, 245, 212, 0.2);
-      border-radius: 14px;
+      box-shadow: 0 6px 0 #023e8a, 0 0 20px rgba(0, 245, 212, 0.65), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+      border-radius: 16px;
       padding: 10px 18px;
       pointer-events: auto;
-      min-width: 240px;
+      min-width: 235px;
+      backdrop-filter: blur(8px);
     }
     .hud-top-label {
-      font-size: 12px;
-      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      font-weight: 900;
       color: #ffbe0b;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      text-shadow: 1px 1px 0 #000;
     }
     .hud-top-label .cyan-mult {
-      color: #00f5d4;
+      background: #00f5d4;
+      color: #03071e;
+      padding: 1px 6px;
+      border-radius: 6px;
       margin-left: 6px;
+      font-weight: 900;
     }
     .hud-score-num {
       font-family: 'Arial Black', Impact, sans-serif;
-      font-size: 32px;
-      line-height: 1.05;
+      font-size: 34px;
+      line-height: 1.0;
       color: #ffffff;
-      text-shadow: 2px 2px 0 #ff007f, 0 0 10px rgba(255, 0, 127, 0.7);
+      -webkit-text-stroke: 1.5px #000;
+      text-shadow: 0 4px 0 #ff007f, 0 0 14px rgba(255, 0, 127, 0.85);
       margin-bottom: 6px;
+      transition: transform 0.1s ease;
     }
     #powerup-banners {
       display: flex;
@@ -81,40 +89,41 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: linear-gradient(180deg, #e61919 0%, #990000 100%);
-      border: 1.5px solid #ffffff;
+      background: linear-gradient(180deg, #ff2a2a 0%, #990000 100%);
+      border: 2px solid #ffffff;
       border-radius: 20px;
-      padding: 3px 12px;
-      font-size: 11px;
-      font-weight: bold;
+      padding: 2px 12px;
+      font-size: 10px;
+      font-weight: 900;
       color: #fff;
       text-transform: uppercase;
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+      box-shadow: 0 3px 0 #4a0000, 0 0 10px rgba(255, 0, 0, 0.7);
     }
 
-    /* TOP RIGHT TILT BAR & PAUSE BUTTON */
     .hud-right-wrap {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 10px;
       pointer-events: auto;
     }
     #wheelie-bar-wrap {
-      width: 210px;
-      height: 14px;
-      background: #141829;
-      border: 2px solid #ffffff;
-      border-radius: 8px;
-      margin: 6px 0 8px 0;
+      width: 200px;
+      height: 15px;
+      background: #0b0e1d;
+      border: 2.5px solid #ffffff;
+      border-radius: 10px;
+      margin: 5px 0 7px 0;
       overflow: hidden;
       position: relative;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
     }
     #wheelie-bar {
       height: 100%;
-      width: 65%;
-      background: linear-gradient(90deg, #b57c1e 0%, #ffbe0b 60%, #fff3b0 100%);
+      width: 68%;
+      background: linear-gradient(90deg, #f77f00 0%, #ffbe0b 55%, #ffffff 100%);
       border-radius: 6px;
-      transition: width 0.05s linear;
+      box-shadow: 0 0 10px #ffbe0b;
+      transition: width 0.04s linear;
     }
     #wheelie-zone {
       position: absolute;
@@ -124,11 +133,12 @@
       bottom: 0;
       border-left: 2px dashed #ffffff;
       border-right: 2px dashed #ffffff;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(0, 245, 212, 0.25);
     }
     .hud-stats-row {
+      font-family: 'Courier New', monospace;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 900;
       color: #ffbe0b;
       display: flex;
       align-items: center;
@@ -137,22 +147,47 @@
     .pause-btn-orange {
       width: 54px;
       height: 54px;
-      background: linear-gradient(180deg, #ffaa00 0%, #ff5500 100%);
+      background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
       border: 3px solid #ffffff;
-      border-radius: 14px;
+      border-radius: 16px;
       color: #ffffff;
       font-family: 'Arial Black', sans-serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 900;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      box-shadow: 0 5px 0 #992200, 0 6px 14px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 0 #992200, 0 8px 16px rgba(0,0,0,0.55), inset 0 2px 0 rgba(255,255,255,0.45);
     }
     .pause-btn-orange:active {
-      transform: translateY(3px);
+      transform: translateY(4px);
       box-shadow: 0 2px 0 #992200;
+    }
+
+    /* FLOATING COMBO POPUPS */
+    #floating-popups {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 16;
+      overflow: hidden;
+    }
+    .combo-pop {
+      position: absolute;
+      left: 54%;
+      top: 42%;
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: 24px;
+      color: #ffbe0b;
+      -webkit-text-stroke: 1.5px #000;
+      text-shadow: 0 3px 0 #ff007f, 0 0 12px #00f5d4;
+      animation: floatUpFade 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes floatUpFade {
+      0% { transform: translate(-50%, 0) scale(0.6); opacity: 1; }
+      50% { transform: translate(-50%, -35px) scale(1.18); opacity: 1; }
+      100% { transform: translate(-50%, -65px) scale(0.95); opacity: 0; }
     }
 
     /* ==========================================
@@ -183,30 +218,32 @@
       align-items: center;
     }
     .ss-pill-btn {
-      background: rgba(8, 11, 24, 0.9);
-      border: 2.5px solid #00f5d4;
-      border-radius: 10px;
-      padding: 8px 14px;
-      color: #00f5d4;
+      background: linear-gradient(180deg, #00f5d4 0%, #0096c7 100%);
+      border: 3px solid #ffffff;
+      border-radius: 12px;
+      padding: 8px 15px;
+      color: #03071e;
       font-family: 'Arial Black', sans-serif;
       font-size: 12px;
-      box-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
+      box-shadow: 0 5px 0 #023e8a, 0 6px 12px rgba(0,0,0,0.5);
       cursor: pointer;
     }
+    .ss-pill-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #023e8a; }
+
     .ss-icon-btn {
       width: 46px;
       height: 46px;
-      background: linear-gradient(180deg, #ffaa00 0%, #ff5500 100%);
-      border: 2.5px solid #fff;
+      background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
+      border: 3px solid #fff;
       border-radius: 12px;
       color: #fff;
-      font-size: 20px;
+      font-size: 19px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       position: relative;
-      box-shadow: 0 4px 0 #992200;
+      box-shadow: 0 5px 0 #992200, 0 6px 12px rgba(0,0,0,0.5);
     }
     .badge-count {
       position: absolute;
@@ -229,96 +266,99 @@
       pointer-events: auto;
       cursor: pointer;
       flex: 1;
-      padding-left: 4vw;
+      padding-left: 3vw;
     }
     .tour-tag {
-      background: rgba(255, 0, 127, 0.9);
+      background: linear-gradient(90deg, #ff007f 0%, #7209b7 100%);
       color: #fff;
       padding: 4px 14px;
       border-radius: 20px;
       border: 2px solid #00f5d4;
       font-size: 11px;
-      font-weight: bold;
+      font-weight: 900;
       letter-spacing: 1.5px;
       margin-bottom: 6px;
+      box-shadow: 0 4px 0 #240046;
     }
     .graffiti-title {
       font-family: 'Arial Black', Impact, sans-serif;
-      font-size: clamp(28px, 5.5vw, 48px);
+      font-size: clamp(28px, 5.2vw, 46px);
       line-height: 0.95;
       color: #ffbe0b;
       text-transform: uppercase;
       -webkit-text-stroke: 2px #000;
-      text-shadow: 0 5px 0 #ff007f, 0 0 20px rgba(255, 0, 127, 0.7);
+      text-shadow: 0 6px 0 #ff007f, 0 0 24px rgba(255, 0, 127, 0.8);
       margin-bottom: 8px;
+      transform: rotate(-2deg);
     }
     .graffiti-sub {
       display: block;
-      font-size: clamp(30px, 6vw, 52px);
+      font-size: clamp(30px, 5.8vw, 52px);
       color: #00f5d4;
       -webkit-text-stroke: 2px #050716;
-      text-shadow: 0 5px 0 #7209b7;
+      text-shadow: 0 6px 0 #7209b7;
     }
     .high-score-banner {
-      background: rgba(8, 11, 24, 0.9);
-      border: 2px solid #00f5d4;
-      padding: 6px 14px;
-      border-radius: 8px;
+      background: rgba(8, 11, 24, 0.92);
+      border: 2.5px solid #00f5d4;
+      padding: 6px 15px;
+      border-radius: 10px;
       font-size: 12px;
       font-weight: bold;
       color: #ffbe0b;
       margin-bottom: 14px;
+      box-shadow: 0 4px 0 #023e8a;
     }
     .tap-to-play {
       font-family: 'Arial Black', Impact, sans-serif;
-      font-size: clamp(18px, 3.5vw, 24px);
-      color: #fff;
-      background: linear-gradient(180deg, #ff007f 0%, #7209b7 100%);
-      border: 3px solid #00f5d4;
-      padding: 10px 26px;
+      font-size: clamp(18px, 3.2vw, 24px);
+      color: #03071e;
+      background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
+      border: 3px solid #ffffff;
+      padding: 10px 28px;
       border-radius: 30px;
-      box-shadow: 0 0 20px rgba(0, 245, 212, 0.7);
-      animation: pulseTap 1s infinite alternate ease-in-out;
+      box-shadow: 0 6px 0 #992200, 0 0 25px rgba(255, 190, 11, 0.85);
+      animation: pulseTap 0.95s infinite alternate ease-in-out;
     }
     @keyframes pulseTap {
       from { transform: scale(1); }
-      to { transform: scale(1.07); }
+      to { transform: scale(1.08); }
     }
 
     .bottom-dock {
       display: flex;
       justify-content: flex-start;
-      padding-left: 4vw;
+      padding-left: 3vw;
       gap: 14px;
       width: 100%;
       pointer-events: auto;
     }
     .dock-btn {
-      background: rgba(8, 11, 24, 0.9);
-      border: 2.5px solid #00f5d4;
-      border-radius: 12px;
-      padding: 6px 18px;
+      background: linear-gradient(180deg, #240046 0%, #10002b 100%);
+      border: 3px solid #00f5d4;
+      border-radius: 14px;
+      padding: 7px 18px;
       text-align: center;
-      box-shadow: 0 0 12px rgba(0, 245, 212, 0.35);
+      box-shadow: 0 5px 0 #03045e, 0 0 14px rgba(0, 245, 212, 0.4);
       cursor: pointer;
     }
+    .dock-btn:active { transform: translateY(3px); }
     .dock-icon { font-size: 18px; display: block; }
     .dock-label { font-family: 'Arial Black', sans-serif; font-size: 11px; color: #ffbe0b; }
 
-    /* TOAST & MODALS */
     #event-toast {
       position: absolute;
-      top: 86px;
+      top: 82px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(8, 11, 24, 0.95);
       border: 2.5px solid #00f5d4;
       padding: 8px 20px;
       border-radius: 20px;
-      font-weight: bold;
+      font-weight: 900;
       font-size: 13px;
       color: #ffbe0b;
-      box-shadow: 0 0 15px rgba(0, 245, 212, 0.6);
+      box-shadow: 0 0 18px rgba(0, 245, 212, 0.7);
       z-index: 18;
       pointer-events: none;
       opacity: 0;
@@ -338,13 +378,13 @@
     }
     .modal-backdrop.hidden { display: none; }
     .modal-card {
-      background: rgba(10, 14, 30, 0.96);
-      border: 3px solid #00f5d4;
-      box-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
-      border-radius: 16px;
-      padding: 20px;
+      background: linear-gradient(180deg, #161b36 0%, #090c1c 100%);
+      border: 3.5px solid #00f5d4;
+      box-shadow: 0 10px 0 #023e8a, 0 0 30px rgba(0, 245, 212, 0.55);
+      border-radius: 18px;
+      padding: 22px;
       width: 100%;
-      max-width: 380px;
+      max-width: 385px;
       text-align: center;
       max-height: 88vh;
       overflow-y: auto;
@@ -352,11 +392,12 @@
     .modal-card h2 {
       font-family: 'Arial Black', sans-serif;
       color: #ffbe0b;
-      font-size: 20px;
+      font-size: 21px;
       margin-bottom: 10px;
       text-shadow: 2px 2px 0 #ff007f;
     }
     .modal-card p {
+      font-family: 'Courier New', monospace;
       font-size: 12px;
       color: #e0e1dd;
       line-height: 1.5;
@@ -367,30 +408,39 @@
     .btn {
       background: linear-gradient(180deg, #ff007f 0%, #99004d 100%);
       color: #fff;
-      border: 2px solid #fff;
+      border: 2.5px solid #fff;
       padding: 10px 18px;
       font-family: 'Arial Black', sans-serif;
       font-size: 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 4px 0 #4a0025;
     }
-    .btn.green { background: linear-gradient(180deg, #00b4d8 0%, #0077b6 100%); }
-    .btn.blue { background: linear-gradient(180deg, #7209b7 0%, #3a0ca3 100%); }
+    .btn.green { background: linear-gradient(180deg, #00b4d8 0%, #0077b6 100%); box-shadow: 0 4px 0 #023e8a; }
+    .btn.blue { background: linear-gradient(180deg, #7209b7 0%, #3a0ca3 100%); box-shadow: 0 4px 0 #10002b; }
     .setting-row, .level-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(0, 245, 212, 0.35);
+      border: 1.5px solid rgba(0, 245, 212, 0.35);
       padding: 8px 12px;
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 8px;
       font-size: 12px;
       text-align: left;
     }
-    .level-item.active { border: 2px solid #ffbe0b; background: rgba(255, 190, 11, 0.15); }
+    .level-item.active { border: 2px solid #ffbe0b; background: rgba(255, 190, 11, 0.18); }
   </style>
+
+  <!-- Load Local Three.js + Real-Time Bloom Post-Processing Stack with CDN Fallbacks -->
   <script src="three.min.js" onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';"></script>
+  <script src="CopyShader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js';"></script>
+  <script src="LuminosityHighPassShader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js';"></script>
+  <script src="EffectComposer.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js';"></script>
+  <script src="RenderPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js';"></script>
+  <script src="ShaderPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js';"></script>
+  <script src="UnrealBloomPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js';"></script>
 </head>
 <body>
 
@@ -416,7 +466,7 @@
         <span class="graffiti-sub">NEON VELOCITY</span>
       </div>
       <div class="high-score-banner">
-        🏆 BEST: <span id="home-best-el">0</span> &nbsp;|&nbsp; ☕ CHAI BANK: <span id="home-fish-bank">0</span>
+        🏆 BEST: <span id="home-best-el">765</span> &nbsp;|&nbsp; ☕ CHAI BANK: <span id="home-fish-bank">12</span>
       </div>
       <div class="tap-to-play">TAP TO DRIFT!</div>
     </div>
@@ -437,16 +487,16 @@
     </div>
   </div>
 
-  <!-- CONCEPT-ART REPLICA HUD OVERLAY -->
+  <!-- IN-GAME HUD OVERLAY -->
   <div id="hud" class="hidden">
     <div class="cyber-hud-box">
       <div class="hud-top-label">
-        <span id="hud-level-txt">ZONE 2 • BIO-JUNGLE OVERGROWTH</span> |
+        <span id="hud-level-txt">ZONE 2 • BIO-JUNGLE OVERGROWTH</span>
         <span class="cyan-mult" id="mult-badge">2X</span>
       </div>
       <div class="hud-score-num" id="score-el">765</div>
       <div id="powerup-banners">
-        <span class="alert-pill">🚨 CYBER-COP READY</span>
+        <span class="alert-pill">🚨 CYBER-COP 2S</span>
       </div>
     </div>
 
@@ -458,7 +508,7 @@
           <div id="wheelie-bar"></div>
         </div>
         <div class="hud-stats-row">
-          <span>☕ CHAI: <strong id="fish-el" style="color:#fff;">0</strong></span>
+          <span>☕ CHAI: <strong id="fish-el" style="color:#fff;">3</strong></span>
           <span>|</span>
           <span>🛡️ BUMPERS: <strong id="hud-boosts" style="color:#fff;">3</strong></span>
         </div>
@@ -467,6 +517,7 @@
     </div>
   </div>
 
+  <div id="floating-popups"></div>
   <div id="event-toast">CHAI FUELS LEGENDS!</div>
 
   <div id="modal-backdrop" class="modal-backdrop hidden">
@@ -477,7 +528,7 @@
 
   <script>
     // =========================================================================
-    // 1. PROCEDURAL WEB AUDIO ENGINE (2-STROKE ENGINE + HORN + CHAI CLINK)
+    // 1. PROCEDURAL WEB AUDIO ENGINE
     // =========================================================================
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
@@ -485,8 +536,9 @@
     const Settings = {
       sfx: true,
       loops: true,
+      bloom: true,
       vibration: true,
-      selectedEventIdx: 1 // Default to Zone 2 Bio-Jungle Overgrowth from concept art!
+      selectedEventIdx: 1
     };
 
     function ensureAudio() {
@@ -503,10 +555,10 @@
         if (!Settings.sfx) return;
         ensureAudio();
         [440, 587, 440, 659].forEach((f, idx) => {
-          setTimeout(() => this._tone(f, 'sawtooth', 0.11, f * 1.06, 0.15), idx * 75);
+          setTimeout(() => this._tone(f, 'sawtooth', 0.11, f * 1.06, 0.14), idx * 75);
         });
       },
-      laneWhoosh() { if (Settings.sfx) { ensureAudio(); this._tone(310, 'sine', 0.09, 560, 0.15); } },
+      laneWhoosh() { if (Settings.sfx) { ensureAudio(); this._tone(310, 'sine', 0.09, 580, 0.15); } },
       jumpWhoosh(superJump = false) {
         if (!Settings.sfx) return;
         ensureAudio();
@@ -520,7 +572,7 @@
         this._tone(180, 'sawtooth', 0.18, 95, 0.22);
         if (Settings.vibration && navigator.vibrate) navigator.vibrate(65);
       },
-      trainFlyBy() { if (Settings.sfx) { ensureAudio(); this._tone(150, 'sawtooth', 0.22, 70, 0.1); } },
+      trainFlyBy() { if (Settings.sfx) { ensureAudio(); this._tone(150, 'sawtooth', 0.22, 70, 0.09); } },
       chaiClink(combo = 0) {
         if (!Settings.sfx) return;
         ensureAudio();
@@ -585,16 +637,18 @@
       }
     }
 
-    // =========================================================
+    // =========================================================================
     // 2. ZONES CONFIG
-    // =========================================================
+    // =========================================================================
     const LEVELS = [
       {
         id: 1,
         name: 'NEON METRO 2099',
         minScore: 0,
-        bg: 'linear-gradient(180deg, #050716 0%, #19103b 45%, #ff007f 100%)',
-        fogHex: 0x19103b,
+        skyTop: '#05081c',
+        skyMid: '#1d1145',
+        skyBot: '#ff1e75',
+        fogHex: 0x1d1145,
         obsColor: 0xff007f,
         audioBaseOffset: 0,
         desc: 'Maglev roof surfing through Neo-Cyberabad!'
@@ -603,17 +657,21 @@
         id: 2,
         name: 'BIO-JUNGLE OVERGROWTH',
         minScore: 450,
-        bg: 'linear-gradient(180deg, #040814 0%, #121c36 50%, #3b0d54 80%, #ff007f 100%)',
-        fogHex: 0x161838,
+        skyTop: '#060a22',
+        skyMid: '#1c184b',
+        skyBot: '#ff4d6d',
+        fogHex: 0x22174a,
         obsColor: 0x00f5d4,
         audioBaseOffset: 20,
-        desc: 'Cyber-waterfalls, palm towers & neon skybridges!'
+        desc: 'Cyber-waterfalls, cloud sea & neon skybridges!'
       },
       {
         id: 3,
         name: 'SOLAR FLARE FOUNDRY',
         minScore: 1000,
-        bg: 'linear-gradient(180deg, #1b0502 0%, #6b0918 50%, #ff9100 100%)',
+        skyTop: '#1b0502',
+        skyMid: '#6b0918',
+        skyBot: '#ff9100',
         fogHex: 0x4a0814,
         obsColor: 0xffbe0b,
         audioBaseOffset: -15,
@@ -623,7 +681,9 @@
         id: 4,
         name: 'HOLO-LASER GRID',
         minScore: 1700,
-        bg: 'linear-gradient(180deg, #02042b 0%, #005082 55%, #00f5d4 100%)',
+        skyTop: '#02042b',
+        skyMid: '#005082',
+        skyBot: '#00f5d4',
         fogHex: 0x03254c,
         obsColor: 0x00f5d4,
         audioBaseOffset: 50,
@@ -633,7 +693,9 @@
         id: 5,
         name: 'PHONK MIDNIGHT OVERDRIVE',
         minScore: 2500,
-        bg: 'linear-gradient(180deg, #000000 0%, #240046 50%, #f72585 100%)',
+        skyTop: '#000000',
+        skyMid: '#240046',
+        skyBot: '#f72585',
         fogHex: 0x180030,
         obsColor: 0xf72585,
         audioBaseOffset: 80,
@@ -641,41 +703,147 @@
       }
     ];
 
-    // =========================================================
-    // 3. THREE.JS HIGH-GLOSS 3D SCENE SETUP
-    // =========================================================
+    // =========================================================================
+    // 3. SUBWAY SURFERS "CURVED WORLD" VERTEX SHADER + UNREAL BLOOM COMPOSER
+    // =========================================================================
     const container = document.getElementById('canvas-container');
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x161838, 0.0038);
+    scene.fog = new THREE.FogExp2(0x22174a, 0.0024);
 
-    const camera = new THREE.PerspectiveCamera(46, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
 
-    // Cyberpunk Lighting (Warm Golden Key + Neon Cyan & Magenta Rim Lights)
-    const ambientLight = new THREE.AmbientLight(0xd8c8ff, 0.75);
+    // Set up Post-Processing UnrealBloomPass for Authentic Neon Glow
+    let composer = null;
+    let bloomPass = null;
+    if (typeof THREE.EffectComposer !== 'undefined' && typeof THREE.UnrealBloomPass !== 'undefined') {
+      const renderScene = new THREE.RenderPass(scene, camera);
+      bloomPass = new THREE.UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        0.72, // Bloom strength
+        0.55, // Radius
+        0.68  // Luminance threshold (only bright neon strips, taillights & chai steam glow!)
+      );
+      composer = new THREE.EffectComposer(renderer);
+      composer.addPass(renderScene);
+      composer.addPass(bloomPass);
+    }
+
+    // Subway Surfers Curved-World Horizon Shader Injection
+    // Bends distant objects (-Z) smoothly downward and slightly left/right like a real planet horizon!
+    const worldCurveUniforms = {
+      uCurveY: { value: -0.00028 },
+      uCurveX: { value: -0.00010 }
+    };
+
+    function applySubwaySurfersCurveShader(material) {
+      material.onBeforeCompile = (shader) => {
+        shader.uniforms.uCurveY = worldCurveUniforms.uCurveY;
+        shader.uniforms.uCurveX = worldCurveUniforms.uCurveX;
+        shader.vertexShader = `
+          uniform float uCurveY;
+          uniform float uCurveX;
+        ` + shader.vertexShader;
+        shader.vertexShader = shader.vertexShader.replace(
+          '#include <project_vertex>',
+          `
+          vec4 mvPosition = modelViewMatrix * vec4( transformed, 1.0 );
+          // Apply Subway Surfers quadratic horizon bend based on depth distance
+          float zDist = max(0.0, -mvPosition.z - 12.0);
+          mvPosition.y += uCurveY * zDist * zDist;
+          mvPosition.x += uCurveX * zDist * zDist;
+          gl_Position = projectionMatrix * mvPosition;
+          `
+        );
+      };
+      return material;
+    }
+
+    // Procedural HDR Studio Environment Map for Metallic Paint & Chrome
+    (function buildNeonReflectionEnvironment() {
+      try {
+        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+        pmremGenerator.compileEquirectangularShader();
+        const envScene = new THREE.Scene();
+        envScene.background = new THREE.Color(0x160f36);
+
+        const stripGeo = new THREE.PlaneGeometry(90, 14);
+        const cyanStrip = new THREE.Mesh(stripGeo, new THREE.MeshBasicMaterial({ color: 0x00f5d4, side: THREE.DoubleSide }));
+        cyanStrip.position.set(-32, 22, -20);
+        cyanStrip.lookAt(0, 0, 0);
+        envScene.add(cyanStrip);
+
+        const pinkStrip = new THREE.Mesh(stripGeo, new THREE.MeshBasicMaterial({ color: 0xff007f, side: THREE.DoubleSide }));
+        pinkStrip.position.set(32, 22, -20);
+        pinkStrip.lookAt(0, 0, 0);
+        envScene.add(pinkStrip);
+
+        const goldStrip = new THREE.Mesh(stripGeo, new THREE.MeshBasicMaterial({ color: 0xffbe0b, side: THREE.DoubleSide }));
+        goldStrip.position.set(0, 38, 12);
+        goldStrip.lookAt(0, 0, 0);
+        envScene.add(goldStrip);
+
+        scene.environment = pmremGenerator.fromScene(envScene, 0.04).texture;
+        pmremGenerator.dispose();
+      } catch (e) {}
+    })();
+
+    // Rich Skybox Dome Texture so Bloom Pass renders against a vibrant sky gradient
+    let skyDomeMat = null;
+    function updateSkyDomeTexture(topHex, midHex, botHex) {
+      const c = document.createElement('canvas');
+      c.width = 64;
+      c.height = 512;
+      const ctx = c.getContext('2d');
+      const grad = ctx.createLinearGradient(0, 0, 0, 512);
+      grad.addColorStop(0.0, topHex);
+      grad.addColorStop(0.48, midHex);
+      grad.addColorStop(0.82, botHex);
+      grad.addColorStop(1.0, '#090614');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 64, 512);
+      const tex = new THREE.CanvasTexture(c);
+      if (!skyDomeMat) {
+        skyDomeMat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.BackSide, depthWrite: false });
+        const skyDome = new THREE.Mesh(new THREE.SphereGeometry(480, 24, 16), skyDomeMat);
+        scene.add(skyDome);
+      } else {
+        skyDomeMat.map = tex;
+        skyDomeMat.needsUpdate = true;
+      }
+    }
+    updateSkyDomeTexture('#060a22', '#1c184b', '#ff4d6d');
+
+    const ambientLight = new THREE.AmbientLight(0xffd8ff, 0.88);
     scene.add(ambientLight);
 
-    const sunLight = new THREE.DirectionalLight(0xffeaad, 1.35);
-    sunLight.position.set(25, 60, 40);
+    const sunLight = new THREE.DirectionalLight(0xffe9b0, 1.55);
+    sunLight.position.set(-22, 55, 35);
     sunLight.castShadow = true;
-    sunLight.shadow.mapSize.width = 1024;
-    sunLight.shadow.mapSize.height = 1024;
     scene.add(sunLight);
 
-    const cyanPoint = new THREE.PointLight(0x00f5d4, 2.2, 85);
-    cyanPoint.position.set(-14, 10, 12);
-    scene.add(cyanPoint);
+    const cyanRim = new THREE.PointLight(0x00f5d4, 3.2, 70);
+    cyanRim.position.set(-11, 9, 12);
+    scene.add(cyanRim);
 
-    const pinkPoint = new THREE.PointLight(0xff007f, 2.2, 85);
-    pinkPoint.position.set(14, 12, 10);
-    scene.add(pinkPoint);
+    const pinkRim = new THREE.PointLight(0xff007f, 3.2, 70);
+    pinkRim.position.set(11, 9, 12);
+    scene.add(pinkRim);
 
-    // Helper: Create dynamic canvas textures for License Plate ("TN 41 CAPY 001") & Billboards
+    const thrusterGlowLight = new THREE.PointLight(0x00e5ff, 3.8, 24);
+    thrusterGlowLight.position.set(2.5, 2.5, 14);
+    scene.add(thrusterGlowLight);
+
+    // =========================================================================
+    // 4. PROCEDURAL HAND-PAINTED TEXTURE GENERATORS
+    // =========================================================================
     function makeTextCanvasTexture(bgHex, borderHex, lines, width = 512, height = 256, textColor = '#000') {
       const c = document.createElement('canvas');
       c.width = width;
@@ -685,95 +853,177 @@
       ctx.fillRect(0, 0, width, height);
       if (borderHex) {
         ctx.strokeStyle = borderHex;
-        ctx.lineWidth = 14;
-        ctx.strokeRect(7, 7, width - 14, height - 14);
+        ctx.lineWidth = 12;
+        ctx.strokeRect(6, 6, width - 12, height - 12);
       }
       ctx.fillStyle = textColor;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      const fontSize = Math.floor(height / (lines.length + 0.8));
+      const fontSize = Math.floor(height / (lines.length + 0.75));
       ctx.font = `900 ${fontSize}px "Arial Black", Impact, sans-serif`;
       lines.forEach((line, i) => {
         const y = ((i + 1) / (lines.length + 1)) * height;
         ctx.fillText(line, width / 2, y);
       });
+      return new THREE.CanvasTexture(c);
+    }
+
+    // Brushed Metallic Steel & Panel Rivets Texture for the Maglev Bullet Train Roof
+    function makeBrushedMetalPanelTexture() {
+      const c = document.createElement('canvas');
+      c.width = 512;
+      c.height = 512;
+      const ctx = c.getContext('2d');
+      const grad = ctx.createLinearGradient(0, 0, 512, 0);
+      grad.addColorStop(0.0, '#5c677d');
+      grad.addColorStop(0.25, '#97a4bd');
+      grad.addColorStop(0.5, '#d8e2f2');
+      grad.addColorStop(0.75, '#97a4bd');
+      grad.addColorStop(1.0, '#5c677d');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 512, 512);
+
+      // Subtle brushed anodized lines
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 180; i++) {
+        const x = Math.random() * 512;
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, 512);
+        ctx.stroke();
+      }
+      // Panel seam lines
+      ctx.strokeStyle = 'rgba(15, 20, 35, 0.55)';
+      ctx.lineWidth = 4;
+      for (let y = 0; y < 512; y += 128) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(512, y);
+        ctx.stroke();
+      }
       const tex = new THREE.CanvasTexture(c);
-      tex.needsUpdate = true;
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.wrapT = THREE.RepeatWrapping;
+      tex.repeat.set(1, 16);
       return tex;
     }
 
-    // --- HIERARCHY: masterRig -> jetGroup -> playerRig -> bikeWheelieRig -> pelicanGroup ---
+    // Multi-Window Cyberpunk Skyscraper Facade
+    function makeSkyscraperWindowTexture(accentHex) {
+      const c = document.createElement('canvas');
+      c.width = 256;
+      c.height = 512;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#070a18';
+      ctx.fillRect(0, 0, 256, 512);
+      const colors = ['#ffbe0b', '#00f5d4', '#ff007f', '#ffffff', accentHex];
+      for (let y = 10; y < 500; y += 14) {
+        for (let x = 10; x < 244; x += 18) {
+          if (Math.random() < 0.62) {
+            ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+            ctx.fillRect(x, y, 11, 8);
+          }
+        }
+      }
+      const tex = new THREE.CanvasTexture(c);
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.wrapT = THREE.RepeatWrapping;
+      return tex;
+    }
+
+    function makeCloudPuffTexture() {
+      const c = document.createElement('canvas');
+      c.width = 128;
+      c.height = 128;
+      const ctx = c.getContext('2d');
+      const grad = ctx.createRadialGradient(64, 64, 6, 64, 64, 60);
+      grad.addColorStop(0, 'rgba(235, 210, 255, 0.52)');
+      grad.addColorStop(0.5, 'rgba(165, 135, 220, 0.24)');
+      grad.addColorStop(1, 'rgba(34, 23, 74, 0.0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 128, 128);
+      return new THREE.CanvasTexture(c);
+    }
+
     const masterRig = new THREE.Group();
     scene.add(masterRig);
 
-    const jetGroup = new THREE.Group(); // Sleek Metallic Maglev Roof + Hover-Rails
+    const jetGroup = new THREE.Group();
     masterRig.add(jetGroup);
 
     const playerRig = new THREE.Group();
     jetGroup.add(playerRig);
 
-    // =========================================================
-    // 4. SLEEK METALLIC MAGLEV TRAIN ROOF & HOVER-RAILS
-    // =========================================================
+    // =========================================================================
+    // 5. SUBWAY SURFERS CURVED CHROME MAGLEV ROOF WITH BLOOMING NEON STRIPS
+    // =========================================================================
     const trainSegments = [];
-    (function buildSleekMaglevTrain() {
-      const chromeMat = new THREE.MeshStandardMaterial({ color: 0x8d99ae, metalness: 0.85, roughness: 0.18 });
-      const darkSteelMat = new THREE.MeshStandardMaterial({ color: 0x1b1f2e, metalness: 0.7, roughness: 0.35 });
-      const cyanGlowMat = new THREE.MeshBasicMaterial({ color: 0x00f5d4 });
-      const pinkGlowMat = new THREE.MeshBasicMaterial({ color: 0xff007f });
-      const goldGlowMat = new THREE.MeshBasicMaterial({ color: 0xffaa00 });
+    const metalRoofTex = makeBrushedMetalPanelTexture();
 
-      // Curved metallic fuselage spine running from Z = -180 to Z = +60
-      const mainBodyGeo = new THREE.CylinderGeometry(5.6, 6.2, 240, 24, 1, false, -Math.PI * 0.65, Math.PI * 1.3);
+    (function buildChromeMaglevRoof() {
+      const mirrorChromeMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
+        map: metalRoofTex,
+        color: 0xffffff,
+        metalness: 0.92,
+        roughness: 0.14
+      }));
+      const gunmetalMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
+        color: 0x161b2b,
+        metalness: 0.82,
+        roughness: 0.26
+      }));
+      const ventGrilleMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
+        color: 0x080a12,
+        metalness: 0.5,
+        roughness: 0.6
+      }));
+      // High-luminance neon materials that trigger UnrealBloomPass!
+      const cyanGlowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0x00ffff }));
+      const pinkGlowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xff1493 }));
+      const goldGlowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffbe0b }));
+
+      const mainBodyGeo = new THREE.CylinderGeometry(6.8, 7.4, 280, 36, 48, false, -Math.PI * 0.58, Math.PI * 1.16);
       mainBodyGeo.rotateX(Math.PI / 2);
-      const mainBody = new THREE.Mesh(mainBodyGeo, chromeMat);
-      mainBody.position.set(0, -3.6, -60);
+      const mainBody = new THREE.Mesh(mainBodyGeo, mirrorChromeMat);
+      mainBody.position.set(0, -4.8, -85);
       mainBody.receiveShadow = true;
       jetGroup.add(mainBody);
 
-      // Continuous Neon Cyan, Pink & Gold Strips along the Maglev Roof
-      [-4.6, 4.6].forEach(xPos => {
-        const stripGeo = new THREE.BoxGeometry(0.45, 0.3, 240);
-        const strip = new THREE.Mesh(stripGeo, xPos < 0 ? cyanGlowMat : pinkGlowMat);
-        strip.position.set(xPos, 0.8, -60);
+      // Subdivided Neon Strips along the curved roof
+      [-5.6, -3.4].forEach((xPos, idx) => {
+        const strip = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.28, 280, 1, 1, 48), idx === 0 ? pinkGlowMat : cyanGlowMat);
+        strip.position.set(xPos, 0.8 + idx * 0.65, -85);
         jetGroup.add(strip);
       });
-      [-2.1, 2.1].forEach(xPos => {
-        const stripGeo = new THREE.BoxGeometry(0.3, 0.25, 240);
-        const strip = new THREE.Mesh(stripGeo, goldGlowMat);
-        strip.position.set(xPos, 1.85, -60);
+      [3.4, 5.6].forEach((xPos, idx) => {
+        const strip = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.28, 280, 1, 1, 48), idx === 0 ? goldGlowMat : pinkGlowMat);
+        strip.position.set(xPos, 1.45 - idx * 0.65, -85);
         jetGroup.add(strip);
       });
+      const centerSeam = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.25, 280, 1, 1, 48), gunmetalMat);
+      centerSeam.position.set(0, 2.02, -85);
+      jetGroup.add(centerSeam);
 
-      // Animated Rib Segments & Cooling Vents rushing along the train roof to convey 300km/h speed
-      for (let z = -170; z <= 50; z += 10) {
+      for (let z = -210; z <= 40; z += 12) {
         const seg = new THREE.Group();
         seg.position.z = z;
 
-        const archGeo = new THREE.BoxGeometry(8.5, 0.35, 1.2);
-        const arch = new THREE.Mesh(archGeo, darkSteelMat);
-        arch.position.y = 1.9;
-        seg.add(arch);
+        const seamBow = new THREE.Mesh(new THREE.BoxGeometry(9.6, 0.22, 0.55), gunmetalMat);
+        seamBow.position.y = 1.92;
+        seg.add(seamBow);
 
-        // Side Vent Grilles
-        [-3.2, 3.2].forEach(vx => {
-          const vent = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.25, 4.5), darkSteelMat);
-          vent.position.set(vx, 1.6, 3);
-          seg.add(vent);
-        });
-
-        // Floating Neon Hover-Pads on Left (-11) and Right (+11) Lanes (matching concept art!)
-        [-11, 11].forEach(lx => {
-          const padGroup = new THREE.Group();
-          padGroup.position.set(lx, -0.3, 0);
-          const padBase = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.8, 6.8), darkSteelMat);
-          const padTop = new THREE.Mesh(
-            new THREE.BoxGeometry(4.8, 0.35, 5.8),
-            lx < 0 ? cyanGlowMat : pinkGlowMat
-          );
-          padTop.position.y = 0.45;
-          padGroup.add(padBase, padTop);
-          seg.add(padGroup);
+        [-2.2, 2.2].forEach(vx => {
+          const ventFrame = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.22, 4.2), gunmetalMat);
+          ventFrame.position.set(vx, 1.72, 4);
+          ventFrame.rotation.z = vx < 0 ? 0.18 : -0.18;
+          seg.add(ventFrame);
+          for (let s = -1.5; s <= 1.5; s += 0.6) {
+            const slat = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.26, 0.25), ventGrilleMat);
+            slat.position.set(vx, 1.74, 4 + s);
+            slat.rotation.z = vx < 0 ? 0.18 : -0.18;
+            seg.add(slat);
+          }
         });
 
         jetGroup.add(seg);
@@ -781,313 +1031,369 @@
       }
     })();
 
-    // =========================================================
-    // 5. SMOOTH 3D AUTO-RICKSHAW ("TN 41 CAPY 001") & CAPYBARA
-    // =========================================================
+    // =========================================================================
+    // 6. HIGH-DETAIL AUTO-RICKSHAW ("TN 41 CAPY 001") & CAPYBARA
+    // =========================================================================
     const bikeWheelieRig = new THREE.Group();
-    bikeWheelieRig.position.set(0, 2.2, 10);
+    bikeWheelieRig.position.set(0, 2.0, 9.5);
     playerRig.add(bikeWheelieRig);
 
+    const autoVisualGroup = new THREE.Group();
+    bikeWheelieRig.add(autoVisualGroup);
+
     const sparkParticles = [];
+    const pickupBurstParticles = [];
+    const thrusterFlames = [];
     let rearWheel, frontWheel, pelicanGroup;
 
-    (function buildSmoothAutoAndCapybara() {
-      const yellowPaint = new THREE.MeshStandardMaterial({ color: 0xffbe0b, roughness: 0.22, metalness: 0.25 });
-      const blackBody = new THREE.MeshStandardMaterial({ color: 0x14161f, roughness: 0.35, metalness: 0.3 });
-      const chromeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.1, metalness: 0.9 });
-      const glassMat = new THREE.MeshStandardMaterial({ color: 0x88e5ff, transparent: true, opacity: 0.42, roughness: 0.05, metalness: 0.8 });
-      const tireMat = new THREE.MeshStandardMaterial({ color: 0x111115, roughness: 0.8 });
-      const headlightMat = new THREE.MeshBasicMaterial({ color: 0xffffdd });
+    (function buildDetailedRearChaseAutoAndCapybara() {
+      const glossyYellow = new THREE.MeshStandardMaterial({ color: 0xffbe0b, roughness: 0.15, metalness: 0.38 });
+      const matteBlackCanopy = new THREE.MeshStandardMaterial({ color: 0x161922, roughness: 0.52, metalness: 0.22 });
+      const glossyBlackBody = new THREE.MeshStandardMaterial({ color: 0x0d0f17, roughness: 0.2, metalness: 0.48 });
+      const chromeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.08, metalness: 0.95 });
+      const glassMat = new THREE.MeshStandardMaterial({ color: 0x99e6ff, transparent: true, opacity: 0.4, roughness: 0.05, metalness: 0.9 });
+      const tireMat = new THREE.MeshStandardMaterial({ color: 0x101116, roughness: 0.85 });
+      const redTaillightMat = new THREE.MeshBasicMaterial({ color: 0xff2a00 });
+      const amberSignalMat = new THREE.MeshBasicMaterial({ color: 0xffbe0b });
 
-      // Smooth Cylindrical Wheels
-      function makeSmoothWheel() {
+      function makeWheel() {
         const wg = new THREE.Group();
-        const tire = new THREE.Mesh(new THREE.CylinderGeometry(1.35, 1.35, 0.95, 20), tireMat);
+        const tire = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.92, 24), tireMat);
         tire.rotation.z = Math.PI / 2;
-        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 1.0, 16), chromeMat);
+        const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.74, 0.74, 0.98, 16), chromeMat);
         rim.rotation.z = Math.PI / 2;
         wg.add(tire, rim);
         return wg;
       }
 
       rearWheel = new THREE.Group();
-      rearWheel.position.set(0, 1.35, -3.2);
-      const rL = makeSmoothWheel(); rL.position.x = -3.1;
-      const rR = makeSmoothWheel(); rR.position.x = 3.1;
+      rearWheel.position.set(0, 1.25, 2.8);
+      const rL = makeWheel(); rL.position.x = -2.85;
+      const rR = makeWheel(); rR.position.x = 2.85;
       rearWheel.add(rL, rR);
-      bikeWheelieRig.add(rearWheel);
+      autoVisualGroup.add(rearWheel);
 
-      frontWheel = makeSmoothWheel();
-      frontWheel.position.set(0, 1.35, 4.4);
-      bikeWheelieRig.add(frontWheel);
+      frontWheel = makeWheel();
+      frontWheel.position.set(0, 1.25, -3.8);
+      autoVisualGroup.add(frontWheel);
 
-      // Front Mudguard & Chrome Fork
-      const fender = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 1.2, 16, 1, false, 0, Math.PI), blackBody);
-      fender.rotation.z = Math.PI / 2;
-      fender.position.set(0, 1.5, 4.4);
-      bikeWheelieRig.add(fender);
+      const lowerRearBay = new THREE.Mesh(new THREE.BoxGeometry(5.6, 2.2, 6.2), glossyBlackBody);
+      lowerRearBay.position.set(0, 2.4, 0.2);
+      autoVisualGroup.add(lowerRearBay);
 
-      // Lower Black Chassis & Rounded Front Apron
-      const chassis = new THREE.Mesh(new THREE.BoxGeometry(6.2, 1.6, 8.2), blackBody);
-      chassis.position.set(0, 2.3, 0);
-      bikeWheelieRig.add(chassis);
+      const yellowBumper = new THREE.Mesh(new THREE.BoxGeometry(5.85, 0.5, 0.65), glossyYellow);
+      yellowBumper.position.set(0, 1.45, 3.4);
+      autoVisualGroup.add(yellowBumper);
 
-      const frontApron = new THREE.Mesh(new THREE.CylinderGeometry(2.6, 3.0, 2.6, 20), blackBody);
-      frontApron.position.set(0, 2.8, 3.2);
-      bikeWheelieRig.add(frontApron);
+      const yellowBelt = new THREE.Mesh(new THREE.BoxGeometry(5.78, 1.55, 6.0), glossyYellow);
+      yellowBelt.position.set(0, 4.1, 0.1);
+      autoVisualGroup.add(yellowBelt);
 
-      // Iconic Yellow Upper Cowl & Side Panels
-      const yellowCowl = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.7, 2.4, 20), yellowPaint);
-      yellowCowl.position.set(0, 4.7, 3.0);
-      bikeWheelieRig.add(yellowCowl);
-
-      const rearCabSides = new THREE.Mesh(new THREE.BoxGeometry(6.3, 2.6, 5.2), yellowPaint);
-      rearCabSides.position.set(0, 4.2, -1.5);
-      bikeWheelieRig.add(rearCabSides);
-
-      // Twin Glowing Round Headlights + Indicator Pods
-      [-1.8, 1.8].forEach(hx => {
-        const pod = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.6, 16), chromeMat);
-        pod.rotation.x = Math.PI / 2;
-        pod.position.set(hx, 3.9, 4.4);
-        const lens = new THREE.Mesh(new THREE.SphereGeometry(0.58, 12, 12), headlightMat);
-        lens.position.set(hx, 3.9, 4.65);
-        bikeWheelieRig.add(pod, lens);
+      // Chrome Side Guard Rails
+      [-2.95, 2.95].forEach(gx => {
+        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 5.8, 10), chromeMat);
+        rail.rotation.x = Math.PI / 2;
+        rail.position.set(gx, 3.35, 0.1);
+        autoVisualGroup.add(rail);
       });
 
-      // Yellow License Plate ("TN 41 CAPY 001") & "RE" Emblem on Front Nose!
+      const rearPanel = new THREE.Mesh(new THREE.BoxGeometry(3.4, 2.2, 0.3), glossyBlackBody);
+      rearPanel.position.set(0, 2.8, 3.25);
+      autoVisualGroup.add(rearPanel);
+
       const plateTex = makeTextCanvasTexture('#ffbe0b', '#111111', ['TN 41', 'CAPY 001'], 256, 128, '#000000');
       const plateMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(2.5, 1.25),
+        new THREE.PlaneGeometry(2.15, 1.08),
         new THREE.MeshBasicMaterial({ map: plateTex })
       );
-      plateMesh.position.set(0, 3.6, 4.78);
-      bikeWheelieRig.add(plateMesh);
+      plateMesh.position.set(0, 2.25, 3.46);
+      autoVisualGroup.add(plateMesh);
 
       const reTex = makeTextCanvasTexture('#111111', '#ffffff', ['RE'], 128, 80, '#ffffff');
       const reMesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(0.95, 0.6),
+        new THREE.PlaneGeometry(0.84, 0.54),
         new THREE.MeshBasicMaterial({ map: reTex })
       );
-      reMesh.position.set(0, 2.4, 4.92);
-      bikeWheelieRig.add(reMesh);
+      reMesh.position.set(0, 3.28, 3.46);
+      autoVisualGroup.add(reMesh);
 
-      // Framed Split Windshield & Side Mirrors
-      const windshield = new THREE.Mesh(new THREE.BoxGeometry(4.8, 3.1, 0.2), glassMat);
-      windshield.position.set(0, 7.1, 2.75);
-      windshield.rotation.x = -0.18;
-      bikeWheelieRig.add(windshield);
-
-      // Yellow Windshield Frame Pillars & Curved Black/Yellow Roof Canopy
-      [-2.4, 0, 2.4].forEach(px => {
-        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 3.3, 8), px === 0 ? chromeMat : yellowPaint);
-        pillar.position.set(px, 7.1, 2.78);
-        pillar.rotation.x = -0.18;
-        bikeWheelieRig.add(pillar);
+      [-2.15, 2.15].forEach(tx => {
+        const housing = new THREE.Mesh(new THREE.BoxGeometry(0.95, 1.35, 0.35), glossyBlackBody);
+        housing.position.set(tx, 3.1, 3.25);
+        const redLens = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.74, 0.42), redTaillightMat);
+        redLens.position.set(tx, 2.9, 3.28);
+        const amberLens = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.44, 0.42), amberSignalMat);
+        amberLens.position.set(tx, 3.52, 3.28);
+        autoVisualGroup.add(housing, redLens, amberLens);
       });
 
-      // Side Wing Mirrors
-      [-3.1, 3.1].forEach(mx => {
-        const mirror = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.5, 0.25), blackBody);
-        mirror.position.set(mx, 6.4, 2.8);
-        bikeWheelieRig.add(mirror);
+      [-1.35, 1.35].forEach(ex => {
+        const nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.64, 1.1, 16), chromeMat);
+        nozzle.rotation.x = Math.PI / 2;
+        nozzle.position.set(ex, 1.1, 3.5);
+        autoVisualGroup.add(nozzle);
+
+        const outerFlame = new THREE.Mesh(
+          new THREE.ConeGeometry(0.62, 4.0, 16),
+          new THREE.MeshBasicMaterial({ color: 0x00e5ff, transparent: true, opacity: 0.88 })
+        );
+        outerFlame.rotation.x = Math.PI / 2;
+        outerFlame.position.set(ex, 1.1, 5.5);
+
+        const coreFlame = new THREE.Mesh(
+          new THREE.ConeGeometry(0.34, 2.4, 12),
+          new THREE.MeshBasicMaterial({ color: 0xffffff })
+        );
+        coreFlame.rotation.x = Math.PI / 2;
+        coreFlame.position.set(ex, 1.1, 4.7);
+
+        autoVisualGroup.add(outerFlame, coreFlame);
+        thrusterFlames.push({ outer: outerFlame, core: coreFlame, phase: Math.random() * 6 });
       });
 
-      // Rear Black Canopy Arch
-      const canopyRoof = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.1, 6.2, 20, 1, false, 0, Math.PI), blackBody);
-      canopyRoof.rotation.z = Math.PI / 2;
-      canopyRoof.position.set(0, 8.6, -1.2);
-      bikeWheelieRig.add(canopyRoof);
+      const canopyBox = new THREE.Mesh(new THREE.BoxGeometry(5.5, 2.8, 4.4), matteBlackCanopy);
+      canopyBox.position.set(0, 6.1, 0.8);
+      autoVisualGroup.add(canopyBox);
 
-      // Tire Grinding Sparks & Neon Underglow
-      const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffaa00 });
-      for (let i = 0; i < 14; i++) {
-        const sp = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.22, 1.4), sparkMat);
-        sp.position.set(2.8 + (Math.random() - 0.5), 0.4 + Math.random() * 0.8, -2 + (Math.random() - 0.5) * 6);
-        bikeWheelieRig.add(sp);
+      const canopyTopArch = new THREE.Mesh(new THREE.CylinderGeometry(2.75, 2.75, 4.4, 24, 1, false, 0, Math.PI), matteBlackCanopy);
+      canopyTopArch.rotation.z = Math.PI / 2;
+      canopyTopArch.rotation.y = Math.PI / 2;
+      canopyTopArch.position.set(0, 7.5, 0.8);
+      autoVisualGroup.add(canopyTopArch);
+
+      const rearWinFrame = new THREE.Mesh(new THREE.BoxGeometry(2.75, 1.58, 0.25), glossyYellow);
+      rearWinFrame.position.set(0, 6.3, 2.95);
+      const rearWinGlass = new THREE.Mesh(new THREE.BoxGeometry(2.42, 1.32, 0.3), glassMat);
+      rearWinGlass.position.set(0, 6.3, 2.96);
+      autoVisualGroup.add(rearWinFrame, rearWinGlass);
+
+      [-2.6, 2.6].forEach(px => {
+        const frontPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 3.4, 10), glossyYellow);
+        frontPillar.position.set(px, 6.2, -1.8);
+        autoVisualGroup.add(frontPillar);
+
+        const mirrorArm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.9, 8), chromeMat);
+        mirrorArm.rotation.z = Math.PI / 2;
+        mirrorArm.position.set(px + (px < 0 ? -0.45 : 0.45), 5.8, -1.8);
+        const mirrorHead = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.45, 0.2), glossyBlackBody);
+        mirrorHead.position.set(px + (px < 0 ? -0.85 : 0.85), 5.9, -1.8);
+        autoVisualGroup.add(mirrorArm, mirrorHead);
+      });
+
+      const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffd166 });
+      for (let i = 0; i < 20; i++) {
+        const sp = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.15, 1.8), sparkMat);
+        sp.position.set(-2.9 + (Math.random() - 0.5) * 0.8, 0.3 + Math.random() * 0.7, 2.8 + Math.random() * 4.8);
+        autoVisualGroup.add(sp);
         sparkParticles.push({ mesh: sp, phase: Math.random() * 6 });
       }
 
-      // =========================================================
-      // SMOOTH 3D CAPYBARA DRIVER (Leaning Out of the Cab!)
-      // =========================================================
+      // CAPYBARA HERO PEEKING OVER THE ROOF
       pelicanGroup = new THREE.Group();
-      // Offset slightly so Capybara leans out heroically like the concept art
-      pelicanGroup.position.set(-1.3, 5.2, 0.5);
-      bikeWheelieRig.add(pelicanGroup);
+      pelicanGroup.position.set(0.35, 8.2, -0.4);
+      autoVisualGroup.add(pelicanGroup);
 
-      const furMat = new THREE.MeshStandardMaterial({ color: 0xb5763a, roughness: 0.65, metalness: 0.05 });
-      const snoutMat = new THREE.MeshStandardMaterial({ color: 0x6e421c, roughness: 0.7 });
-      const pinkScarfMat = new THREE.MeshStandardMaterial({ color: 0xff1493, emissive: 0x440022, roughness: 0.4 });
-      const orangeMat = new THREE.MeshStandardMaterial({ color: 0xff6d00, roughness: 0.25 });
-      const leafMat = new THREE.MeshStandardMaterial({ color: 0x2ec4b6, roughness: 0.4 });
+      const furMat = new THREE.MeshStandardMaterial({ color: 0xba7536, roughness: 0.58, metalness: 0.06 });
+      const earMat = new THREE.MeshStandardMaterial({ color: 0x6e421c, roughness: 0.68 });
+      const pinkScarfMat = new THREE.MeshStandardMaterial({ color: 0xff1493, emissive: 0x660033, roughness: 0.32, side: THREE.DoubleSide });
+      const orangeMat = new THREE.MeshStandardMaterial({ color: 0xff6d00, emissive: 0x331100, roughness: 0.15, metalness: 0.12 });
+      const leafMat = new THREE.MeshStandardMaterial({ color: 0x38b000, emissive: 0x0a2900, roughness: 0.32 });
 
-      // Smooth Plump Capybara Torso & Shoulders
-      const torso = new THREE.Mesh(new THREE.SphereGeometry(2.1, 20, 20), furMat);
-      torso.scale.set(1.0, 1.35, 0.95);
-      pelicanGroup.add(torso);
+      const shoulders = new THREE.Mesh(new THREE.SphereGeometry(2.15, 24, 24), furMat);
+      shoulders.scale.set(1.1, 0.85, 0.95);
+      shoulders.position.set(0, -0.4, 0.2);
+      pelicanGroup.add(shoulders);
 
-      // Sculpted Capybara Head & Rounded Snout
-      const headGroup = new THREE.Group();
-      headGroup.position.set(-0.3, 3.4, 0.8);
-      headGroup.rotation.y = 0.25;
-      pelicanGroup.add(headGroup);
+      const head = new THREE.Mesh(new THREE.SphereGeometry(1.95, 28, 28), furMat);
+      head.scale.set(1.02, 0.98, 1.15);
+      head.position.set(0, 1.35, -0.2);
+      pelicanGroup.add(head);
 
-      const cranium = new THREE.Mesh(new THREE.SphereGeometry(1.85, 24, 24), furMat);
-      cranium.scale.set(0.95, 1.0, 1.25);
-      headGroup.add(cranium);
-
-      const snout = new THREE.Mesh(new THREE.SphereGeometry(1.45, 20, 20), snoutMat);
-      snout.scale.set(0.9, 0.95, 1.15);
-      snout.position.set(0, -0.1, 1.45);
-      headGroup.add(snout);
-
-      // Cute Nostrils & Ears
-      [-0.45, 0.45].forEach(nx => {
-        const nostril = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 10), blackBody);
-        nostril.position.set(nx, 0.25, 2.5);
-        headGroup.add(nostril);
-      });
-      [-1.2, 1.2].forEach(ex => {
-        const ear = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 12), snoutMat);
-        ear.scale.set(0.6, 1.0, 0.8);
-        ear.position.set(ex, 1.5, -0.6);
-        headGroup.add(ear);
+      [-1.45, 1.45].forEach(ex => {
+        const ear = new THREE.Mesh(new THREE.SphereGeometry(0.48, 16, 16), earMat);
+        ear.scale.set(0.65, 1.05, 0.75);
+        ear.rotation.z = ex < 0 ? 0.35 : -0.35;
+        ear.position.set(ex, 2.75, -0.1);
+        pelicanGroup.add(ear);
       });
 
-      // Iconic "Deal-With-It" Pixel Sunglasses with White Pixel Glints!
-      const shadesGroup = new THREE.Group();
-      shadesGroup.position.set(0, 0.55, 1.95);
-      const bridge = new THREE.Mesh(new THREE.BoxGeometry(3.4, 0.32, 0.3), blackBody);
-      shadesGroup.add(bridge);
-      [-0.95, 0.95].forEach(lx => {
-        const lens = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.85, 0.32), blackBody);
-        lens.position.set(lx, -0.25, 0.05);
-        shadesGroup.add(lens);
-        // White pixel glints matching the artwork
+      [-1.75, 1.75].forEach(sx => {
+        const sideWing = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.65, 1.4), glossyBlackBody);
+        sideWing.position.set(sx, 1.9, -0.75);
+        pelicanGroup.add(sideWing);
         for (let p = 0; p < 3; p++) {
-          const glint = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.18, 0.36), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-          glint.position.set(lx - 0.3 + p * 0.2, -0.05 - p * 0.18, 0.06);
-          shadesGroup.add(glint);
+          const pxDot = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.18, 0.22), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+          pxDot.position.set(sx + (sx < 0 ? -0.38 : 0.38), 2.02 - p * 0.16, -0.55 - p * 0.22);
+          pelicanGroup.add(pxDot);
         }
       });
-      headGroup.add(shadesGroup);
 
-      // Glossy Tangerine + Green Leaf on Top of Capybara's Head!
-      const tangerine = new THREE.Mesh(new THREE.SphereGeometry(0.88, 20, 20), orangeMat);
-      tangerine.scale.set(1.05, 0.88, 1.05);
-      tangerine.position.set(0, 2.25, 0.1);
-      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.35, 0.9, 8), leafMat);
-      leaf.rotation.z = -1.1;
-      leaf.position.set(0.45, 2.95, 0.1);
-      headGroup.add(tangerine, leaf);
+      const tangerine = new THREE.Mesh(new THREE.SphereGeometry(0.84, 24, 24), orangeMat);
+      tangerine.scale.set(1.06, 0.88, 1.06);
+      tangerine.position.set(0, 3.45, -0.15);
+      const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.35, 8), earMat);
+      stem.position.set(0, 4.2, -0.15);
+      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.34, 0.98, 12), leafMat);
+      leaf.scale.set(1.0, 1.0, 0.35);
+      leaf.rotation.z = -1.15;
+      leaf.position.set(0.48, 4.32, -0.15);
+      pelicanGroup.add(tangerine, stem, leaf);
 
-      // Flowing Hot-Pink Scarf & Trailing Ribbons
-      const neckScarf = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.42, 12, 24), pinkScarfMat);
-      neckScarf.rotation.x = Math.PI / 2;
-      neckScarf.position.set(-0.2, 1.9, 0.4);
-      pelicanGroup.add(neckScarf);
+      const neckWrap = new THREE.Mesh(new THREE.TorusGeometry(1.75, 0.38, 14, 28), pinkScarfMat);
+      neckWrap.rotation.x = Math.PI / 2;
+      neckWrap.position.set(0, 0.45, 0.1);
+      pelicanGroup.add(neckWrap);
 
-      for (let i = 0; i < 8; i++) {
-        const seg = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.35, 0.85), pinkScarfMat);
-        seg.position.set(-1.5 - i * 0.65, 2.1, 0.2 - i * 0.2);
-        pelicanGroup.add(seg);
-        sparkParticles.push({ mesh: seg, isScarf: true, index: i, baseX: -1.5 - i * 0.65 });
+      for (let tail = 0; tail < 2; tail++) {
+        for (let i = 0; i < 10; i++) {
+          const seg = new THREE.Mesh(
+            new THREE.BoxGeometry(0.68, 0.18 + (tail === 0 ? 0.12 : 0), 0.78 - i * 0.04),
+            pinkScarfMat
+          );
+          const bx = 1.4 + i * 0.56;
+          const by = (tail === 0 ? 0.65 : -0.15) + i * 0.05;
+          const bz = 0.35 + tail * 0.35 + i * 0.12;
+          seg.position.set(bx, by, bz);
+          pelicanGroup.add(seg);
+          sparkParticles.push({ mesh: seg, isScarf: true, tail, index: i, baseY: by, baseZ: bz });
+        }
       }
     })();
 
-    // =========================================================
-    // 6. CYBERPUNK MEGACITY SKYLINE & HOLO-BILLBOARDS
-    // =========================================================
+    // =========================================================================
+    // 7. CURVED CYBERPUNK CITYSCAPE, VOLUMETRIC CLOUDS & WATERFALLS
+    // =========================================================================
     const cityStructures = [];
-    (function buildCyberpunkMegacity() {
-      // Giant Synthwave Pink Sunset Moon in the background sky
-      const moonGeo = new THREE.CircleGeometry(38, 32);
-      const moonMat = new THREE.MeshBasicMaterial({ color: 0xff2a85, transparent: true, opacity: 0.75 });
-      const moon = new THREE.Mesh(moonGeo, moonMat);
-      moon.position.set(75, 42, -220);
-      scene.add(moon);
+    const cloudPuffs = [];
 
-      // Holographic Billboards ("CHAI FUELS LEGENDS" + Neon Capybara Sign)
-      const chaiBillboardTex = makeTextCanvasTexture('#19062b', '#ff007f', ['CHAI', 'FUELS', 'LEGENDS ☕'], 512, 256, '#ff66cc');
-      const capyBillboardTex = makeTextCanvasTexture('#12092b', '#00f5d4', ['🐹 CAPY 001', 'NEON DRIFT'], 512, 256, '#00f5d4');
+    (function buildRichCyberpunkWorld() {
+      const sunGroup = new THREE.Group();
+      sunGroup.position.set(-48, 38, -230);
+      const sunDisc = new THREE.Mesh(
+        new THREE.CircleGeometry(24, 32),
+        new THREE.MeshBasicMaterial({ color: 0xff3d7f })
+      );
+      sunGroup.add(sunDisc);
+      for (let s = 0; s < 5; s++) {
+        const stripe = new THREE.Mesh(
+          new THREE.PlaneGeometry(48, 1.4 + s * 0.4),
+          new THREE.MeshBasicMaterial({ color: 0x1c184b })
+        );
+        stripe.position.set(0, -4 - s * 3.8, 0.2);
+        sunGroup.add(stripe);
+      }
+      scene.add(sunGroup);
 
-      const towerMat = new THREE.MeshStandardMaterial({ color: 0x0b0e21, roughness: 0.5, metalness: 0.6 });
-      const windowColors = [0x00f5d4, 0xff007f, 0xffbe0b];
+      const puffTex = makeCloudPuffTexture();
+      const puffMat = new THREE.SpriteMaterial({ map: puffTex, transparent: true, depthWrite: false });
+      for (let i = 0; i < 55; i++) {
+        const sprite = new THREE.Sprite(puffMat);
+        const side = i % 2 === 0 ? -1 : 1;
+        const x = side * (12 + Math.random() * 65);
+        const y = -13 + Math.random() * 14;
+        const z = -220 + Math.random() * 250;
+        const scale = 24 + Math.random() * 28;
+        sprite.position.set(x, y, z);
+        sprite.scale.set(scale * 1.4, scale * 0.85, 1);
+        scene.add(sprite);
+        cloudPuffs.push({ sprite, speed: 28 + Math.random() * 18 });
+      }
 
-      for (let i = 0; i < 24; i++) {
+      const winTex1 = makeSkyscraperWindowTexture('#00f5d4');
+      const winTex2 = makeSkyscraperWindowTexture('#ff007f');
+      const chaiBillboardTex = makeTextCanvasTexture('#19062b', '#ff007f', ['CHAI', 'FUELS', 'LEGENDS ☕'], 256, 512, '#00f5d4');
+
+      const towerMat1 = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ map: winTex1, roughness: 0.4, metalness: 0.5 }));
+      const towerMat2 = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ map: winTex2, roughness: 0.4, metalness: 0.5 }));
+      const cyanCrownMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0x00ffff }));
+      const pinkCrownMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xff1493 }));
+      const waterfallMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0x72efdd, transparent: true, opacity: 0.65, side: THREE.DoubleSide }));
+      const billboardMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ map: chaiBillboardTex, side: THREE.DoubleSide }));
+
+      for (let i = 0; i < 28; i++) {
         const bGroup = new THREE.Group();
         const side = i % 2 === 0 ? -1 : 1;
-        const x = side * (32 + Math.random() * 48);
-        const h = 35 + Math.random() * 65;
-        const w = 8 + Math.random() * 10;
-        const z = -220 + i * 12;
+        const x = side * (30 + (i % 3) * 16 + Math.random() * 10);
+        const h = 45 + Math.random() * 75;
+        const w = 10 + Math.random() * 10;
+        const z = -240 + i * 10;
 
-        const tower = new THREE.Mesh(new THREE.BoxGeometry(w, h, w), towerMat);
-        tower.position.y = h / 2 - 28;
+        const tower = new THREE.Mesh(new THREE.BoxGeometry(w, h, w), i % 2 === 0 ? towerMat1 : towerMat2);
+        tower.position.y = h / 2 - 22;
         bGroup.add(tower);
 
-        // Glowing Neon Window Strips
-        const winCol = windowColors[i % windowColors.length];
-        const winStrip = new THREE.Mesh(
-          new THREE.BoxGeometry(w + 0.3, 1.5, w + 0.3),
-          new THREE.MeshBasicMaterial({ color: winCol })
-        );
-        winStrip.position.y = h * 0.6 - 28;
-        bGroup.add(winStrip);
+        const crown = new THREE.Mesh(new THREE.BoxGeometry(w + 0.5, 1.2, w + 0.5), i % 2 === 0 ? cyanCrownMat : pinkCrownMat);
+        crown.position.y = h - 22;
+        bGroup.add(crown);
 
-        // Attach Holo-Billboards to inner buildings
-        if (i % 4 === 0) {
-          const bTex = side < 0 ? chaiBillboardTex : capyBillboardTex;
-          const board = new THREE.Mesh(
-            new THREE.PlaneGeometry(18, 9),
-            new THREE.MeshBasicMaterial({ map: bTex, side: THREE.DoubleSide })
-          );
-          board.position.set(-side * (w / 2 + 1), 12, 0);
+        if (i % 3 === 0) {
+          const wf = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 32), waterfallMat);
+          wf.position.set(-side * (w / 2 + 0.3), 2, 0);
+          wf.rotation.y = side * Math.PI / 2;
+          bGroup.add(wf);
+        }
+
+        if (i % 5 === 0) {
+          const board = new THREE.Mesh(new THREE.PlaneGeometry(7, 15), billboardMat);
+          board.position.set(-side * (w / 2 + 0.6), 16, 0);
           board.rotation.y = side < 0 ? 0.35 : -0.35;
           bGroup.add(board);
         }
 
         bGroup.position.set(x, 0, z);
         scene.add(bGroup);
-        cityStructures.push({ group: bGroup, speed: 38 });
+        cityStructures.push({ group: bGroup, speed: 36 });
       }
     })();
 
-    // =========================================================
-    // 7. GLASS CUTTING CHAI CUPS & NEON HOVER-OBSTACLES
-    // =========================================================
-    const LANES = [-9.5, 0, 9.5]; // Left Rail, Center Spine, Right Rail
-    const LANE_Y = [-0.6, 0.8, -0.6];
+    // =========================================================================
+    // 8. CURVED-WORLD CHAI CUPS, HOVER-PADS & PARTICLE BURSTS
+    // =========================================================================
+    const LANES = [-5.2, 0, 5.2];
+    const LANE_Y = [-0.35, 0.45, -0.35];
     const activeEntities = [];
+    const ambientHoverPads = [];
+
+    const darkChassisMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0x151928, metalness: 0.78, roughness: 0.25 }));
+    const cyanPadMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0x00ffff }));
+    const pinkPadMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xff1493 }));
+
+    (function buildSparseFloatingHoverPads() {
+      for (let i = 0; i < 8; i++) {
+        const pad = new THREE.Group();
+        const isCyan = i % 2 === 0;
+        const side = i < 4 ? -1 : 1;
+        const chassis = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.85, 5.2), darkChassisMat);
+        const glowPad = new THREE.Mesh(new THREE.BoxGeometry(4.3, 0.38, 4.3), isCyan ? cyanPadMat : pinkPadMat);
+        glowPad.position.y = 0.48;
+        pad.add(chassis, glowPad);
+
+        pad.position.set(
+          side * (11 + (i % 3) * 5.5),
+          1.5 + (i % 3) * 2.8,
+          -180 + i * 26
+        );
+        scene.add(pad);
+        ambientHoverPads.push({ mesh: pad, baseY: pad.position.y, phase: i * 1.1, speed: 52 + (i % 3) * 8 });
+      }
+    })();
+
+    const glassOuterMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.5, roughness: 0.06 }));
+    const chaiLiquidMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xd98634, emissive: 0x7a420b, roughness: 0.22 }));
+    const foamRimMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xfff5db }));
+    const steamWispMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.52 }));
 
     function createChaiCupMesh() {
       const g = new THREE.Group();
-      // Fluted Outer Glass Cylinder
-      const glassOuter = new THREE.Mesh(
-        new THREE.CylinderGeometry(1.15, 0.85, 2.7, 16),
-        new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.45, roughness: 0.1 })
-      );
-      // Warm Masala Chai Liquid Core
-      const chaiLiquid = new THREE.Mesh(
-        new THREE.CylinderGeometry(1.02, 0.78, 2.1, 16),
-        new THREE.MeshStandardMaterial({ color: 0xc87d32, emissive: 0x5c3208, roughness: 0.3 })
-      );
-      chaiLiquid.position.y = -0.15;
-      // Frothy Milk Rim
-      const foamRim = new THREE.Mesh(
-        new THREE.CylinderGeometry(1.06, 1.04, 0.25, 16),
-        new THREE.MeshBasicMaterial({ color: 0xfff3d1 })
-      );
-      foamRim.position.y = 0.95;
+      const glassOuter = new THREE.Mesh(new THREE.CylinderGeometry(0.95, 0.7, 2.3, 18), glassOuterMat);
+      const chaiLiquid = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.64, 1.85, 16), chaiLiquidMat);
+      chaiLiquid.position.y = -0.1;
+      const foamRim = new THREE.Mesh(new THREE.CylinderGeometry(0.89, 0.87, 0.22, 16), foamRimMat);
+      foamRim.position.y = 0.82;
 
-      // Swirling Steam Wisps Above the Chai!
       for (let s = 0; s < 3; s++) {
-        const wisp = new THREE.Mesh(
-          new THREE.TorusGeometry(0.35 + s * 0.12, 0.07, 8, 16, Math.PI),
-          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 - s * 0.12 })
-        );
-        wisp.position.set((s - 1) * 0.25, 1.8 + s * 0.75, 0);
+        const wisp = new THREE.Mesh(new THREE.TorusGeometry(0.3 + s * 0.1, 0.055, 8, 16, Math.PI), steamWispMat);
+        wisp.position.set((s - 1) * 0.2, 1.5 + s * 0.65, 0);
         wisp.rotation.z = s % 2 === 0 ? 0.4 : -0.4;
         g.add(wisp);
       }
@@ -1098,24 +1404,21 @@
 
     function createObstacleMesh(highBarrier = false, colorHex = 0xff007f) {
       const g = new THREE.Group();
-      const darkBase = new THREE.MeshStandardMaterial({ color: 0x16192b, metalness: 0.7, roughness: 0.3 });
-      const glowMat = new THREE.MeshBasicMaterial({ color: colorHex });
+      const glowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: colorHex }));
 
       if (highBarrier) {
-        // Overhead Neon Laser Gate (Swipe Down to Duck!)
-        const beam = new THREE.Mesh(new THREE.BoxGeometry(6.8, 2.2, 1.2), glowMat);
-        beam.position.y = 8.5;
-        const pL = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 9, 10), darkBase);
-        pL.position.set(-3.2, 4.5, 0);
-        const pR = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 9, 10), darkBase);
-        pR.position.set(3.2, 4.5, 0);
+        const beam = new THREE.Mesh(new THREE.BoxGeometry(5.2, 1.6, 1.0), glowMat);
+        beam.position.y = 7.8;
+        const pL = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 8, 10), darkChassisMat);
+        pL.position.set(-2.4, 4.0, 0);
+        const pR = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 8, 10), darkChassisMat);
+        pR.position.set(2.4, 4.0, 0);
         g.add(beam, pL, pR);
       } else {
-        // Sleek Floating Neon Hover-Barricade matching concept art!
-        const base = new THREE.Mesh(new THREE.BoxGeometry(5.2, 1.1, 4.2), darkBase);
-        base.position.y = 1.0;
-        const neonTop = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.55, 3.4), glowMat);
-        neonTop.position.y = 1.65;
+        const base = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.9, 3.6), darkChassisMat);
+        base.position.y = 0.8;
+        const neonTop = new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.42, 2.9), glowMat);
+        neonTop.position.y = 1.35;
         g.add(base, neonTop);
       }
       return g;
@@ -1125,16 +1428,33 @@
       const g = new THREE.Group();
       const colors = { jetpack: 0xff6d00, magnet: 0x00f5d4, sneakers: 0x38b000, mystery: 0xff007f };
       const c = colors[pType] || 0xffbe0b;
-      const orb = new THREE.Mesh(
-        new THREE.OctahedronGeometry(1.5, 1),
-        new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.7, metalness: 0.5, roughness: 0.2 })
-      );
-      const ring = new THREE.Mesh(
-        new THREE.TorusGeometry(2.0, 0.15, 10, 24),
-        new THREE.MeshBasicMaterial({ color: 0xffffff })
-      );
+      const orbMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.8, metalness: 0.5, roughness: 0.2 }));
+      const orb = new THREE.Mesh(new THREE.OctahedronGeometry(1.2, 1), orbMat);
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(1.65, 0.12, 10, 24), foamRimMat);
       g.add(orb, ring);
       return g;
+    }
+
+    // Subway Surfers Golden Sparkle Burst when picking up a Chai Cup!
+    function spawnPickupBurst(worldPos, colorHex = 0xffbe0b) {
+      const mat = new THREE.MeshBasicMaterial({ color: colorHex });
+      for (let i = 0; i < 10; i++) {
+        const p = new THREE.Mesh(new THREE.OctahedronGeometry(0.28, 0), mat);
+        p.position.copy(worldPos);
+        const angle = (i / 10) * Math.PI * 2;
+        const vel = new THREE.Vector3(Math.cos(angle) * 9, 4 + Math.random() * 7, Math.sin(angle) * 9);
+        scene.add(p);
+        pickupBurstParticles.push({ mesh: p, vel, life: 0.45 });
+      }
+    }
+
+    function showFloatingComboText(txt) {
+      const containerEl = document.getElementById('floating-popups');
+      const el = document.createElement('div');
+      el.className = 'combo-pop';
+      el.textContent = txt;
+      containerEl.appendChild(el);
+      setTimeout(() => el.remove(), 750);
     }
 
     function spawnWave(levelObj) {
@@ -1145,10 +1465,10 @@
       let highBarrier = false;
       let mesh = null;
 
-      if (roll < 0.46) {
+      if (roll < 0.52) {
         type = 'fish';
         mesh = createChaiCupMesh();
-      } else if (roll < 0.58) {
+      } else if (roll < 0.64) {
         type = 'powerup';
         const pList = ['jetpack', 'magnet', 'sneakers', 'mystery'];
         pType = pList[Math.floor(Math.random() * pList.length)];
@@ -1160,28 +1480,29 @@
       }
 
       const x = LANES[laneIdx];
-      const y = 3.6 + LANE_Y[laneIdx] + (activePowerups.jetpack > 0 && type === 'fish' ? 12 : 0);
-      mesh.position.set(x, y, -165); // Spawn far ahead in the skyline (-Z) and rush toward the foreground (+Z)!
+      const y = 3.2 + LANE_Y[laneIdx] + (activePowerups.jetpack > 0 && type === 'fish' ? 10 : 0);
+      mesh.position.set(x, y, -175);
       scene.add(mesh);
       activeEntities.push({ mesh, laneIdx, type, pType, highBarrier, passedSound: false, active: true });
     }
 
-    // =========================================================
-    // 8. GAME STATE & CONTROLS
-    // =========================================================
+    // =========================================================================
+    // 9. GAME STATE & CONTROLS
+    // =========================================================================
     let gameState = 'HOME';
-    let currentLane = 2; // Start on Right Lane like the concept art!
+    let currentLane = 2;
     let jumpY = 0;
     let jumpVel = 0;
     let isJumping = false;
     let slideTimer = 0;
     let stumbleTimer = 0;
+    let cameraShake = 0;
 
-    let wheelieMeter = 65;
+    let wheelieMeter = 68;
     let isHoldingWheelie = false;
 
-    let score = 0;
-    let fishCount = 0;
+    let score = 765;
+    let fishCount = 3;
     let comboFish = 0;
     let currentLevelIdx = 1;
 
@@ -1220,7 +1541,7 @@
     }
 
     function applyThemeVisuals(lvl) {
-      document.body.style.background = lvl.bg;
+      updateSkyDomeTexture(lvl.skyTop, lvl.skyMid, lvl.skyBot);
       scene.fog.color.setHex(lvl.fogHex);
     }
 
@@ -1230,7 +1551,19 @@
       setTimeout(() => eventToast.classList.remove('show'), 2300);
     }
 
+    function seedShowcaseChaiLine() {
+      activeEntities.forEach(ent => scene.remove(ent.mesh));
+      activeEntities.length = 0;
+      [-8, -22, -38, -54].forEach((zPos, idx) => {
+        const mesh = createChaiCupMesh();
+        mesh.position.set(-0.5 - idx * 1.1, 6.2 - idx * 0.55, zPos);
+        scene.add(mesh);
+        activeEntities.push({ mesh, laneIdx: 1, type: 'fish', pType: null, highBarrier: false, passedSound: false, active: true });
+      });
+    }
+
     syncHomeUI();
+    seedShowcaseChaiLine();
 
     function switchLane(dir) {
       if (gameState !== 'PLAYING') return;
@@ -1248,7 +1581,7 @@
       isJumping = true;
       slideTimer = 0;
       const superJump = activePowerups.sneakers > 0;
-      jumpVel = superJump ? 48 : 36;
+      jumpVel = superJump ? 46 : 34;
       SoundFX.jumpWhoosh(superJump);
     }
 
@@ -1267,17 +1600,19 @@
         hudBoosts.textContent = boostCount;
         boostCountBadge.textContent = boostCount;
         activePowerups.shield = 8.0;
+        cameraShake = 0.35;
         SoundFX.autoHorn();
         showToast('🛡️ HOLO-BUMPER SHIELD ACTIVE (8S)!');
       }
     }
 
     function triggerStumble() {
+      cameraShake = 0.45;
       SoundFX.stumbleAlert();
       if (stumbleTimer > 0) {
         triggerGameOver('Busted by Cyber-Cop Enforcers after scraping the Maglev rail twice!');
       } else {
-        stumbleTimer = 6.0;
+        stumbleTimer = 5.0;
         SoundFX.policeSiren();
         showToast('🚨 CYBER-COP LOCK-ON! WATCH THE RAILS!');
       }
@@ -1304,9 +1639,9 @@
       if (gameState !== 'PLAYING') return;
       const dx = e.clientX - touchStartX;
       const dy = e.clientY - touchStartY;
-      if (Math.abs(dx) > 28 && Math.abs(dx) > Math.abs(dy)) {
+      if (Math.abs(dx) > 26 && Math.abs(dx) > Math.abs(dy)) {
         switchLane(dx < 0 ? -1 : 1);
-      } else if (Math.abs(dy) > 28 && Math.abs(dy) > Math.abs(dx)) {
+      } else if (Math.abs(dy) > 26 && Math.abs(dy) > Math.abs(dx)) {
         if (dy < 0) triggerJump();
         else triggerSlide();
       }
@@ -1330,9 +1665,9 @@
       if (e.code === 'Space') isHoldingWheelie = false;
     });
 
-    // =========================================================
-    // 9. MODALS & NAVIGATION
-    // =========================================================
+    // =========================================================================
+    // 10. MODALS & NAVIGATION
+    // =========================================================================
     function closeModal() {
       SoundFX.uiTap();
       modalBackdrop.classList.add('hidden');
@@ -1346,18 +1681,17 @@
       currentLane = 2;
       currentLevelIdx = Settings.selectedEventIdx;
       playerRig.position.set(LANES[currentLane], LANE_Y[currentLane], 0);
-      wheelieMeter = 62;
+      wheelieMeter = 68;
       jumpY = 0;
       isJumping = false;
       slideTimer = 0;
-      stumbleTimer = 2.5; // Show iconic "CYBER-COP 2S" badge on launch like concept art!
+      stumbleTimer = 2.5;
       activePowerups.jetpack = 0;
       activePowerups.magnet = 0;
       activePowerups.sneakers = 0;
       activePowerups.shield = 0;
 
-      activeEntities.forEach(ent => scene.remove(ent.mesh));
-      activeEntities.length = 0;
+      seedShowcaseChaiLine();
 
       applyThemeVisuals(LEVELS[currentLevelIdx]);
       hudLevelTxt.textContent = `ZONE ${LEVELS[currentLevelIdx].id} • ${LEVELS[currentLevelIdx].name}`;
@@ -1377,8 +1711,7 @@
 
     function returnToHome() {
       SoundFX.uiTap();
-      activeEntities.forEach(ent => scene.remove(ent.mesh));
-      activeEntities.length = 0;
+      seedShowcaseChaiLine();
       hud.classList.add('hidden');
       modalBackdrop.classList.add('hidden');
       homeScreen.classList.remove('hidden');
@@ -1395,6 +1728,10 @@
         <h2>⏸️ AUTO-METER PAUSED</h2>
         <p>Current Score: ${Math.floor(score)} | Cutting Chai: ${fishCount}</p>
         <div class="setting-row">
+          <span>✨ Neon Bloom Graphics</span>
+          <button class="btn blue" id="tog-bloom" style="padding:4px 12px; font-size:12px;">${Settings.bloom ? 'ON' : 'OFF'}</button>
+        </div>
+        <div class="setting-row">
           <span>🔊 Horn & Movement SFX</span>
           <button class="btn blue" id="tog-sfx" style="padding:4px 12px; font-size:12px;">${Settings.sfx ? 'ON' : 'OFF'}</button>
         </div>
@@ -1409,6 +1746,7 @@
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
+      document.getElementById('tog-bloom').onclick = (e) => { Settings.bloom = !Settings.bloom; e.target.textContent = Settings.bloom ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('tog-sfx').onclick = (e) => { Settings.sfx = !Settings.sfx; e.target.textContent = Settings.sfx ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('tog-loops').onclick = (e) => { Settings.loops = !Settings.loops; e.target.textContent = Settings.loops ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('btn-resume-now').onclick = resumeGame;
@@ -1420,6 +1758,10 @@
       SoundFX.popupOpen();
       modalContent.innerHTML = `
         <h2>⚙️ GARAGE SETTINGS</h2>
+        <div class="setting-row">
+          <span>✨ Real-Time Neon Bloom</span>
+          <button class="btn blue" id="set-bloom" style="padding:4px 12px; font-size:12px;">${Settings.bloom ? 'ON' : 'OFF'}</button>
+        </div>
         <div class="setting-row">
           <span>🔊 Auto Horn & Drift Audio</span>
           <button class="btn blue" id="set-sfx" style="padding:4px 12px; font-size:12px;">${Settings.sfx ? 'ON' : 'OFF'}</button>
@@ -1437,6 +1779,7 @@
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
+      document.getElementById('set-bloom').onclick = (e) => { Settings.bloom = !Settings.bloom; e.target.textContent = Settings.bloom ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('set-sfx').onclick = (e) => { Settings.sfx = !Settings.sfx; e.target.textContent = Settings.sfx ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('set-loops').onclick = (e) => { Settings.loops = !Settings.loops; e.target.textContent = Settings.loops ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('set-vib').onclick = (e) => { Settings.vibration = !Settings.vibration; e.target.textContent = Settings.vibration ? 'ON' : 'OFF'; SoundFX.uiTap(); };
@@ -1527,10 +1870,12 @@
     function triggerGameOver(reason) {
       if (activePowerups.shield > 0) {
         activePowerups.shield = 0;
+        cameraShake = 0.5;
         SoundFX.landImpact();
         showToast('🛡️ HOLO-BUMPER SAVED YOUR AUTO!');
         return;
       }
+      cameraShake = 0.7;
       gameState = 'GAMEOVER';
       isHoldingWheelie = false;
       SoundFX.wipeoutCatch();
@@ -1570,9 +1915,9 @@
       openInfoModal('🐹 TN 41 CAPY 001', 'Driver: Chill Capybara + Yuzu Tangerine + Pixel Shades<br>Ride: RE Yellow & Black Cyber-Auto<br>Motto: Chai Fuels Legends!');
     };
 
-    // =========================================================
-    // 10. MAIN ANIMATION & HERO CAMERA LOOP
-    // =========================================================
+    // =========================================================================
+    // 11. MAIN ANIMATION, CURVED WORLD & BLOOM RENDER LOOP
+    // =========================================================================
     const clock = new THREE.Clock();
 
     function updatePowerupHUD() {
@@ -1590,15 +1935,30 @@
       const delta = Math.min(clock.getDelta(), 0.1);
       const elapsed = clock.getElapsedTime();
 
-      // CONCEPT ART HERO CAMERA: Front-3/4 angle showing the Capybara & TN 41 CAPY 001 plate clearly while looking down the Maglev roof into the skyline!
-      camera.position.lerp(new THREE.Vector3(-2.5, 9.5, 27.5), delta * 5);
-      camera.lookAt(1.5, 4.5, -25);
+      // Dynamic Subway Surfers Horizon Bend swaying gently left and right as the train snakes through the city!
+      worldCurveUniforms.uCurveX.value = Math.sin(elapsed * 0.35) * 0.00012;
+
+      // Dynamic Speed FOV & Camera Shake
+      const targetFov = activePowerups.jetpack > 0 ? 58 : 48;
+      if (Math.abs(camera.fov - targetFov) > 0.1) {
+        camera.fov = THREE.MathUtils.lerp(camera.fov, targetFov, delta * 5);
+        camera.updateProjectionMatrix();
+      }
+
+      if (cameraShake > 0) cameraShake = Math.max(0, cameraShake - delta * 2.2);
+      const shakeX = (Math.random() - 0.5) * cameraShake * 1.4;
+      const shakeY = (Math.random() - 0.5) * cameraShake * 1.4;
+
+      // Follow player lane slightly for dynamic arcade chase feel
+      const camFollowX = -1.4 + (playerRig.position.x - LANES[2]) * 0.32 + shakeX;
+      camera.position.lerp(new THREE.Vector3(camFollowX, 8.8 + shakeY, 23.5), delta * 6);
+      camera.lookAt(playerRig.position.x * 0.22, 5.0, -35);
 
       if (gameState === 'HOME') {
         playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, LANES[2], delta * 6);
         playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, LANE_Y[2], delta * 6);
-        bikeWheelieRig.rotation.z = -0.34 + Math.sin(elapsed * 3) * 0.04;
-        bikeWheelieRig.rotation.y = -0.28;
+        bikeWheelieRig.rotation.z = 0.28 + Math.sin(elapsed * 3.2) * 0.03;
+        bikeWheelieRig.rotation.y = 0.18;
       }
 
       if (gameState === 'PLAYING') {
@@ -1614,7 +1974,7 @@
         } else {
           wheelieMeter -= delta * 35;
         }
-        wheelieMeter = Math.max(15, wheelieMeter); // Always keep a badass slight 2-wheel tilt!
+        wheelieMeter = Math.max(25, wheelieMeter);
 
         if (wheelieMeter >= 100) {
           wheelieMeter = 65;
@@ -1645,17 +2005,20 @@
 
         const targetX = LANES[currentLane];
         const targetBaseY = LANE_Y[currentLane];
-        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, targetX, delta * 12);
+        const prevX = playerRig.position.x;
+        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, targetX, delta * 13);
+        const laneVelX = playerRig.position.x - prevX;
 
         if (activePowerups.jetpack > 0) {
-          jumpY = THREE.MathUtils.lerp(jumpY, 12, delta * 8);
+          jumpY = THREE.MathUtils.lerp(jumpY, 10, delta * 8);
           isJumping = false;
         } else if (isJumping) {
           jumpY += jumpVel * delta;
-          jumpVel -= 92 * delta;
+          jumpVel -= 90 * delta;
           if (jumpY <= 0) {
             jumpY = 0;
             isJumping = false;
+            cameraShake = 0.15;
             SoundFX.landImpact();
           }
         } else {
@@ -1664,24 +2027,23 @@
 
         playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, targetBaseY, delta * 12) + jumpY;
 
-        const targetScaleY = slideTimer > 0 ? 0.55 : 1.0;
+        const targetScaleY = slideTimer > 0 ? 0.58 : 1.0;
         bikeWheelieRig.scale.y = THREE.MathUtils.lerp(bikeWheelieRig.scale.y, targetScaleY, delta * 16);
 
-        // Heroic 2-wheel side-tilt angle matching the concept art!
-        bikeWheelieRig.rotation.z = -(wheelieMeter / 100) * 0.65;
-        bikeWheelieRig.rotation.y = -0.24;
+        // Dynamic 2-wheel tilt + lane-switch banking lean!
+        bikeWheelieRig.rotation.z = (wheelieMeter / 100) * 0.46 - laneVelX * 0.45;
+        bikeWheelieRig.rotation.y = 0.16 - laneVelX * 0.35;
 
         const currentLvlObj = LEVELS[currentLevelIdx];
         spawnTimer -= delta;
         if (spawnTimer <= 0) {
           spawnWave(currentLvlObj);
-          spawnTimer = Math.max(0.45, 1.05 - currentLevelIdx * 0.08);
+          spawnTimer = Math.max(0.45, 1.02 - currentLevelIdx * 0.08);
         }
 
-        const speed = (75 + currentLevelIdx * 11) * (activePowerups.jetpack > 0 ? 1.4 : 1.0);
+        const speed = (76 + currentLevelIdx * 11) * (activePowerups.jetpack > 0 ? 1.4 : 1.0);
         updateContinuousAudioLoops(delta, speed, activePowerups, currentLvlObj);
 
-        // Entities spawn in the background skyline (-Z) and rush toward the foreground (+Z)
         for (let i = activeEntities.length - 1; i >= 0; i--) {
           const ent = activeEntities[i];
           ent.mesh.position.z += speed * delta;
@@ -1697,19 +2059,22 @@
             SoundFX.trainFlyBy();
           }
 
-          // Hitbox check around Auto-Rickshaw Z position (Z = 6 to 14)
-          if (ent.active && ent.mesh.position.z > 6.5 && ent.mesh.position.z < 14.5) {
+          if (ent.active && ent.mesh.position.z > 5.5 && ent.mesh.position.z < 13.5) {
             const xDist = Math.abs(playerRig.position.x - ent.mesh.position.x);
-            if (xDist < 3.6) {
+            if (xDist < 2.9) {
               if (ent.type === 'fish') {
                 ent.active = false;
                 fishCount++;
                 comboFish++;
-                score += 50 * mult;
+                const pts = 50 * mult;
+                score += pts;
                 SoundFX.chaiClink(comboFish);
+                spawnPickupBurst(ent.mesh.position, 0xffbe0b);
+                showFloatingComboText(`+${pts} ☕`);
                 scene.remove(ent.mesh);
               } else if (ent.type === 'powerup') {
                 ent.active = false;
+                spawnPickupBurst(ent.mesh.position, 0x00f5d4);
                 scene.remove(ent.mesh);
                 let chosen = ent.pType;
                 if (chosen === 'mystery') {
@@ -1723,7 +2088,7 @@
                 showToast(`⚡ ${chosen.toUpperCase()} ACTIVATED!`);
               } else if (ent.type === 'obstacle' && activePowerups.jetpack <= 0) {
                 const hitHigh = ent.highBarrier && slideTimer <= 0;
-                const hitLow = !ent.highBarrier && jumpY < 4.2;
+                const hitLow = !ent.highBarrier && jumpY < 3.8;
                 if (hitHigh || hitLow) {
                   ent.active = false;
                   scene.remove(ent.mesh);
@@ -1734,7 +2099,7 @@
             }
           }
 
-          if (ent.mesh.position.z > 35) {
+          if (ent.mesh.position.z > 30) {
             scene.remove(ent.mesh);
             activeEntities.splice(i, 1);
           }
@@ -1742,39 +2107,73 @@
       }
 
       if (gameState !== 'PAUSED') {
-        rearWheel.children.forEach(w => w.rotation.x += delta * 22);
-        frontWheel.rotation.x += delta * 22;
+        rearWheel.children.forEach(w => w.rotation.x -= delta * 24);
+        frontWheel.rotation.x -= delta * 24;
+        metalRoofTex.offset.y -= delta * 3.2;
 
-        // Animate Maglev roof ribs rushing toward foreground (+Z)
+        thrusterFlames.forEach(tf => {
+          const pulse = 0.85 + Math.sin(elapsed * 42 + tf.phase) * 0.22;
+          tf.outer.scale.set(pulse, 1.0 + Math.sin(elapsed * 30) * 0.35, pulse);
+          tf.core.scale.set(pulse, pulse, pulse);
+        });
+        thrusterGlowLight.position.x = playerRig.position.x;
+
         trainSegments.forEach(seg => {
-          seg.position.z += 65 * delta;
-          if (seg.position.z > 50) seg.position.z -= 220;
+          seg.position.z += 68 * delta;
+          if (seg.position.z > 40) seg.position.z -= 240;
         });
 
-        // Animate Cyberpunk Skyline & Billboards
+        ambientHoverPads.forEach(pad => {
+          pad.mesh.position.z += pad.speed * delta;
+          pad.mesh.position.y = pad.baseY + Math.sin(elapsed * 2.8 + pad.phase) * 0.55;
+          if (pad.mesh.position.z > 32) pad.mesh.position.z -= 210;
+        });
+
+        cloudPuffs.forEach(cp => {
+          cp.sprite.position.z += cp.speed * delta;
+          if (cp.sprite.position.z > 35) cp.sprite.position.z -= 250;
+        });
+
         cityStructures.forEach(c => {
           c.group.position.z += c.speed * delta;
-          if (c.group.position.z > 45) c.group.position.z -= 280;
+          if (c.group.position.z > 40) c.group.position.z -= 280;
         });
 
-        // Animate Tire Sparks & Flowing Pink Scarf
         sparkParticles.forEach(sp => {
           if (sp.isScarf) {
-            sp.mesh.position.y = 2.1 + Math.sin(elapsed * 18 - sp.index * 0.6) * (0.14 * sp.index);
+            sp.mesh.position.y = sp.baseY + Math.sin(elapsed * 18 - sp.index * 0.65 + sp.tail) * (0.14 * sp.index);
+            sp.mesh.position.z = sp.baseZ + Math.cos(elapsed * 14 - sp.index * 0.5) * (0.08 * sp.index);
           } else {
-            const s = 0.6 + Math.sin(elapsed * 35 + sp.phase) * 0.4;
+            const s = 0.5 + Math.sin(elapsed * 38 + sp.phase) * 0.45;
             sp.mesh.scale.set(s, s, s);
           }
         });
+
+        // Update 3D Pickup Burst Particles
+        for (let i = pickupBurstParticles.length - 1; i >= 0; i--) {
+          const bp = pickupBurstParticles[i];
+          bp.life -= delta;
+          bp.mesh.position.addScaledVector(bp.vel, delta);
+          bp.mesh.scale.setScalar(Math.max(0.01, bp.life * 2.2));
+          if (bp.life <= 0) {
+            scene.remove(bp.mesh);
+            pickupBurstParticles.splice(i, 1);
+          }
+        }
       }
 
-      renderer.render(scene, camera);
+      if (composer && Settings.bloom) {
+        composer.render();
+      } else {
+        renderer.render(scene, camera);
+      }
     }
 
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
+      if (composer) composer.setSize(window.innerWidth, window.innerHeight);
     });
 
     animate();
