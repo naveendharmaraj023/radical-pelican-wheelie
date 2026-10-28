@@ -15,7 +15,7 @@
     }
     body {
       overflow: hidden;
-      background: #060818;
+      background: #050716;
       font-family: 'Arial Black', Impact, 'Courier New', sans-serif;
       color: #fff;
     }
@@ -25,104 +25,101 @@
       display: block;
     }
 
-    /* ==========================================
-       SUBWAY SURFERS TIER GLOSSY ARCADE HUD
-       ========================================== */
+    /* ====================================================
+       PORTRAIT-OPTIMIZED SUBWAY SURFERS HUD (COMPACT TOP)
+       ==================================================== */
     #hud {
       position: absolute;
-      top: max(12px, env(safe-area-inset-top));
-      left: 16px;
-      right: 16px;
+      top: max(10px, env(safe-area-inset-top));
+      left: 10px;
+      right: 10px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      gap: 8px;
       pointer-events: none;
       z-index: 15;
     }
     #hud.hidden { display: none; }
 
     .cyber-hud-box {
-      background: linear-gradient(180deg, rgba(14, 20, 46, 0.92) 0%, rgba(6, 9, 22, 0.94) 100%);
-      border: 3px solid #00f5d4;
-      box-shadow: 0 6px 0 #023e8a, 0 0 20px rgba(0, 245, 212, 0.65), inset 0 2px 0 rgba(255, 255, 255, 0.35);
-      border-radius: 16px;
-      padding: 10px 18px;
+      background: linear-gradient(180deg, rgba(12, 18, 42, 0.90) 0%, rgba(5, 8, 20, 0.94) 100%);
+      border: 2.5px solid #00f5d4;
+      box-shadow: 0 4px 0 #023e8a, 0 0 16px rgba(0, 245, 212, 0.55);
+      border-radius: 14px;
+      padding: 7px 11px;
       pointer-events: auto;
-      min-width: 235px;
       backdrop-filter: blur(8px);
     }
     .hud-top-label {
       font-family: 'Courier New', monospace;
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 900;
       color: #ffbe0b;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
       margin-bottom: 2px;
-      text-shadow: 1px 1px 0 #000;
+      white-space: nowrap;
     }
     .hud-top-label .cyan-mult {
       background: #00f5d4;
       color: #03071e;
-      padding: 1px 6px;
-      border-radius: 6px;
-      margin-left: 6px;
+      padding: 1px 5px;
+      border-radius: 5px;
+      margin-left: 4px;
       font-weight: 900;
     }
     .hud-score-num {
       font-family: 'Arial Black', Impact, sans-serif;
-      font-size: 34px;
+      font-size: 26px;
       line-height: 1.0;
       color: #ffffff;
-      -webkit-text-stroke: 1.5px #000;
-      text-shadow: 0 4px 0 #ff007f, 0 0 14px rgba(255, 0, 127, 0.85);
-      margin-bottom: 6px;
-      transition: transform 0.1s ease;
+      -webkit-text-stroke: 1px #000;
+      text-shadow: 0 3px 0 #ff007f, 0 0 12px rgba(255, 0, 127, 0.85);
+      margin-bottom: 4px;
     }
     #powerup-banners {
       display: flex;
-      gap: 6px;
+      gap: 4px;
       flex-wrap: wrap;
-      min-height: 22px;
+      min-height: 18px;
     }
     .alert-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 3px;
       background: linear-gradient(180deg, #ff2a2a 0%, #990000 100%);
-      border: 2px solid #ffffff;
-      border-radius: 20px;
-      padding: 2px 12px;
-      font-size: 10px;
+      border: 1.5px solid #ffffff;
+      border-radius: 14px;
+      padding: 1px 8px;
+      font-size: 9px;
       font-weight: 900;
       color: #fff;
       text-transform: uppercase;
-      box-shadow: 0 3px 0 #4a0000, 0 0 10px rgba(255, 0, 0, 0.7);
+      box-shadow: 0 2px 0 #4a0000;
     }
 
     .hud-right-wrap {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 6px;
       pointer-events: auto;
     }
     #wheelie-bar-wrap {
-      width: 200px;
-      height: 15px;
+      width: 118px;
+      height: 12px;
       background: #0b0e1d;
-      border: 2.5px solid #ffffff;
-      border-radius: 10px;
-      margin: 5px 0 7px 0;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      margin: 4px 0 5px 0;
       overflow: hidden;
       position: relative;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
     }
     #wheelie-bar {
       height: 100%;
       width: 68%;
       background: linear-gradient(90deg, #f77f00 0%, #ffbe0b 55%, #ffffff 100%);
-      border-radius: 6px;
-      box-shadow: 0 0 10px #ffbe0b;
+      border-radius: 5px;
       transition: width 0.04s linear;
     }
     #wheelie-zone {
@@ -133,36 +130,72 @@
       bottom: 0;
       border-left: 2px dashed #ffffff;
       border-right: 2px dashed #ffffff;
-      background: rgba(0, 245, 212, 0.25);
+      background: rgba(0, 245, 212, 0.28);
     }
     .hud-stats-row {
       font-family: 'Courier New', monospace;
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 900;
       color: #ffbe0b;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
+      white-space: nowrap;
     }
     .pause-btn-orange {
-      width: 54px;
-      height: 54px;
+      width: 44px;
+      height: 44px;
       background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
-      border: 3px solid #ffffff;
-      border-radius: 16px;
+      border: 2.5px solid #ffffff;
+      border-radius: 12px;
       color: #ffffff;
       font-family: 'Arial Black', sans-serif;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 900;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      box-shadow: 0 6px 0 #992200, 0 8px 16px rgba(0,0,0,0.55), inset 0 2px 0 rgba(255,255,255,0.45);
+      box-shadow: 0 4px 0 #992200;
     }
     .pause-btn-orange:active {
-      transform: translateY(4px);
-      box-shadow: 0 2px 0 #992200;
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #992200;
+    }
+
+    /* BOLLYWOOD CINEMATIC INTRO LETTERBOX & BANNER */
+    #cinematic-bars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #cinematic-bars.hidden { display: none; }
+    .cinema-bar {
+      width: 100%;
+      height: 11vh;
+      background: #000;
+      border-bottom: 2px solid #ff007f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cinema-bar.bottom {
+      border-bottom: none;
+      border-top: 2px solid #00f5d4;
+    }
+    #cinema-caption {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(16px, 4.5vw, 24px);
+      color: #ffbe0b;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px 0 #ff007f;
+      text-align: center;
+      padding: 0 12px;
     }
 
     /* FLOATING COMBO POPUPS */
@@ -175,8 +208,8 @@
     }
     .combo-pop {
       position: absolute;
-      left: 54%;
-      top: 42%;
+      left: 50%;
+      top: 52%;
       font-family: 'Arial Black', Impact, sans-serif;
       font-size: 24px;
       color: #ffbe0b;
@@ -186,20 +219,20 @@
     }
     @keyframes floatUpFade {
       0% { transform: translate(-50%, 0) scale(0.6); opacity: 1; }
-      50% { transform: translate(-50%, -35px) scale(1.18); opacity: 1; }
-      100% { transform: translate(-50%, -65px) scale(0.95); opacity: 0; }
+      50% { transform: translate(-50%, -40px) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%, -75px) scale(0.95); opacity: 0; }
     }
 
-    /* ==========================================
-       HOME SCREEN UI
-       ========================================== */
+    /* ====================================================
+       PORTRAIT HOME SCREEN UI (SUBWAY SURFERS LAYOUT)
+       ==================================================== */
     #home-screen {
       position: absolute;
       inset: 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: max(14px, env(safe-area-inset-top)) 18px max(16px, env(safe-area-inset-bottom)) 18px;
+      padding: max(14px, env(safe-area-inset-top)) 14px max(20px, env(safe-area-inset-bottom)) 14px;
       z-index: 25;
       pointer-events: none;
     }
@@ -214,36 +247,36 @@
     }
     .top-left-group, .top-right-group {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
     }
     .ss-pill-btn {
       background: linear-gradient(180deg, #00f5d4 0%, #0096c7 100%);
-      border: 3px solid #ffffff;
+      border: 2.5px solid #ffffff;
       border-radius: 12px;
-      padding: 8px 15px;
+      padding: 7px 12px;
       color: #03071e;
       font-family: 'Arial Black', sans-serif;
-      font-size: 12px;
-      box-shadow: 0 5px 0 #023e8a, 0 6px 12px rgba(0,0,0,0.5);
+      font-size: 11px;
+      box-shadow: 0 4px 0 #023e8a, 0 5px 10px rgba(0,0,0,0.5);
       cursor: pointer;
     }
-    .ss-pill-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #023e8a; }
+    .ss-pill-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #023e8a; }
 
     .ss-icon-btn {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
-      border: 3px solid #fff;
+      border: 2.5px solid #fff;
       border-radius: 12px;
       color: #fff;
-      font-size: 19px;
+      font-size: 18px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       position: relative;
-      box-shadow: 0 5px 0 #992200, 0 6px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 0 #992200;
     }
     .badge-count {
       position: absolute;
@@ -261,12 +294,18 @@
     .home-center {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
       pointer-events: auto;
       cursor: pointer;
       flex: 1;
-      padding-left: 3vw;
+      padding: 3vh 0 4vh 0;
+      text-align: center;
+    }
+    .logo-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .tour-tag {
       background: linear-gradient(90deg, #ff007f 0%, #7209b7 100%);
@@ -274,16 +313,16 @@
       padding: 4px 14px;
       border-radius: 20px;
       border: 2px solid #00f5d4;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 900;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
+      letter-spacing: 1.2px;
+      margin-bottom: 8px;
       box-shadow: 0 4px 0 #240046;
     }
     .graffiti-title {
       font-family: 'Arial Black', Impact, sans-serif;
-      font-size: clamp(28px, 5.2vw, 46px);
-      line-height: 0.95;
+      font-size: clamp(32px, 9vw, 48px);
+      line-height: 0.94;
       color: #ffbe0b;
       text-transform: uppercase;
       -webkit-text-stroke: 2px #000;
@@ -293,29 +332,28 @@
     }
     .graffiti-sub {
       display: block;
-      font-size: clamp(30px, 5.8vw, 52px);
+      font-size: clamp(34px, 9.5vw, 54px);
       color: #00f5d4;
       -webkit-text-stroke: 2px #050716;
       text-shadow: 0 6px 0 #7209b7;
     }
     .high-score-banner {
       background: rgba(8, 11, 24, 0.92);
-      border: 2.5px solid #00f5d4;
-      padding: 6px 15px;
+      border: 2px solid #00f5d4;
+      padding: 5px 14px;
       border-radius: 10px;
       font-size: 12px;
       font-weight: bold;
       color: #ffbe0b;
-      margin-bottom: 14px;
       box-shadow: 0 4px 0 #023e8a;
     }
     .tap-to-play {
       font-family: 'Arial Black', Impact, sans-serif;
-      font-size: clamp(18px, 3.2vw, 24px);
+      font-size: clamp(19px, 5vw, 25px);
       color: #03071e;
       background: linear-gradient(180deg, #ffbe0b 0%, #fb5607 100%);
       border: 3px solid #ffffff;
-      padding: 10px 28px;
+      padding: 12px 32px;
       border-radius: 30px;
       box-shadow: 0 6px 0 #992200, 0 0 25px rgba(255, 190, 11, 0.85);
       animation: pulseTap 0.95s infinite alternate ease-in-out;
@@ -327,42 +365,44 @@
 
     .bottom-dock {
       display: flex;
-      justify-content: flex-start;
-      padding-left: 3vw;
-      gap: 14px;
+      justify-content: center;
+      gap: 12px;
       width: 100%;
       pointer-events: auto;
     }
     .dock-btn {
+      flex: 1;
+      max-width: 115px;
       background: linear-gradient(180deg, #240046 0%, #10002b 100%);
-      border: 3px solid #00f5d4;
+      border: 2.5px solid #00f5d4;
       border-radius: 14px;
-      padding: 7px 18px;
+      padding: 8px 10px;
       text-align: center;
       box-shadow: 0 5px 0 #03045e, 0 0 14px rgba(0, 245, 212, 0.4);
       cursor: pointer;
     }
     .dock-btn:active { transform: translateY(3px); }
-    .dock-icon { font-size: 18px; display: block; }
+    .dock-icon { font-size: 20px; display: block; }
     .dock-label { font-family: 'Arial Black', sans-serif; font-size: 11px; color: #ffbe0b; }
 
     #event-toast {
       position: absolute;
-      top: 82px;
+      top: 108px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(8, 11, 24, 0.95);
       border: 2.5px solid #00f5d4;
-      padding: 8px 20px;
+      padding: 8px 18px;
       border-radius: 20px;
       font-weight: 900;
-      font-size: 13px;
+      font-size: 12px;
       color: #ffbe0b;
       box-shadow: 0 0 18px rgba(0, 245, 212, 0.7);
       z-index: 18;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s ease;
+      white-space: nowrap;
     }
     #event-toast.show { opacity: 1; }
 
@@ -382,17 +422,17 @@
       border: 3.5px solid #00f5d4;
       box-shadow: 0 10px 0 #023e8a, 0 0 30px rgba(0, 245, 212, 0.55);
       border-radius: 18px;
-      padding: 22px;
+      padding: 20px;
       width: 100%;
-      max-width: 385px;
+      max-width: 360px;
       text-align: center;
-      max-height: 88vh;
+      max-height: 86vh;
       overflow-y: auto;
     }
     .modal-card h2 {
       font-family: 'Arial Black', sans-serif;
       color: #ffbe0b;
-      font-size: 21px;
+      font-size: 20px;
       margin-bottom: 10px;
       text-shadow: 2px 2px 0 #ff007f;
     }
@@ -409,7 +449,7 @@
       background: linear-gradient(180deg, #ff007f 0%, #99004d 100%);
       color: #fff;
       border: 2.5px solid #fff;
-      padding: 10px 18px;
+      padding: 10px 16px;
       font-family: 'Arial Black', sans-serif;
       font-size: 14px;
       border-radius: 12px;
@@ -460,13 +500,15 @@
     </div>
 
     <div class="home-center" id="tap-to-play-zone">
-      <div class="tour-tag" id="home-event-label">TN 41 CAPY 001 • ZONE 2: BIO-JUNGLE OVERGROWTH</div>
-      <div class="graffiti-title">
-        CYBER-AUTO
-        <span class="graffiti-sub">NEON VELOCITY</span>
-      </div>
-      <div class="high-score-banner">
-        🏆 BEST: <span id="home-best-el">765</span> &nbsp;|&nbsp; ☕ CHAI BANK: <span id="home-fish-bank">12</span>
+      <div class="logo-cluster">
+        <div class="tour-tag" id="home-event-label">TN 41 CAPY 001 • ZONE 2: BIO-JUNGLE</div>
+        <div class="graffiti-title">
+          CYBER-AUTO
+          <span class="graffiti-sub">NEON VELOCITY</span>
+        </div>
+        <div class="high-score-banner">
+          🏆 BEST: <span id="home-best-el">765</span> &nbsp;|&nbsp; ☕ CHAI: <span id="home-fish-bank">12</span>
+        </div>
       </div>
       <div class="tap-to-play">TAP TO DRIFT!</div>
     </div>
@@ -487,30 +529,40 @@
     </div>
   </div>
 
-  <!-- IN-GAME HUD OVERLAY -->
+  <!-- BOLLYWOOD ACTION INTRO LETTERBOX -->
+  <div id="cinematic-bars" class="hidden">
+    <div class="cinema-bar">
+      <div id="cinema-caption">💥 HIGHWAY FENDER-BENDER!</div>
+    </div>
+    <div class="cinema-bar bottom">
+      <div style="font-size:11px; color:#00f5d4; font-family:monospace;">🎬 BOLLYWOOD STUNT CAMERA • TAP TO SKIP</div>
+    </div>
+  </div>
+
+  <!-- PORTRAIT IN-GAME HUD OVERLAY -->
   <div id="hud" class="hidden">
     <div class="cyber-hud-box">
       <div class="hud-top-label">
-        <span id="hud-level-txt">ZONE 2 • BIO-JUNGLE OVERGROWTH</span>
+        <span id="hud-level-txt">ZONE 2 • BIO-JUNGLE</span>
         <span class="cyan-mult" id="mult-badge">2X</span>
       </div>
       <div class="hud-score-num" id="score-el">765</div>
       <div id="powerup-banners">
-        <span class="alert-pill">🚨 CYBER-COP 2S</span>
+        <span class="alert-pill">🚨 SUV BOSS CHASING</span>
       </div>
     </div>
 
     <div class="hud-right-wrap">
       <div class="cyber-hud-box">
-        <div class="hud-top-label">2-WHEEL AUTO-TILT (HOLD/DBLTAP)</div>
+        <div class="hud-top-label">2-WHEEL TILT (HOLD)</div>
         <div id="wheelie-bar-wrap">
           <div id="wheelie-zone"></div>
           <div id="wheelie-bar"></div>
         </div>
         <div class="hud-stats-row">
-          <span>☕ CHAI: <strong id="fish-el" style="color:#fff;">3</strong></span>
+          <span>☕ <strong id="fish-el" style="color:#fff;">3</strong></span>
           <span>|</span>
-          <span>🛡️ BUMPERS: <strong id="hud-boosts" style="color:#fff;">3</strong></span>
+          <span>🛡️ <strong id="hud-boosts" style="color:#fff;">3</strong></span>
         </div>
       </div>
       <button class="pause-btn-orange" id="btn-pause">||</button>
@@ -528,12 +580,13 @@
 
   <script>
     // =========================================================================
-    // 1. PROCEDURAL WEB AUDIO ENGINE
+    // 1. SUBWAY SURFERS STYLE UPBEAT BGM SEQUENCER + SFX ENGINE
     // =========================================================================
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
     let audioCtx = null;
 
     const Settings = {
+      bgm: true,
       sfx: true,
       loops: true,
       bloom: true,
@@ -548,6 +601,79 @@
       } catch (e) {}
     }
 
+    // Procedural Subway Surfers Style 132 BPM Upbeat Funk/Surf Groove Sequencer
+    const SubwayBGM = {
+      step: 0,
+      accum: 0,
+      stepDuration: 60 / 132 / 4, // 16th-note at 132 BPM (~0.1136s)
+      // Catchy Minor-Pentatonic / Dorian Surf Lead Melody (MIDI frequencies)
+      bassNotes: [
+        110, 0, 110, 130.8, 146.8, 0, 146.8, 164.8,
+        130.8, 0, 130.8, 146.8, 164.8, 0, 196.0, 164.8
+      ],
+      leadNotes: [
+        440, 0, 523.2, 587.3, 659.2, 0, 587.3, 523.2,
+        440, 523.2, 659.2, 0, 784.0, 659.2, 587.3, 0
+      ],
+      update(delta, isFast = false) {
+        if (!Settings.bgm || !audioCtx) return;
+        const rate = isFast ? 1.18 : 1.0;
+        this.accum += delta * rate;
+        if (this.accum < this.stepDuration) return;
+        this.accum -= this.stepDuration;
+
+        const s = this.step % 16;
+        const now = audioCtx.currentTime;
+
+        // 1. Punchy 4-on-the-floor Kick + Syncopated Bounce Kick
+        if (s === 0 || s === 4 || s === 8 || s === 10 || s === 12) {
+          SoundFX._tone(135, 'sine', 0.11, 38, 0.15);
+        }
+        // 2. Crisp Backbeat Snare (Steps 4 & 12)
+        if (s === 4 || s === 12) {
+          this._playNoiseHit(0.09, 0.08);
+          SoundFX._tone(210, 'triangle', 0.07, 110, 0.09);
+        }
+        // 3. Upbeat 16th Hi-Hat Groove
+        if (s % 2 === 1) {
+          this._playNoiseHit(0.03, 0.035);
+        }
+        // 4. Funky Slap Bassline
+        const bFreq = this.bassNotes[s];
+        if (bFreq > 0) {
+          SoundFX._tone(bFreq, 'sawtooth', 0.10, bFreq * 0.98, 0.065);
+        }
+        // 5. Catchy Subway Surfers-style Lead Synth Hook
+        const lFreq = this.leadNotes[s];
+        if (lFreq > 0) {
+          SoundFX._tone(lFreq, 'square', 0.11, lFreq * 1.005, 0.055);
+        }
+
+        this.step++;
+      },
+      _playNoiseHit(duration, vol) {
+        try {
+          const bufferSize = Math.floor(audioCtx.sampleRate * duration);
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.35));
+          }
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'highpass';
+          filter.frequency.value = 1800;
+          const gain = audioCtx.createGain();
+          gain.gain.value = vol;
+          noise.connect(filter);
+          filter.connect(gain);
+          gain.connect(audioCtx.destination);
+          noise.start();
+        } catch (e) {}
+      }
+    };
+
     const SoundFX = {
       uiTap() { if (Settings.sfx) { ensureAudio(); this._tone(580, 'sine', 0.06, 820, 0.14); } },
       popupOpen() { if (Settings.sfx) { ensureAudio(); this._tone(380, 'triangle', 0.12, 720, 0.14); } },
@@ -557,6 +683,18 @@
         [440, 587, 440, 659].forEach((f, idx) => {
           setTimeout(() => this._tone(f, 'sawtooth', 0.11, f * 1.06, 0.14), idx * 75);
         });
+      },
+      crashSmash() {
+        if (!Settings.sfx) return;
+        ensureAudio();
+        this._tone(110, 'sawtooth', 0.35, 35, 0.28);
+        SubwayBGM._playNoiseHit(0.28, 0.22);
+        if (Settings.vibration && navigator.vibrate) navigator.vibrate([90, 40, 120]);
+      },
+      bollywoodRampLaunch() {
+        if (!Settings.sfx) return;
+        ensureAudio();
+        this._tone(180, 'sawtooth', 0.85, 880, 0.20);
       },
       laneWhoosh() { if (Settings.sfx) { ensureAudio(); this._tone(310, 'sine', 0.09, 580, 0.15); } },
       jumpWhoosh(superJump = false) {
@@ -572,7 +710,7 @@
         this._tone(180, 'sawtooth', 0.18, 95, 0.22);
         if (Settings.vibration && navigator.vibrate) navigator.vibrate(65);
       },
-      trainFlyBy() { if (Settings.sfx) { ensureAudio(); this._tone(150, 'sawtooth', 0.22, 70, 0.09); } },
+      trainFlyBy() { if (Settings.sfx) { ensureAudio(); this._tone(150, 'sawtooth', 0.22, 70, 0.08); } },
       chaiClink(combo = 0) {
         if (!Settings.sfx) return;
         ensureAudio();
@@ -626,13 +764,10 @@
         ensureAudio();
         if (jumpY <= 0.1 && activePowerups.jetpack <= 0) {
           const tiltPitch = Math.floor(wheelieMeter * 0.9);
-          SoundFX._tone(75 + tiltPitch + currentEventTheme.audioBaseOffset, 'sawtooth', 0.04, 95 + tiltPitch, 0.04);
+          SoundFX._tone(75 + tiltPitch + currentEventTheme.audioBaseOffset, 'sawtooth', 0.04, 95 + tiltPitch, 0.032);
         }
         if (activePowerups.jetpack > 0) {
-          SoundFX._tone(210 + Math.random() * 75, 'sawtooth', 0.07, 310, 0.06);
-        }
-        if (activePowerups.magnet > 0) {
-          SoundFX._tone(480 + Math.sin(performance.now() * 0.012) * 90, 'sine', 0.05, 520, 0.04);
+          SoundFX._tone(210 + Math.random() * 75, 'sawtooth', 0.07, 310, 0.055);
         }
       }
     }
@@ -704,43 +839,41 @@
     ];
 
     // =========================================================================
-    // 3. SUBWAY SURFERS "CURVED WORLD" VERTEX SHADER + UNREAL BLOOM COMPOSER
+    // 3. THREE.JS PORTRAIT RENDERER, CURVED SHADER & UNREAL BLOOM
     // =========================================================================
     const container = document.getElementById('canvas-container');
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x22174a, 0.0024);
+    scene.fog = new THREE.FogExp2(0x22174a, 0.0022);
 
-    const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // Wide vertical FOV (60 deg) for Portrait mode so all 3 lanes + distant track are 100% visible!
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.2;
+    renderer.toneMappingExposure = 1.22;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
 
-    // Set up Post-Processing UnrealBloomPass for Authentic Neon Glow
     let composer = null;
     let bloomPass = null;
     if (typeof THREE.EffectComposer !== 'undefined' && typeof THREE.UnrealBloomPass !== 'undefined') {
       const renderScene = new THREE.RenderPass(scene, camera);
       bloomPass = new THREE.UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.72, // Bloom strength
-        0.55, // Radius
-        0.68  // Luminance threshold (only bright neon strips, taillights & chai steam glow!)
+        0.75,
+        0.55,
+        0.66
       );
       composer = new THREE.EffectComposer(renderer);
       composer.addPass(renderScene);
       composer.addPass(bloomPass);
     }
 
-    // Subway Surfers Curved-World Horizon Shader Injection
-    // Bends distant objects (-Z) smoothly downward and slightly left/right like a real planet horizon!
     const worldCurveUniforms = {
-      uCurveY: { value: -0.00028 },
-      uCurveX: { value: -0.00010 }
+      uCurveY: { value: -0.00022 },
+      uCurveX: { value: -0.00008 }
     };
 
     function applySubwaySurfersCurveShader(material) {
@@ -755,8 +888,7 @@
           '#include <project_vertex>',
           `
           vec4 mvPosition = modelViewMatrix * vec4( transformed, 1.0 );
-          // Apply Subway Surfers quadratic horizon bend based on depth distance
-          float zDist = max(0.0, -mvPosition.z - 12.0);
+          float zDist = max(0.0, -mvPosition.z - 15.0);
           mvPosition.y += uCurveY * zDist * zDist;
           mvPosition.x += uCurveX * zDist * zDist;
           gl_Position = projectionMatrix * mvPosition;
@@ -766,7 +898,6 @@
       return material;
     }
 
-    // Procedural HDR Studio Environment Map for Metallic Paint & Chrome
     (function buildNeonReflectionEnvironment() {
       try {
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -795,7 +926,6 @@
       } catch (e) {}
     })();
 
-    // Rich Skybox Dome Texture so Bloom Pass renders against a vibrant sky gradient
     let skyDomeMat = null;
     function updateSkyDomeTexture(topHex, midHex, botHex) {
       const c = document.createElement('canvas');
@@ -821,24 +951,24 @@
     }
     updateSkyDomeTexture('#060a22', '#1c184b', '#ff4d6d');
 
-    const ambientLight = new THREE.AmbientLight(0xffd8ff, 0.88);
+    const ambientLight = new THREE.AmbientLight(0xffd8ff, 0.92);
     scene.add(ambientLight);
 
-    const sunLight = new THREE.DirectionalLight(0xffe9b0, 1.55);
-    sunLight.position.set(-22, 55, 35);
+    const sunLight = new THREE.DirectionalLight(0xffe9b0, 1.6);
+    sunLight.position.set(-22, 65, 35);
     sunLight.castShadow = true;
     scene.add(sunLight);
 
-    const cyanRim = new THREE.PointLight(0x00f5d4, 3.2, 70);
-    cyanRim.position.set(-11, 9, 12);
+    const cyanRim = new THREE.PointLight(0x00f5d4, 3.2, 75);
+    cyanRim.position.set(-11, 10, 12);
     scene.add(cyanRim);
 
-    const pinkRim = new THREE.PointLight(0xff007f, 3.2, 70);
-    pinkRim.position.set(11, 9, 12);
+    const pinkRim = new THREE.PointLight(0xff007f, 3.2, 75);
+    pinkRim.position.set(11, 10, 12);
     scene.add(pinkRim);
 
     const thrusterGlowLight = new THREE.PointLight(0x00e5ff, 3.8, 24);
-    thrusterGlowLight.position.set(2.5, 2.5, 14);
+    thrusterGlowLight.position.set(0, 2.5, 14);
     scene.add(thrusterGlowLight);
 
     // =========================================================================
@@ -868,32 +998,25 @@
       return new THREE.CanvasTexture(c);
     }
 
-    // Brushed Metallic Steel & Panel Rivets Texture for the Maglev Bullet Train Roof
     function makeBrushedMetalPanelTexture() {
       const c = document.createElement('canvas');
       c.width = 512;
       c.height = 512;
       const ctx = c.getContext('2d');
       const grad = ctx.createLinearGradient(0, 0, 512, 0);
-      grad.addColorStop(0.0, '#5c677d');
-      grad.addColorStop(0.25, '#97a4bd');
-      grad.addColorStop(0.5, '#d8e2f2');
-      grad.addColorStop(0.75, '#97a4bd');
-      grad.addColorStop(1.0, '#5c677d');
+      grad.addColorStop(0.0, '#4a5568');
+      grad.addColorStop(0.2, '#97a4bd');
+      grad.addColorStop(0.5, '#e2e8f0');
+      grad.addColorStop(0.8, '#97a4bd');
+      grad.addColorStop(1.0, '#4a5568');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, 512, 512);
 
-      // Subtle brushed anodized lines
-      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-      ctx.lineWidth = 1;
-      for (let i = 0; i < 180; i++) {
-        const x = Math.random() * 512;
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, 512);
-        ctx.stroke();
-      }
-      // Panel seam lines
+      // Clear glowing lane divider markings on the train roof!
+      ctx.fillStyle = 'rgba(0, 245, 212, 0.45)';
+      ctx.fillRect(165, 0, 8, 512);
+      ctx.fillRect(339, 0, 8, 512);
+
       ctx.strokeStyle = 'rgba(15, 20, 35, 0.55)';
       ctx.lineWidth = 4;
       for (let y = 0; y < 512; y += 128) {
@@ -909,7 +1032,6 @@
       return tex;
     }
 
-    // Multi-Window Cyberpunk Skyscraper Facade
     function makeSkyscraperWindowTexture(accentHex) {
       const c = document.createElement('canvas');
       c.width = 256;
@@ -946,6 +1068,7 @@
       return new THREE.CanvasTexture(c);
     }
 
+    // --- 5-TIER SCENE HIERARCHY ---
     const masterRig = new THREE.Group();
     scene.add(masterRig);
 
@@ -956,17 +1079,23 @@
     jetGroup.add(playerRig);
 
     // =========================================================================
-    // 5. SUBWAY SURFERS CURVED CHROME MAGLEV ROOF WITH BLOOMING NEON STRIPS
+    // 5. MAGLEV BULLET TRAIN + BOLLYWOOD STREET & ELEVATED RAMP PROPS
     // =========================================================================
     const trainSegments = [];
     const metalRoofTex = makeBrushedMetalPanelTexture();
+    const introWorldGroup = new THREE.Group(); // Street, Chasing SUV & Elevated Ramp!
+    scene.add(introWorldGroup);
 
-    (function buildChromeMaglevRoof() {
+    let rivalSuvMesh = null;
+    let rivalSirenL = null;
+    let rivalSirenR = null;
+
+    (function buildChromeMaglevAndBollywoodIntroSet() {
       const mirrorChromeMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
         map: metalRoofTex,
         color: 0xffffff,
-        metalness: 0.92,
-        roughness: 0.14
+        metalness: 0.90,
+        roughness: 0.16
       }));
       const gunmetalMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({
         color: 0x161b2b,
@@ -978,42 +1107,37 @@
         metalness: 0.5,
         roughness: 0.6
       }));
-      // High-luminance neon materials that trigger UnrealBloomPass!
       const cyanGlowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0x00ffff }));
       const pinkGlowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xff1493 }));
       const goldGlowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffbe0b }));
 
-      const mainBodyGeo = new THREE.CylinderGeometry(6.8, 7.4, 280, 36, 48, false, -Math.PI * 0.58, Math.PI * 1.16);
+      const mainBodyGeo = new THREE.CylinderGeometry(7.2, 7.8, 280, 36, 48, false, -Math.PI * 0.58, Math.PI * 1.16);
       mainBodyGeo.rotateX(Math.PI / 2);
       const mainBody = new THREE.Mesh(mainBodyGeo, mirrorChromeMat);
-      mainBody.position.set(0, -4.8, -85);
+      mainBody.position.set(0, -5.2, -85);
       mainBody.receiveShadow = true;
       jetGroup.add(mainBody);
 
-      // Subdivided Neon Strips along the curved roof
-      [-5.6, -3.4].forEach((xPos, idx) => {
+      [-5.8, -3.5].forEach((xPos, idx) => {
         const strip = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.28, 280, 1, 1, 48), idx === 0 ? pinkGlowMat : cyanGlowMat);
         strip.position.set(xPos, 0.8 + idx * 0.65, -85);
         jetGroup.add(strip);
       });
-      [3.4, 5.6].forEach((xPos, idx) => {
+      [3.5, 5.8].forEach((xPos, idx) => {
         const strip = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.28, 280, 1, 1, 48), idx === 0 ? goldGlowMat : pinkGlowMat);
         strip.position.set(xPos, 1.45 - idx * 0.65, -85);
         jetGroup.add(strip);
       });
-      const centerSeam = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.25, 280, 1, 1, 48), gunmetalMat);
-      centerSeam.position.set(0, 2.02, -85);
-      jetGroup.add(centerSeam);
 
       for (let z = -210; z <= 40; z += 12) {
         const seg = new THREE.Group();
         seg.position.z = z;
 
-        const seamBow = new THREE.Mesh(new THREE.BoxGeometry(9.6, 0.22, 0.55), gunmetalMat);
+        const seamBow = new THREE.Mesh(new THREE.BoxGeometry(10.0, 0.22, 0.55), gunmetalMat);
         seamBow.position.y = 1.92;
         seg.add(seamBow);
 
-        [-2.2, 2.2].forEach(vx => {
+        [-2.3, 2.3].forEach(vx => {
           const ventFrame = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.22, 4.2), gunmetalMat);
           ventFrame.position.set(vx, 1.72, 4);
           ventFrame.rotation.z = vx < 0 ? 0.18 : -0.18;
@@ -1029,13 +1153,68 @@
         jetGroup.add(seg);
         trainSegments.push(seg);
       }
+
+      // --- BOLLYWOOD ACTION INTRO SET (Parallel Neon Highway + Boss SUV + Elevated Ramp!) ---
+      // 1. Parallel Wet Asphalt Street Deck on Right Side (X = +15, Y = -7.5)
+      const roadMat = new THREE.MeshStandardMaterial({ color: 0x101320, roughness: 0.25, metalness: 0.6 });
+      const roadDeck = new THREE.Mesh(new THREE.BoxGeometry(11, 1.2, 190), roadMat);
+      roadDeck.position.set(15, -8.2, -30);
+      introWorldGroup.add(roadDeck);
+
+      const roadStripe = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.15, 190), new THREE.MeshBasicMaterial({ color: 0xffbe0b }));
+      roadStripe.position.set(15, -7.5, -30);
+      introWorldGroup.add(roadStripe);
+
+      // 2. Elevated Neon Stunt Ramp Leading from the Street (X = +15, Y = -7.5) Up onto the Train Roof!
+      const rampGroup = new THREE.Group();
+      rampGroup.position.set(12.5, -2.5, -18);
+      rampGroup.rotation.x = 0.34; // Steep upward launch angle
+      rampGroup.rotation.y = 0.24; // Angled toward the Maglev roof
+      const rampDeck = new THREE.Mesh(
+        new THREE.BoxGeometry(6.5, 0.8, 26),
+        new THREE.MeshStandardMaterial({ color: 0x222738, metalness: 0.7, roughness: 0.3 })
+      );
+      const rampNeonL = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.0, 26), new THREE.MeshBasicMaterial({ color: 0x00ffff }));
+      rampNeonL.position.x = -3.1;
+      const rampNeonR = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.0, 26), new THREE.MeshBasicMaterial({ color: 0xff007f }));
+      rampNeonR.position.x = 3.1;
+      // Glowing Chevron Arrows on Ramp
+      for (let a = -10; a <= 10; a += 5) {
+        const chev = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.9, 0.8), new THREE.MeshBasicMaterial({ color: 0xffbe0b }));
+        chev.position.z = a;
+        rampGroup.add(chev);
+      }
+      rampGroup.add(rampDeck, rampNeonL, rampNeonR);
+      introWorldGroup.add(rampGroup);
+
+      // 3. Angry Cyber-Mafia / Enforcer SUV that you sideswipe & who chases you!
+      rivalSuvMesh = new THREE.Group();
+      const suvBodyMat = new THREE.MeshStandardMaterial({ color: 0x140a1c, roughness: 0.2, metalness: 0.8 });
+      const suvRedTrim = new THREE.MeshBasicMaterial({ color: 0xff1e1e });
+      const suvCabin = new THREE.Mesh(new THREE.BoxGeometry(5.6, 2.8, 9.2), suvBodyMat);
+      suvCabin.position.y = 2.2;
+      const suvTop = new THREE.Mesh(new THREE.BoxGeometry(4.8, 2.0, 5.2), suvBodyMat);
+      suvTop.position.set(0, 4.4, 0.5);
+      const suvGrill = new THREE.Mesh(new THREE.BoxGeometry(5.7, 0.8, 9.4), suvRedTrim);
+      suvGrill.position.y = 1.4;
+      // Flashing Red & Cyan Roof Strobe Bar
+      rivalSirenL = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.45, 0.6), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
+      rivalSirenL.position.set(-1.1, 5.6, 0.5);
+      rivalSirenR = new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.45, 0.6), new THREE.MeshBasicMaterial({ color: 0x00f5d4 }));
+      rivalSirenR.position.set(1.1, 5.6, 0.5);
+      rivalSuvMesh.add(suvCabin, suvTop, suvGrill, rivalSirenL, rivalSirenR);
+      rivalSuvMesh.position.set(15, -7.5, 16);
+      introWorldGroup.add(rivalSuvMesh);
     })();
 
     // =========================================================================
-    // 6. HIGH-DETAIL AUTO-RICKSHAW ("TN 41 CAPY 001") & CAPYBARA
+    // 6. PROPORTION-SCALED AUTO-RICKSHAW ("TN 41 CAPY 001") & CAPYBARA
+    //    (Scaled to 0.72 so it sits cleanly at the bottom of the screen and
+    //     NEVER blocks the player's forward view!)
     // =========================================================================
     const bikeWheelieRig = new THREE.Group();
-    bikeWheelieRig.position.set(0, 2.0, 9.5);
+    bikeWheelieRig.position.set(0, 1.9, 10.5);
+    bikeWheelieRig.scale.set(0.72, 0.72, 0.72); // Sleek compact scale for unobstructed visibility!
     playerRig.add(bikeWheelieRig);
 
     const autoVisualGroup = new THREE.Group();
@@ -1047,8 +1226,8 @@
     let rearWheel, frontWheel, pelicanGroup;
 
     (function buildDetailedRearChaseAutoAndCapybara() {
-      const glossyYellow = new THREE.MeshStandardMaterial({ color: 0xffbe0b, roughness: 0.15, metalness: 0.38 });
-      const matteBlackCanopy = new THREE.MeshStandardMaterial({ color: 0x161922, roughness: 0.52, metalness: 0.22 });
+      const glossyYellow = new THREE.MeshStandardMaterial({ color: 0xffbe0b, roughness: 0.14, metalness: 0.4 });
+      const matteBlackCanopy = new THREE.MeshStandardMaterial({ color: 0x161922, roughness: 0.5, metalness: 0.22 });
       const glossyBlackBody = new THREE.MeshStandardMaterial({ color: 0x0d0f17, roughness: 0.2, metalness: 0.48 });
       const chromeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.08, metalness: 0.95 });
       const glassMat = new THREE.MeshStandardMaterial({ color: 0x99e6ff, transparent: true, opacity: 0.4, roughness: 0.05, metalness: 0.9 });
@@ -1089,7 +1268,6 @@
       yellowBelt.position.set(0, 4.1, 0.1);
       autoVisualGroup.add(yellowBelt);
 
-      // Chrome Side Guard Rails
       [-2.95, 2.95].forEach(gx => {
         const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 5.8, 10), chromeMat);
         rail.rotation.x = Math.PI / 2;
@@ -1151,37 +1329,24 @@
         thrusterFlames.push({ outer: outerFlame, core: coreFlame, phase: Math.random() * 6 });
       });
 
-      const canopyBox = new THREE.Mesh(new THREE.BoxGeometry(5.5, 2.8, 4.4), matteBlackCanopy);
-      canopyBox.position.set(0, 6.1, 0.8);
+      const canopyBox = new THREE.Mesh(new THREE.BoxGeometry(5.5, 2.5, 4.4), matteBlackCanopy);
+      canopyBox.position.set(0, 5.95, 0.8);
       autoVisualGroup.add(canopyBox);
 
       const canopyTopArch = new THREE.Mesh(new THREE.CylinderGeometry(2.75, 2.75, 4.4, 24, 1, false, 0, Math.PI), matteBlackCanopy);
       canopyTopArch.rotation.z = Math.PI / 2;
       canopyTopArch.rotation.y = Math.PI / 2;
-      canopyTopArch.position.set(0, 7.5, 0.8);
+      canopyTopArch.position.set(0, 7.2, 0.8);
       autoVisualGroup.add(canopyTopArch);
 
-      const rearWinFrame = new THREE.Mesh(new THREE.BoxGeometry(2.75, 1.58, 0.25), glossyYellow);
-      rearWinFrame.position.set(0, 6.3, 2.95);
-      const rearWinGlass = new THREE.Mesh(new THREE.BoxGeometry(2.42, 1.32, 0.3), glassMat);
-      rearWinGlass.position.set(0, 6.3, 2.96);
+      const rearWinFrame = new THREE.Mesh(new THREE.BoxGeometry(2.75, 1.5, 0.25), glossyYellow);
+      rearWinFrame.position.set(0, 6.1, 2.95);
+      const rearWinGlass = new THREE.Mesh(new THREE.BoxGeometry(2.42, 1.25, 0.3), glassMat);
+      rearWinGlass.position.set(0, 6.1, 2.96);
       autoVisualGroup.add(rearWinFrame, rearWinGlass);
 
-      [-2.6, 2.6].forEach(px => {
-        const frontPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 3.4, 10), glossyYellow);
-        frontPillar.position.set(px, 6.2, -1.8);
-        autoVisualGroup.add(frontPillar);
-
-        const mirrorArm = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.9, 8), chromeMat);
-        mirrorArm.rotation.z = Math.PI / 2;
-        mirrorArm.position.set(px + (px < 0 ? -0.45 : 0.45), 5.8, -1.8);
-        const mirrorHead = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.45, 0.2), glossyBlackBody);
-        mirrorHead.position.set(px + (px < 0 ? -0.85 : 0.85), 5.9, -1.8);
-        autoVisualGroup.add(mirrorArm, mirrorHead);
-      });
-
       const sparkMat = new THREE.MeshBasicMaterial({ color: 0xffd166 });
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 18; i++) {
         const sp = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.15, 1.8), sparkMat);
         sp.position.set(-2.9 + (Math.random() - 0.5) * 0.8, 0.3 + Math.random() * 0.7, 2.8 + Math.random() * 4.8);
         autoVisualGroup.add(sp);
@@ -1190,7 +1355,7 @@
 
       // CAPYBARA HERO PEEKING OVER THE ROOF
       pelicanGroup = new THREE.Group();
-      pelicanGroup.position.set(0.35, 8.2, -0.4);
+      pelicanGroup.position.set(0.35, 7.8, -0.4);
       autoVisualGroup.add(pelicanGroup);
 
       const furMat = new THREE.MeshStandardMaterial({ color: 0xba7536, roughness: 0.58, metalness: 0.06 });
@@ -1199,60 +1364,53 @@
       const orangeMat = new THREE.MeshStandardMaterial({ color: 0xff6d00, emissive: 0x331100, roughness: 0.15, metalness: 0.12 });
       const leafMat = new THREE.MeshStandardMaterial({ color: 0x38b000, emissive: 0x0a2900, roughness: 0.32 });
 
-      const shoulders = new THREE.Mesh(new THREE.SphereGeometry(2.15, 24, 24), furMat);
-      shoulders.scale.set(1.1, 0.85, 0.95);
-      shoulders.position.set(0, -0.4, 0.2);
-      pelicanGroup.add(shoulders);
-
-      const head = new THREE.Mesh(new THREE.SphereGeometry(1.95, 28, 28), furMat);
-      head.scale.set(1.02, 0.98, 1.15);
-      head.position.set(0, 1.35, -0.2);
+      const head = new THREE.Mesh(new THREE.SphereGeometry(1.75, 24, 24), furMat);
+      head.scale.set(1.02, 0.95, 1.12);
+      head.position.set(0, 1.2, -0.2);
       pelicanGroup.add(head);
 
-      [-1.45, 1.45].forEach(ex => {
-        const ear = new THREE.Mesh(new THREE.SphereGeometry(0.48, 16, 16), earMat);
+      [-1.3, 1.3].forEach(ex => {
+        const ear = new THREE.Mesh(new THREE.SphereGeometry(0.42, 14, 14), earMat);
         ear.scale.set(0.65, 1.05, 0.75);
         ear.rotation.z = ex < 0 ? 0.35 : -0.35;
-        ear.position.set(ex, 2.75, -0.1);
+        ear.position.set(ex, 2.45, -0.1);
         pelicanGroup.add(ear);
       });
 
-      [-1.75, 1.75].forEach(sx => {
-        const sideWing = new THREE.Mesh(new THREE.BoxGeometry(0.95, 0.65, 1.4), glossyBlackBody);
-        sideWing.position.set(sx, 1.9, -0.75);
+      [-1.6, 1.6].forEach(sx => {
+        const sideWing = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.58, 1.3), glossyBlackBody);
+        sideWing.position.set(sx, 1.7, -0.7);
         pelicanGroup.add(sideWing);
         for (let p = 0; p < 3; p++) {
-          const pxDot = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.18, 0.22), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-          pxDot.position.set(sx + (sx < 0 ? -0.38 : 0.38), 2.02 - p * 0.16, -0.55 - p * 0.22);
+          const pxDot = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.16, 0.2), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+          pxDot.position.set(sx + (sx < 0 ? -0.34 : 0.34), 1.82 - p * 0.14, -0.5 - p * 0.2);
           pelicanGroup.add(pxDot);
         }
       });
 
-      const tangerine = new THREE.Mesh(new THREE.SphereGeometry(0.84, 24, 24), orangeMat);
+      const tangerine = new THREE.Mesh(new THREE.SphereGeometry(0.75, 20, 20), orangeMat);
       tangerine.scale.set(1.06, 0.88, 1.06);
-      tangerine.position.set(0, 3.45, -0.15);
-      const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.35, 8), earMat);
-      stem.position.set(0, 4.2, -0.15);
-      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.34, 0.98, 12), leafMat);
+      tangerine.position.set(0, 3.05, -0.15);
+      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.9, 10), leafMat);
       leaf.scale.set(1.0, 1.0, 0.35);
       leaf.rotation.z = -1.15;
-      leaf.position.set(0.48, 4.32, -0.15);
-      pelicanGroup.add(tangerine, stem, leaf);
+      leaf.position.set(0.42, 3.75, -0.15);
+      pelicanGroup.add(tangerine, leaf);
 
-      const neckWrap = new THREE.Mesh(new THREE.TorusGeometry(1.75, 0.38, 14, 28), pinkScarfMat);
+      const neckWrap = new THREE.Mesh(new THREE.TorusGeometry(1.55, 0.34, 12, 24), pinkScarfMat);
       neckWrap.rotation.x = Math.PI / 2;
-      neckWrap.position.set(0, 0.45, 0.1);
+      neckWrap.position.set(0, 0.4, 0.1);
       pelicanGroup.add(neckWrap);
 
       for (let tail = 0; tail < 2; tail++) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 9; i++) {
           const seg = new THREE.Mesh(
-            new THREE.BoxGeometry(0.68, 0.18 + (tail === 0 ? 0.12 : 0), 0.78 - i * 0.04),
+            new THREE.BoxGeometry(0.62, 0.16 + (tail === 0 ? 0.1 : 0), 0.7 - i * 0.04),
             pinkScarfMat
           );
-          const bx = 1.4 + i * 0.56;
-          const by = (tail === 0 ? 0.65 : -0.15) + i * 0.05;
-          const bz = 0.35 + tail * 0.35 + i * 0.12;
+          const bx = 1.3 + i * 0.52;
+          const by = (tail === 0 ? 0.6 : -0.1) + i * 0.04;
+          const bz = 0.3 + tail * 0.3 + i * 0.1;
           seg.position.set(bx, by, bz);
           pelicanGroup.add(seg);
           sparkParticles.push({ mesh: seg, isScarf: true, tail, index: i, baseY: by, baseZ: bz });
@@ -1268,31 +1426,31 @@
 
     (function buildRichCyberpunkWorld() {
       const sunGroup = new THREE.Group();
-      sunGroup.position.set(-48, 38, -230);
+      sunGroup.position.set(0, 36, -240);
       const sunDisc = new THREE.Mesh(
-        new THREE.CircleGeometry(24, 32),
+        new THREE.CircleGeometry(28, 32),
         new THREE.MeshBasicMaterial({ color: 0xff3d7f })
       );
       sunGroup.add(sunDisc);
       for (let s = 0; s < 5; s++) {
         const stripe = new THREE.Mesh(
-          new THREE.PlaneGeometry(48, 1.4 + s * 0.4),
+          new THREE.PlaneGeometry(56, 1.5 + s * 0.4),
           new THREE.MeshBasicMaterial({ color: 0x1c184b })
         );
-        stripe.position.set(0, -4 - s * 3.8, 0.2);
+        stripe.position.set(0, -4 - s * 4.2, 0.2);
         sunGroup.add(stripe);
       }
       scene.add(sunGroup);
 
       const puffTex = makeCloudPuffTexture();
       const puffMat = new THREE.SpriteMaterial({ map: puffTex, transparent: true, depthWrite: false });
-      for (let i = 0; i < 55; i++) {
+      for (let i = 0; i < 48; i++) {
         const sprite = new THREE.Sprite(puffMat);
         const side = i % 2 === 0 ? -1 : 1;
-        const x = side * (12 + Math.random() * 65);
-        const y = -13 + Math.random() * 14;
+        const x = side * (12 + Math.random() * 55);
+        const y = -14 + Math.random() * 12;
         const z = -220 + Math.random() * 250;
-        const scale = 24 + Math.random() * 28;
+        const scale = 22 + Math.random() * 26;
         sprite.position.set(x, y, z);
         sprite.scale.set(scale * 1.4, scale * 0.85, 1);
         scene.add(sprite);
@@ -1313,7 +1471,7 @@
       for (let i = 0; i < 28; i++) {
         const bGroup = new THREE.Group();
         const side = i % 2 === 0 ? -1 : 1;
-        const x = side * (30 + (i % 3) * 16 + Math.random() * 10);
+        const x = side * (26 + (i % 3) * 14 + Math.random() * 8);
         const h = 45 + Math.random() * 75;
         const w = 10 + Math.random() * 10;
         const z = -240 + i * 10;
@@ -1347,10 +1505,10 @@
     })();
 
     // =========================================================================
-    // 8. CURVED-WORLD CHAI CUPS, HOVER-PADS & PARTICLE BURSTS
+    // 8. HIGH-VISIBILITY CHAI CUPS, HOVER-PADS & OBSTACLES
     // =========================================================================
-    const LANES = [-5.2, 0, 5.2];
-    const LANE_Y = [-0.35, 0.45, -0.35];
+    const LANES = [-4.2, 0, 4.2]; // Tighter 3-lane spacing for Portrait screen visibility!
+    const LANE_Y = [-0.25, 0.45, -0.25];
     const activeEntities = [];
     const ambientHoverPads = [];
 
@@ -1363,13 +1521,13 @@
         const pad = new THREE.Group();
         const isCyan = i % 2 === 0;
         const side = i < 4 ? -1 : 1;
-        const chassis = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.85, 5.2), darkChassisMat);
-        const glowPad = new THREE.Mesh(new THREE.BoxGeometry(4.3, 0.38, 4.3), isCyan ? cyanPadMat : pinkPadMat);
+        const chassis = new THREE.Mesh(new THREE.BoxGeometry(4.8, 0.85, 4.8), darkChassisMat);
+        const glowPad = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.38, 4.0), isCyan ? cyanPadMat : pinkPadMat);
         glowPad.position.y = 0.48;
         pad.add(chassis, glowPad);
 
         pad.position.set(
-          side * (11 + (i % 3) * 5.5),
+          side * (10.5 + (i % 3) * 4.5),
           1.5 + (i % 3) * 2.8,
           -180 + i * 26
         );
@@ -1378,10 +1536,10 @@
       }
     })();
 
-    const glassOuterMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.5, roughness: 0.06 }));
-    const chaiLiquidMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xd98634, emissive: 0x7a420b, roughness: 0.22 }));
+    const glassOuterMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.52, roughness: 0.06 }));
+    const chaiLiquidMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: 0xd98634, emissive: 0x8a4b0d, roughness: 0.22 }));
     const foamRimMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xfff5db }));
-    const steamWispMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.52 }));
+    const steamWispMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
 
     function createChaiCupMesh() {
       const g = new THREE.Group();
@@ -1407,18 +1565,18 @@
       const glowMat = applySubwaySurfersCurveShader(new THREE.MeshBasicMaterial({ color: colorHex }));
 
       if (highBarrier) {
-        const beam = new THREE.Mesh(new THREE.BoxGeometry(5.2, 1.6, 1.0), glowMat);
-        beam.position.y = 7.8;
-        const pL = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 8, 10), darkChassisMat);
-        pL.position.set(-2.4, 4.0, 0);
-        const pR = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 8, 10), darkChassisMat);
-        pR.position.set(2.4, 4.0, 0);
+        const beam = new THREE.Mesh(new THREE.BoxGeometry(4.4, 1.5, 1.0), glowMat);
+        beam.position.y = 6.8;
+        const pL = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 7.2, 10), darkChassisMat);
+        pL.position.set(-2.0, 3.6, 0);
+        const pR = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 7.2, 10), darkChassisMat);
+        pR.position.set(2.0, 3.6, 0);
         g.add(beam, pL, pR);
       } else {
-        const base = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.9, 3.6), darkChassisMat);
+        const base = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.95, 3.4), darkChassisMat);
         base.position.y = 0.8;
-        const neonTop = new THREE.Mesh(new THREE.BoxGeometry(3.3, 0.42, 2.9), glowMat);
-        neonTop.position.y = 1.35;
+        const neonTop = new THREE.Mesh(new THREE.BoxGeometry(2.9, 0.45, 2.8), glowMat);
+        neonTop.position.y = 1.38;
         g.add(base, neonTop);
       }
       return g;
@@ -1428,14 +1586,13 @@
       const g = new THREE.Group();
       const colors = { jetpack: 0xff6d00, magnet: 0x00f5d4, sneakers: 0x38b000, mystery: 0xff007f };
       const c = colors[pType] || 0xffbe0b;
-      const orbMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.8, metalness: 0.5, roughness: 0.2 }));
+      const orbMat = applySubwaySurfersCurveShader(new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.85, metalness: 0.5, roughness: 0.2 }));
       const orb = new THREE.Mesh(new THREE.OctahedronGeometry(1.2, 1), orbMat);
       const ring = new THREE.Mesh(new THREE.TorusGeometry(1.65, 0.12, 10, 24), foamRimMat);
       g.add(orb, ring);
       return g;
     }
 
-    // Subway Surfers Golden Sparkle Burst when picking up a Chai Cup!
     function spawnPickupBurst(worldPos, colorHex = 0xffbe0b) {
       const mat = new THREE.MeshBasicMaterial({ color: colorHex });
       for (let i = 0; i < 10; i++) {
@@ -1487,10 +1644,14 @@
     }
 
     // =========================================================================
-    // 9. GAME STATE & CONTROLS
+    // 9. GAME STATE, BOLLYWOOD INTRO SEQUENCE & CONTROLS
     // =========================================================================
-    let gameState = 'HOME';
-    let currentLane = 2;
+    let gameState = 'HOME'; // HOME -> INTRO -> PLAYING -> PAUSED -> GAMEOVER
+    let introTimer = 0;
+    let introCrashTriggered = false;
+    let introJumpTriggered = false;
+
+    let currentLane = 1; // Center Lane
     let jumpY = 0;
     let jumpVel = 0;
     let isJumping = false;
@@ -1514,6 +1675,8 @@
     let spawnTimer = 0;
 
     const homeScreen = document.getElementById('home-screen');
+    const cinematicBars = document.getElementById('cinematic-bars');
+    const cinemaCaption = document.getElementById('cinema-caption');
     const hud = document.getElementById('hud');
     const scoreEl = document.getElementById('score-el');
     const fishEl = document.getElementById('fish-el');
@@ -1554,9 +1717,9 @@
     function seedShowcaseChaiLine() {
       activeEntities.forEach(ent => scene.remove(ent.mesh));
       activeEntities.length = 0;
-      [-8, -22, -38, -54].forEach((zPos, idx) => {
+      [-14, -28, -42, -56].forEach((zPos, idx) => {
         const mesh = createChaiCupMesh();
-        mesh.position.set(-0.5 - idx * 1.1, 6.2 - idx * 0.55, zPos);
+        mesh.position.set(0, 3.6, zPos);
         scene.add(mesh);
         activeEntities.push({ mesh, laneIdx: 1, type: 'fish', pType: null, highBarrier: false, passedSound: false, active: true });
       });
@@ -1610,11 +1773,11 @@
       cameraShake = 0.45;
       SoundFX.stumbleAlert();
       if (stumbleTimer > 0) {
-        triggerGameOver('Busted by Cyber-Cop Enforcers after scraping the Maglev rail twice!');
+        triggerGameOver('Rammed off the Maglev by the chasing Cyber-Mafia SUV!');
       } else {
-        stumbleTimer = 5.0;
+        stumbleTimer = 6.0;
         SoundFX.policeSiren();
-        showToast('🚨 CYBER-COP LOCK-ON! WATCH THE RAILS!');
+        showToast('🚨 SUV BOSS GAINING! DONT SCRAPE THE RAILS!');
       }
     }
 
@@ -1624,6 +1787,11 @@
 
     window.addEventListener('pointerdown', (e) => {
       if (e.target.closest('button') || e.target.closest('.dock-btn') || e.target.closest('.modal-card')) return;
+      ensureAudio();
+      if (gameState === 'INTRO') {
+        finishBollywoodIntroAndStartRun();
+        return;
+      }
       touchStartX = e.clientX;
       touchStartY = e.clientY;
       if (gameState === 'PLAYING') {
@@ -1639,9 +1807,9 @@
       if (gameState !== 'PLAYING') return;
       const dx = e.clientX - touchStartX;
       const dy = e.clientY - touchStartY;
-      if (Math.abs(dx) > 26 && Math.abs(dx) > Math.abs(dy)) {
+      if (Math.abs(dx) > 24 && Math.abs(dx) > Math.abs(dy)) {
         switchLane(dx < 0 ? -1 : 1);
-      } else if (Math.abs(dy) > 26 && Math.abs(dy) > Math.abs(dx)) {
+      } else if (Math.abs(dy) > 24 && Math.abs(dy) > Math.abs(dx)) {
         if (dy < 0) triggerJump();
         else triggerSlide();
       }
@@ -1651,6 +1819,10 @@
       if (e.code === 'Escape' || e.code === 'KeyP') {
         if (gameState === 'PLAYING') openPauseModal();
         else if (gameState === 'PAUSED') resumeGame();
+      }
+      if (gameState === 'INTRO' && e.code === 'Space') {
+        finishBollywoodIntroAndStartRun();
+        return;
       }
       if (gameState !== 'PLAYING') return;
       if (e.code === 'ArrowLeft' || e.code === 'KeyA') switchLane(-1);
@@ -1666,41 +1838,66 @@
     });
 
     // =========================================================================
-    // 10. MODALS & NAVIGATION
+    // 10. BOLLYWOOD INTRO SEQUENCE & MODALS
     // =========================================================================
     function closeModal() {
       SoundFX.uiTap();
       modalBackdrop.classList.add('hidden');
     }
 
+    // Triggers the 3.8-second Bollywood Street Collision -> SUV Chase -> Elevated Ramp Launch onto the Train!
     function startGame() {
+      ensureAudio();
       SoundFX.autoHorn();
       score = 0;
       fishCount = 0;
       comboFish = 0;
-      currentLane = 2;
+      currentLane = 1;
       currentLevelIdx = Settings.selectedEventIdx;
-      playerRig.position.set(LANES[currentLane], LANE_Y[currentLane], 0);
       wheelieMeter = 68;
       jumpY = 0;
       isJumping = false;
       slideTimer = 0;
-      stumbleTimer = 2.5;
+      stumbleTimer = 4.5;
       activePowerups.jetpack = 0;
       activePowerups.magnet = 0;
       activePowerups.sneakers = 0;
       activePowerups.shield = 0;
 
       seedShowcaseChaiLine();
-
       applyThemeVisuals(LEVELS[currentLevelIdx]);
       hudLevelTxt.textContent = `ZONE ${LEVELS[currentLevelIdx].id} • ${LEVELS[currentLevelIdx].name}`;
 
       homeScreen.classList.add('hidden');
       modalBackdrop.classList.add('hidden');
+      hud.classList.add('hidden');
+      cinematicBars.classList.remove('hidden');
+
+      // Position Auto & Rival SUV down on the parallel street (X = +15, Y = -7.5)
+      introWorldGroup.visible = true;
+      playerRig.position.set(14.5, -7.5, 4);
+      bikeWheelieRig.rotation.set(0, 0, 0);
+      rivalSuvMesh.position.set(15.5, -7.5, 9);
+
+      introTimer = 0;
+      introCrashTriggered = false;
+      introJumpTriggered = false;
+      cinemaCaption.textContent = '💥 SIDESWIPED THE BOSS SUV!';
+      gameState = 'INTRO';
+    }
+
+    function finishBollywoodIntroAndStartRun() {
+      cinematicBars.classList.add('hidden');
       hud.classList.remove('hidden');
+      currentLane = 1;
+      playerRig.position.set(LANES[1], LANE_Y[1], 0);
+      bikeWheelieRig.rotation.set(0, 0.12, 0.32);
+      // Keep the angry SUV chasing alongside on the street below!
+      rivalSuvMesh.position.set(15.0, -7.5, 16);
+      SoundFX.landImpact();
+      cameraShake = 0.45;
       gameState = 'PLAYING';
-      showToast(`🛺 ${LEVELS[currentLevelIdx].name} — CHAI FUELS LEGENDS!`);
+      showToast('🎬 BOLLYWOOD ROOF LANDING! GO GO GO!');
     }
 
     function resumeGame() {
@@ -1712,6 +1909,7 @@
     function returnToHome() {
       SoundFX.uiTap();
       seedShowcaseChaiLine();
+      cinematicBars.classList.add('hidden');
       hud.classList.add('hidden');
       modalBackdrop.classList.add('hidden');
       homeScreen.classList.remove('hidden');
@@ -1728,6 +1926,10 @@
         <h2>⏸️ AUTO-METER PAUSED</h2>
         <p>Current Score: ${Math.floor(score)} | Cutting Chai: ${fishCount}</p>
         <div class="setting-row">
+          <span>🎵 Subway Groove BGM</span>
+          <button class="btn blue" id="tog-bgm" style="padding:4px 12px; font-size:12px;">${Settings.bgm ? 'ON' : 'OFF'}</button>
+        </div>
+        <div class="setting-row">
           <span>✨ Neon Bloom Graphics</span>
           <button class="btn blue" id="tog-bloom" style="padding:4px 12px; font-size:12px;">${Settings.bloom ? 'ON' : 'OFF'}</button>
         </div>
@@ -1735,20 +1937,16 @@
           <span>🔊 Horn & Movement SFX</span>
           <button class="btn blue" id="tog-sfx" style="padding:4px 12px; font-size:12px;">${Settings.sfx ? 'ON' : 'OFF'}</button>
         </div>
-        <div class="setting-row">
-          <span>🎵 2-Stroke Engine & Loops</span>
-          <button class="btn blue" id="tog-loops" style="padding:4px 12px; font-size:12px;">${Settings.loops ? 'ON' : 'OFF'}</button>
-        </div>
         <div class="modal-btn-col" style="margin-top:14px;">
           <button class="btn green" id="btn-resume-now">▶️ RESUME DRIFT</button>
-          <button class="btn blue" id="btn-restart-now">🔄 RESTART</button>
+          <button class="btn blue" id="btn-restart-now">🔄 REPLAY STUNT INTRO</button>
           <button class="btn" id="btn-quit-home">🏠 HOME GARAGE</button>
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
+      document.getElementById('tog-bgm').onclick = (e) => { Settings.bgm = !Settings.bgm; e.target.textContent = Settings.bgm ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('tog-bloom').onclick = (e) => { Settings.bloom = !Settings.bloom; e.target.textContent = Settings.bloom ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('tog-sfx').onclick = (e) => { Settings.sfx = !Settings.sfx; e.target.textContent = Settings.sfx ? 'ON' : 'OFF'; SoundFX.uiTap(); };
-      document.getElementById('tog-loops').onclick = (e) => { Settings.loops = !Settings.loops; e.target.textContent = Settings.loops ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('btn-resume-now').onclick = resumeGame;
       document.getElementById('btn-restart-now').onclick = startGame;
       document.getElementById('btn-quit-home').onclick = returnToHome;
@@ -1759,16 +1957,16 @@
       modalContent.innerHTML = `
         <h2>⚙️ GARAGE SETTINGS</h2>
         <div class="setting-row">
+          <span>🎵 Subway Surfers Groove BGM</span>
+          <button class="btn blue" id="set-bgm" style="padding:4px 12px; font-size:12px;">${Settings.bgm ? 'ON' : 'OFF'}</button>
+        </div>
+        <div class="setting-row">
           <span>✨ Real-Time Neon Bloom</span>
           <button class="btn blue" id="set-bloom" style="padding:4px 12px; font-size:12px;">${Settings.bloom ? 'ON' : 'OFF'}</button>
         </div>
         <div class="setting-row">
           <span>🔊 Auto Horn & Drift Audio</span>
           <button class="btn blue" id="set-sfx" style="padding:4px 12px; font-size:12px;">${Settings.sfx ? 'ON' : 'OFF'}</button>
-        </div>
-        <div class="setting-row">
-          <span>🎵 2-Stroke Engine & Loops</span>
-          <button class="btn blue" id="set-loops" style="padding:4px 12px; font-size:12px;">${Settings.loops ? 'ON' : 'OFF'}</button>
         </div>
         <div class="setting-row">
           <span>📳 Haptic Vibration</span>
@@ -1779,9 +1977,9 @@
         </div>
       `;
       modalBackdrop.classList.remove('hidden');
+      document.getElementById('set-bgm').onclick = (e) => { Settings.bgm = !Settings.bgm; e.target.textContent = Settings.bgm ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('set-bloom').onclick = (e) => { Settings.bloom = !Settings.bloom; e.target.textContent = Settings.bloom ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('set-sfx').onclick = (e) => { Settings.sfx = !Settings.sfx; e.target.textContent = Settings.sfx ? 'ON' : 'OFF'; SoundFX.uiTap(); };
-      document.getElementById('set-loops').onclick = (e) => { Settings.loops = !Settings.loops; e.target.textContent = Settings.loops ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('set-vib').onclick = (e) => { Settings.vibration = !Settings.vibration; e.target.textContent = Settings.vibration ? 'ON' : 'OFF'; SoundFX.uiTap(); };
       document.getElementById('close-settings-btn').onclick = closeModal;
     }
@@ -1888,7 +2086,7 @@
       }
 
       modalContent.innerHTML = `
-        <h2>💥 AUTO FLIPPED!</h2>
+        <h2>💥 BUSTED BY THE BOSS!</h2>
         <p>${reason}<br><br>
         <strong>Meter Fare: ${Math.floor(score)}</strong> (Best: ${bestScore})<br>
         ☕ Cutting Chai Collected: +${fishCount} (Bank: ${fishBank})</p>
@@ -1907,7 +2105,7 @@
     document.getElementById('btn-home-settings').onclick = openSettingsModal;
     document.getElementById('btn-levels').onclick = openLevelsModal;
     document.getElementById('btn-shop').onclick = openShopModal;
-    document.getElementById('btn-missions').onclick = () => openInfoModal('📋 CAPYBARA CONTRACTS', '1. Hold 2-Wheel Auto-Tilt in the Gold Zone for 2X Score<br>2. Collect Steaming Cutting Chai glasses<br>3. Dodge Neon Hover-Pads & Laser Gates!');
+    document.getElementById('btn-missions').onclick = () => openInfoModal('📋 CAPYBARA CONTRACTS', '1. Escape the Cyber-Mafia SUV via the Bollywood Stunt Ramp<br>2. Hold 2-Wheel Auto-Tilt in the Gold Zone for 2X Score<br>3. Collect Steaming Cutting Chai glasses!');
     document.getElementById('btn-daily').onclick = () => openInfoModal('☕ CHAI FUELS LEGENDS', 'Grab glowing Octahedron Orbs on the Maglev deck to trigger Nitro Flight, Chai Magnet, or Hydraulic Springs!');
     document.getElementById('btn-boost-info').onclick = () => openInfoModal('🛡️ HOLO-BUMPER SHIELDS', `You have ${boostCount} Bumpers! Double-tap anywhere while driving for 8 seconds of crash protection!`);
     document.getElementById('btn-me').onclick = () => {
@@ -1916,13 +2114,13 @@
     };
 
     // =========================================================================
-    // 11. MAIN ANIMATION, CURVED WORLD & BLOOM RENDER LOOP
+    // 11. MAIN ANIMATION, BOLLYWOOD INTRO & HIGH-ANGLE PORTRAIT CAMERA LOOP
     // =========================================================================
     const clock = new THREE.Clock();
 
     function updatePowerupHUD() {
       const tags = [];
-      if (stumbleTimer > 0) tags.push(`<span class="alert-pill">🚨 CYBER-COP ${Math.ceil(stumbleTimer)}S</span>`);
+      if (stumbleTimer > 0) tags.push(`<span class="alert-pill">🚨 SUV BOSS ${Math.ceil(stumbleTimer)}S</span>`);
       if (activePowerups.jetpack > 0) tags.push(`<span class="alert-pill" style="background:#ff6d00">🚀 NITRO ${Math.ceil(activePowerups.jetpack)}S</span>`);
       if (activePowerups.magnet > 0) tags.push(`<span class="alert-pill" style="background:#00b4d8">🧲 MAGNET ${Math.ceil(activePowerups.magnet)}S</span>`);
       if (activePowerups.sneakers > 0) tags.push(`<span class="alert-pill" style="background:#38b000">🔩 SPRINGS ${Math.ceil(activePowerups.sneakers)}S</span>`);
@@ -1935,37 +2133,124 @@
       const delta = Math.min(clock.getDelta(), 0.1);
       const elapsed = clock.getElapsedTime();
 
-      // Dynamic Subway Surfers Horizon Bend swaying gently left and right as the train snakes through the city!
-      worldCurveUniforms.uCurveX.value = Math.sin(elapsed * 0.35) * 0.00012;
+      worldCurveUniforms.uCurveX.value = Math.sin(elapsed * 0.35) * 0.00010;
 
-      // Dynamic Speed FOV & Camera Shake
-      const targetFov = activePowerups.jetpack > 0 ? 58 : 48;
-      if (Math.abs(camera.fov - targetFov) > 0.1) {
-        camera.fov = THREE.MathUtils.lerp(camera.fov, targetFov, delta * 5);
-        camera.updateProjectionMatrix();
+      // Play upbeat Subway Surfers-style BGM groove during Intro and Gameplay!
+      if (gameState === 'INTRO' || gameState === 'PLAYING') {
+        SubwayBGM.update(delta, activePowerups.jetpack > 0);
+      }
+
+      // Flash Rival SUV Police/Mafia Sirens
+      if (rivalSirenL && rivalSirenR) {
+        const flash = Math.sin(elapsed * 22) > 0;
+        rivalSirenL.material.color.setHex(flash ? 0xff0000 : 0x220000);
+        rivalSirenR.material.color.setHex(flash ? 0x003333 : 0x00ffff);
       }
 
       if (cameraShake > 0) cameraShake = Math.max(0, cameraShake - delta * 2.2);
       const shakeX = (Math.random() - 0.5) * cameraShake * 1.4;
       const shakeY = (Math.random() - 0.5) * cameraShake * 1.4;
 
-      // Follow player lane slightly for dynamic arcade chase feel
-      const camFollowX = -1.4 + (playerRig.position.x - LANES[2]) * 0.32 + shakeX;
-      camera.position.lerp(new THREE.Vector3(camFollowX, 8.8 + shakeY, 23.5), delta * 6);
-      camera.lookAt(playerRig.position.x * 0.22, 5.0, -35);
-
+      // =====================================================================
+      // STATE 1: HOME SCREEN SHOWCASE CAMERA
+      // =====================================================================
       if (gameState === 'HOME') {
-        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, LANES[2], delta * 6);
-        playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, LANE_Y[2], delta * 6);
-        bikeWheelieRig.rotation.z = 0.28 + Math.sin(elapsed * 3.2) * 0.03;
+        playerRig.position.x = THREE.MathUtils.lerp(playerRig.position.x, LANES[1], delta * 6);
+        playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, LANE_Y[1], delta * 6);
+        bikeWheelieRig.rotation.z = 0.26 + Math.sin(elapsed * 3.2) * 0.03;
         bikeWheelieRig.rotation.y = 0.18;
+        camera.position.lerp(new THREE.Vector3(0, 15.5, 23.0), delta * 5);
+        camera.lookAt(0, 4.5, -25);
       }
 
+      // =====================================================================
+      // STATE 2: BOLLYWOOD ACTION INTRO CUTSCENE (3.8 SECONDS)
+      //   0.0s - 1.3s: Street sideswipe collision with Boss SUV + Sparks!
+      //   1.3s - 2.5s: Angry SUV chase toward the glowing Stunt Ramp!
+      //   2.5s - 3.8s: Slow-mo 360° barrel-roll launch onto the Maglev Roof!
+      // =====================================================================
+      if (gameState === 'INTRO') {
+        introTimer += delta;
+
+        if (introTimer < 1.3) {
+          // Phase 1: Street Sideswipe Crash!
+          const t = introTimer / 1.3;
+          playerRig.position.set(14.5 + Math.sin(t * Math.PI * 3) * 0.9, -7.5, 4);
+          rivalSuvMesh.position.set(15.2 - Math.sin(t * Math.PI) * 1.1, -7.5, 6.5);
+          bikeWheelieRig.rotation.z = Math.sin(t * 14) * 0.25;
+
+          if (!introCrashTriggered && introTimer > 0.35) {
+            introCrashTriggered = true;
+            cameraShake = 0.75;
+            SoundFX.crashSmash();
+            spawnPickupBurst(new THREE.Vector3(14.8, -5.5, 12), 0xffbe0b);
+          }
+
+          camera.position.lerp(new THREE.Vector3(21.5 + shakeX, -1.5 + shakeY, 20.5), delta * 7);
+          camera.lookAt(14.5, -5.5, 2);
+        } else if (introTimer < 2.5) {
+          // Phase 2: Angry SUV Boss Chase toward the Elevated Ramp!
+          const t = (introTimer - 1.3) / 1.2;
+          cinemaCaption.textContent = '🚨 ANGRY BOSS CHASING! HIT THE RAMP!';
+          playerRig.position.set(THREE.MathUtils.lerp(14.5, 12.5, t), -7.5 + t * 2.2, THREE.MathUtils.lerp(4, -6, t));
+          rivalSuvMesh.position.set(14.8, -7.5, THREE.MathUtils.lerp(7.5, 2, t));
+          bikeWheelieRig.rotation.z = 0.35;
+
+          camera.position.lerp(new THREE.Vector3(19.0 + shakeX, 2.5 + shakeY, 16.0), delta * 6);
+          camera.lookAt(12.5, -2.0, -12);
+        } else if (introTimer < 3.85) {
+          // Phase 3: Bollywood Slow-Mo Airborne Barrel Roll onto the Maglev Bullet Train Roof!
+          const t = (introTimer - 2.5) / 1.35;
+          if (!introJumpTriggered) {
+            introJumpTriggered = true;
+            SoundFX.bollywoodRampLaunch();
+            SoundFX.autoHorn();
+            cinemaCaption.textContent = '🎬 BOLLYWOOD SKY-STUNT ONTO THE MAGLEV!';
+          }
+
+          const arcX = THREE.MathUtils.lerp(12.5, LANES[1], t);
+          const arcY = THREE.MathUtils.lerp(-5.0, LANE_Y[1], t) + Math.sin(t * Math.PI) * 14.5;
+          const arcZ = THREE.MathUtils.lerp(-6, 0, t);
+          playerRig.position.set(arcX, arcY, arcZ);
+
+          // Dramatic 360-degree Bollywood Barrel Roll + Nose Pitch in mid-air!
+          bikeWheelieRig.rotation.z = t * Math.PI * 2 + 0.32;
+          bikeWheelieRig.rotation.x = Math.sin(t * Math.PI) * 0.35;
+
+          camera.position.lerp(new THREE.Vector3(0, 19.5, 25.0), delta * 5);
+          camera.lookAt(0, 2.5, -35);
+        } else {
+          finishBollywoodIntroAndStartRun();
+        }
+      }
+
+      // =====================================================================
+      // STATE 3: UNOBSTRUCTED HIGH-ANGLE PORTRAIT GAMEPLAY LOOP
+      // =====================================================================
       if (gameState === 'PLAYING') {
+        const targetFov = activePowerups.jetpack > 0 ? 68 : 60;
+        if (Math.abs(camera.fov - targetFov) > 0.1) {
+          camera.fov = THREE.MathUtils.lerp(camera.fov, targetFov, delta * 5);
+          camera.updateProjectionMatrix();
+        }
+
+        // HIGH-ANGLE SUBWAY SURFERS CAMERA:
+        // Sits at Y = 19.5 looking down at Y = 2.0 so the Auto stays in the bottom 22% of the screen
+        // and NEVER blocks oncoming obstacles or Chai glasses!
+        const camFollowX = playerRig.position.x * 0.42 + shakeX;
+        camera.position.lerp(new THREE.Vector3(camFollowX, 19.5 + shakeY, 25.0), delta * 7);
+        camera.lookAt(playerRig.position.x * 0.25, 2.0, -45);
+
         ['jetpack', 'magnet', 'sneakers', 'shield'].forEach(k => {
           if (activePowerups[k] > 0) activePowerups[k] = Math.max(0, activePowerups[k] - delta);
         });
-        if (stumbleTimer > 0) stumbleTimer = Math.max(0, stumbleTimer - delta);
+        if (stumbleTimer > 0) {
+          stumbleTimer = Math.max(0, stumbleTimer - delta);
+          // Chasing SUV paces alongside on the parallel road when stumbleTimer is active!
+          rivalSuvMesh.position.z = THREE.MathUtils.lerp(rivalSuvMesh.position.z, 10, delta * 3);
+        } else {
+          rivalSuvMesh.position.z = THREE.MathUtils.lerp(rivalSuvMesh.position.z, 26, delta * 2);
+        }
         if (slideTimer > 0) slideTimer = Math.max(0, slideTimer - delta);
         updatePowerupHUD();
 
@@ -2010,7 +2295,7 @@
         const laneVelX = playerRig.position.x - prevX;
 
         if (activePowerups.jetpack > 0) {
-          jumpY = THREE.MathUtils.lerp(jumpY, 10, delta * 8);
+          jumpY = THREE.MathUtils.lerp(jumpY, 9.5, delta * 8);
           isJumping = false;
         } else if (isJumping) {
           jumpY += jumpVel * delta;
@@ -2027,12 +2312,12 @@
 
         playerRig.position.y = THREE.MathUtils.lerp(playerRig.position.y, targetBaseY, delta * 12) + jumpY;
 
-        const targetScaleY = slideTimer > 0 ? 0.58 : 1.0;
+        const targetScaleY = slideTimer > 0 ? 0.42 : 0.72;
         bikeWheelieRig.scale.y = THREE.MathUtils.lerp(bikeWheelieRig.scale.y, targetScaleY, delta * 16);
 
-        // Dynamic 2-wheel tilt + lane-switch banking lean!
-        bikeWheelieRig.rotation.z = (wheelieMeter / 100) * 0.46 - laneVelX * 0.45;
-        bikeWheelieRig.rotation.y = 0.16 - laneVelX * 0.35;
+        bikeWheelieRig.rotation.z = (wheelieMeter / 100) * 0.44 - laneVelX * 0.45;
+        bikeWheelieRig.rotation.y = 0.12 - laneVelX * 0.35;
+        bikeWheelieRig.rotation.x = 0;
 
         const currentLvlObj = LEVELS[currentLevelIdx];
         spawnTimer -= delta;
@@ -2051,7 +2336,7 @@
 
           if (ent.active && ent.type === 'fish' && activePowerups.magnet > 0 && ent.mesh.position.z > -45) {
             ent.mesh.position.x = THREE.MathUtils.lerp(ent.mesh.position.x, playerRig.position.x, delta * 9);
-            ent.mesh.position.y = THREE.MathUtils.lerp(ent.mesh.position.y, playerRig.position.y + 4, delta * 9);
+            ent.mesh.position.y = THREE.MathUtils.lerp(ent.mesh.position.y, playerRig.position.y + 3.5, delta * 9);
           }
 
           if (!ent.passedSound && ent.type === 'obstacle' && ent.mesh.position.z > 12) {
@@ -2059,9 +2344,10 @@
             SoundFX.trainFlyBy();
           }
 
-          if (ent.active && ent.mesh.position.z > 5.5 && ent.mesh.position.z < 13.5) {
+          // Hitbox check around Auto-Rickshaw Z position (Z = 6.5 to 13.5)
+          if (ent.active && ent.mesh.position.z > 6.5 && ent.mesh.position.z < 13.5) {
             const xDist = Math.abs(playerRig.position.x - ent.mesh.position.x);
-            if (xDist < 2.9) {
+            if (xDist < 2.5) {
               if (ent.type === 'fish') {
                 ent.active = false;
                 fishCount++;
@@ -2088,7 +2374,7 @@
                 showToast(`⚡ ${chosen.toUpperCase()} ACTIVATED!`);
               } else if (ent.type === 'obstacle' && activePowerups.jetpack <= 0) {
                 const hitHigh = ent.highBarrier && slideTimer <= 0;
-                const hitLow = !ent.highBarrier && jumpY < 3.8;
+                const hitLow = !ent.highBarrier && jumpY < 3.5;
                 if (hitHigh || hitLow) {
                   ent.active = false;
                   scene.remove(ent.mesh);
@@ -2149,7 +2435,6 @@
           }
         });
 
-        // Update 3D Pickup Burst Particles
         for (let i = pickupBurstParticles.length - 1; i >= 0; i--) {
           const bp = pickupBurstParticles[i];
           bp.life -= delta;
