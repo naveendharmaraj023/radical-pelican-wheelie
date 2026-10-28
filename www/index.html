@@ -499,6 +499,7 @@
   <script src="RenderPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js';"></script>
   <script src="ShaderPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js';"></script>
   <script src="UnrealBloomPass.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js';"></script>
+  <script src="GLTFLoader.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';"></script>
 </head>
 <body>
 
@@ -1279,6 +1280,88 @@
     })();
 
     // =========================================================================
+    // 6.1 GLTF / GLB SUBWAY SURFERS CEL-SHADED MODEL LOADER PIPELINE
+    // =========================================================================
+    let externalAutoMesh = null;
+    let externalCapyMesh = null;
+
+    function loadExternalGLBModels() {
+      if (typeof THREE.GLTFLoader === 'undefined') {
+        console.warn('[GLTFLoader] THREE.GLTFLoader not available, using procedural model.');
+        return;
+      }
+      const loader = new THREE.GLTFLoader();
+
+      // Hook 1: models/auto_rickshaw.glb -> autoVisualGroup
+      loader.load(
+        'models/auto_rickshaw.glb',
+        (gltf) => {
+          const model = gltf.scene || (gltf.scenes && gltf.scenes[0]);
+          if (!model) return;
+          console.log('[GLTFLoader] Successfully loaded models/auto_rickshaw.glb');
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+              if (child.material) {
+                applySubwaySurfersCurveShader(child.material);
+              }
+            }
+          });
+          // Hide procedural auto body meshes while keeping pelicanGroup, wheels, and FX
+          autoVisualGroup.children.forEach((child) => {
+            if (
+              child !== pelicanGroup &&
+              child !== rearWheel &&
+              child !== frontWheel &&
+              child !== diegeticTiltArc &&
+              child !== turntableRing
+            ) {
+              child.visible = false;
+            }
+          });
+          externalAutoMesh = model;
+          autoVisualGroup.add(model);
+        },
+        undefined,
+        (err) => {
+          // Graceful fallback to procedural Bajaj RE auto when file is not yet placed
+        }
+      );
+
+      // Hook 2: models/capybara.glb -> pelicanGroup
+      loader.load(
+        'models/capybara.glb',
+        (gltf) => {
+          const model = gltf.scene || (gltf.scenes && gltf.scenes[0]);
+          if (!model) return;
+          console.log('[GLTFLoader] Successfully loaded models/capybara.glb');
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+              if (child.material) {
+                applySubwaySurfersCurveShader(child.material);
+              }
+            }
+          });
+          // Hide procedural capybara body parts
+          pelicanGroup.children.forEach((child) => {
+            child.visible = false;
+          });
+          externalCapyMesh = model;
+          pelicanGroup.add(model);
+        },
+        undefined,
+        (err) => {
+          // Graceful fallback to procedural sculpted capybara when file is not yet placed
+        }
+      );
+    }
+
+    loadExternalGLBModels();
+
+    // =========================================================================
     // 7. MUMBAI CONTRAST WORLD: DHARAVI SLUMS (LEFT) vs. BKC HIGH-RISES (RIGHT)
     // =========================================================================
     const cityStructures = [];
@@ -1531,6 +1614,11 @@
     let boostCount = parseInt(localStorage.getItem('cyberauto_boosts') || '3', 10);
 
     const activePowerups = { jetpack: 0, magnet: 0, sneakers: 0, shield: 0 };
+    window.activePowerups = activePowerups;
+    window.camera = camera;
+    window.autoVisualGroup = autoVisualGroup;
+    window.pelicanGroup = pelicanGroup;
+    window.activeEntities = activeEntities;
     let spawnTimer = 0;
 
     const homeScreen = document.getElementById('home-screen');

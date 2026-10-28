@@ -14,5 +14,8 @@
     "@capacitor/android": "^8.5.3",
     "@capacitor/cli": "^8.5.3",
     "@capacitor/core": "^8.5.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
   }
 }
